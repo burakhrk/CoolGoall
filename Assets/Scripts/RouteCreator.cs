@@ -46,6 +46,9 @@ public class RouteCreator : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             endSwipe = cam.ScreenToViewportPoint(Input.mousePosition);
+
+            Debug.Log("start Swipe"+ startSwipe+"EndSwipe"+ endSwipe);
+
             swipe = endSwipe - startSwipe;
             swipe.y = 0;
             swipe.x = Mathf.Clamp(swipe.x, -0.55f, 0.55f);
