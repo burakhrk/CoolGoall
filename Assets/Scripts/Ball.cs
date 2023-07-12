@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
 
     public void FollowToRoute()
     {
-        if (currentPos < 17 && isKick && !hit)
+        if (currentPos <17& isKick && !hit)
         {
             if (transform.position != rc.route[currentPos].transform.position)
             {
