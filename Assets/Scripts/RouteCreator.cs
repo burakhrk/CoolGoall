@@ -14,6 +14,10 @@ public class RouteCreator : MonoBehaviour
     private Vector2 swipe;
     private int routeSphereCount = 17;
     private bool isFire = false;
+    [SerializeField] Ball ball;
+
+    [SerializeField] float _yValue = 1f;
+    [SerializeField] float _esneklik = 12f;
 
     private void Awake()
     {
@@ -22,7 +26,7 @@ public class RouteCreator : MonoBehaviour
             GameObject clone = Instantiate(routeSphere,center);
             clone.SetActive(false);
             route.Add(clone);
-            route[i].transform.position = new Vector3(0, 1, -4.5f + i * 1.5f);
+            route[i].transform.position = new Vector3(0, 1,   (i-1 )* 1.5f);
         }
     }
 
@@ -69,24 +73,24 @@ public class RouteCreator : MonoBehaviour
 
     private void CreateRoute()
     {
-        route[8].transform.position = (Vector3)swipe * 12 + new Vector3(0, 1, route[8].transform.position.z); // ortanca eleman
+        route[8].transform.position = (Vector3)swipe * _esneklik + new Vector3(0, _yValue, route[8].transform.position.z); // ortanca eleman
         route[16].transform.position = new Vector3(route[8].transform.position.x / 2, 1, route[16].transform.position.z);
         int index1 = 1;
         int index2 = 15;
 
         for (int i = 7; i > 0; i--) // toptan ortanca elemana kadarki yay
         {
-            float positionX = route[8].transform.position.x;
-            float extra = positionX - (i * i * positionX / 64);
-            route[index1].transform.position = new Vector3(extra, 1, route[index1].transform.position.z);
+            float positionX = route[8].transform.position.x ;
+            float extra = (positionX - (i * i * positionX / 64))+ball.transform.position.x;
+            route[index1].transform.position = new Vector3(extra, _yValue, route[index1].transform.position.z);
             index1++;
         }
 
         for (int i = 7; i > 0; i--) // kaleden ortanca elemana kadarki yay
         {
-            float positionX = route[8].transform.position.x * 0.5f;
-            float extra = positionX - (i * i * positionX / 64);
-            route[index2].transform.position = new Vector3(extra + positionX, 1, route[index2].transform.position.z);
+            float positionX = (route[8].transform.position.x) *0.5f;
+            float extra = ball.transform.position.x+(positionX - (i * i * positionX / 64));
+            route[index2].transform.position = new Vector3(extra + positionX, _yValue, route[index2].transform.position.z);
             index2--;
         }
     }

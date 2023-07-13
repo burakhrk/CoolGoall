@@ -2017,6 +2017,8 @@ MonoBehaviour:
   route: []
   center: {fileID: 1584730294}
   routeSphere: {fileID: 2938579203201618522, guid: 910e2c0eab6a9a248890e59fbdf8d08a, type: 3}
+  ball: {fileID: 860032009}
+  _yValue: 1
 --- !u!4 &2046371912
 Transform:
   m_ObjectHideFlags: 0
@@ -2119,7 +2121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6930245211193646477, guid: bdd1e6de8a632444ca042709650cac16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6930245211193646477, guid: bdd1e6de8a632444ca042709650cac16, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2204,7 +2206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7782291818286762141, guid: 459ec1b144a7c584b8ab280e610fc576, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7782291818286762141, guid: 459ec1b144a7c584b8ab280e610fc576, type: 3}
       propertyPath: m_LocalPosition.y
