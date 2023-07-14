@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
    [SerializeField] Vector2 move;
     Vector2 lastPos;
     Vector3 bezierStartPos;
+    Vector3 goalStartPos;
     [SerializeField] GameObject bezierMove;
     [SerializeField] GameObject bezierGoal;
     [SerializeField] float sensivity=1f;
@@ -15,6 +16,7 @@ using UnityEngine.InputSystem;
     private void Awake()
     {
        bezierStartPos= bezierMove.transform.position;
+        goalStartPos = bezierGoal.transform.position;
     }
     private void Update()
     {
@@ -24,6 +26,7 @@ using UnityEngine.InputSystem;
          if(go==Vector2.zero)
         {
             ResetBezier();
+            ResetGoalPos();
         }
         else
         {
@@ -41,23 +44,40 @@ using UnityEngine.InputSystem;
     { 
 
         bezierMove.transform.position += (Vector3)move * sensivity ;
-
+       
+        
         var a = bezierMove.transform.position.y ;
+        var b = bezierMove.transform.position.x;
+
+       
+
         if (a < 0)
             bezierMove.transform.position = new Vector3(bezierMove.transform.position.x,0,bezierMove.transform.position.z);
 
-        var b = bezierMove.transform.position.x;
 
         if (Mathf.Abs(b)>3)
         {
-            bezierMove.transform.position = new Vector3(bezierMove.transform.position.x, 0, bezierMove.transform.position.z);
-
+            bezierMove.transform.position = new Vector3(bezierMove.transform.position.x, bezierMove.transform.position.y, bezierMove.transform.position.z);
+            MoveGoal();
         }
-        MoveGoal();
 
+        if (Mathf.Abs(b) > 7f)
+        {
+             MoveGoal();
+        }
+        else
+        {
+            ResetGoalPos();
+        }
+       
+    }
+    void ResetGoalPos()
+    {
+        bezierGoal.transform.position = goalStartPos;
     }
     void MoveGoal()
     {
-        bezierGoal.transform.position += (Vector3)move;
+        Vector3 a = (Vector3)move;
+         bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x-(a.x*sensivity),bezierGoal.transform.position.y,bezierGoal.transform.position.z);
     }
 }
