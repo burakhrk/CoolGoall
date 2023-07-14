@@ -741,7 +741,7 @@ MonoBehaviour:
   player: {fileID: 1294833702}
   move: {x: 0, y: 0}
   bezierMove: {fileID: 82815580}
-  sensivity: 3.25
+  sensivity: 7.7
 --- !u!114 &1294833702
 MonoBehaviour:
   m_ObjectHideFlags: 0
