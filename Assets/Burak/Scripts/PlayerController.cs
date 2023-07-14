@@ -13,13 +13,37 @@ using UnityEngine.InputSystem;
     [SerializeField] GameObject bezierGoal;
     [SerializeField] float sensivity=1f;
     [SerializeField] float bound=3f;
+
+    bool shoot=false;
     private void Awake()
     {
        bezierStartPos= bezierMove.transform.position;
         goalStartPos = bezierGoal.transform.position;
     }
+
+
+    private void Shoot()
+    {
+        shoot = true;
+        Bezier bezier= FindObjectOfType<Bezier>();
+        bezier.isShoot = true;
+        FindObjectOfType<Ball>().Shoot(bezier.GetPath());
+        FindObjectOfType<Player>().Shoot();
+    }
     private void Update()
     {
+        if (shoot)
+            return;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Shoot();
+            return;
+
+        }
+       
+
+
         Vector2 go;
         go = player.actions["Move"].ReadValue<Vector2>();
        move= go - lastPos;
@@ -35,7 +59,7 @@ using UnityEngine.InputSystem;
         }
         lastPos = go;
     }
-    void ResetBezier()
+     void ResetBezier()
     {
         
         bezierMove.transform.position = bezierStartPos;
@@ -78,6 +102,6 @@ using UnityEngine.InputSystem;
     void MoveGoal()
     {
         Vector3 a = (Vector3)move;
-         bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x-(a.x*sensivity),bezierGoal.transform.position.y,bezierGoal.transform.position.z);
+         bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x+(a.x*sensivity/2),bezierGoal.transform.position.y,bezierGoal.transform.position.z);
     }
 }
