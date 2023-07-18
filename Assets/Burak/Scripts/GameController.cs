@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject topPos;
     [SerializeField] GameObject kalePos;
-
+    [SerializeField] Player player;
     private void Awake()
     {
         topPos.transform.position = top.transform.position;
@@ -22,4 +22,9 @@ public class GameController : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("Burak");
         }
     }
+    public void Goal()
+    {
+        player.Goal();
+    }
+ 
 }

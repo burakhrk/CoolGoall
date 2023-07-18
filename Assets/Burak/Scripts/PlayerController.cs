@@ -82,13 +82,11 @@ using UnityEngine.InputSystem;
         if (b>3)
         {
             MoveGoal();
-            Debug.Log(5+ "  " +(b));
-        }
+         }
         if(b<-3f)
         {
             MoveGoal();
-            Debug.Log(12 + "  " + (b));
-        }
+         }
         else
         {
            // bezierMove.transform.position = new Vector3(bezierMove.transform.position.x, bezierMove.transform.position.y, bezierMove.transform.position.z);
@@ -98,8 +96,7 @@ using UnityEngine.InputSystem;
         if(a > 3f)
         {
              MoveGoal();
-            Debug.Log(7);
-
+ 
         }
         else
         {
@@ -121,8 +118,7 @@ using UnityEngine.InputSystem;
 
         if(Mathf.Abs(bezierGoal.transform.position.x)>3.5f)
         {
-            Debug.Log(1);
-           
+            
             if(bezierGoal.transform.position.x> 3.5f)
             bezierGoal.transform.position = new Vector3(3.5f, bezierGoal.transform.position.y, bezierGoal.transform.position.z);
 
@@ -134,15 +130,13 @@ using UnityEngine.InputSystem;
 
         if ((bezierGoal.transform.position.y) > 3f)
         {
-            Debug.Log(2);
-
+ 
             bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x, 3f, bezierGoal.transform.position.z);
 
         }
         if ((bezierGoal.transform.position.y) < 0.1f)
         {
-            Debug.Log(2);
-
+ 
             bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x, 0.1f, bezierGoal.transform.position.z);
 
         }
