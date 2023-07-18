@@ -9,15 +9,25 @@ public class Bezier : MonoBehaviour
     private int numPoints = 50;
     private Vector3[] positions = new Vector3[50];
 
-
+    public bool isShoot = false;
     private void Start()
     {
         lineRenderer.positionCount = numPoints-1;
     }
     private void Update()
     {
+        if (isShoot)
+        {
+
+            return;
+        }
+
         DrawQuadraticCurve();
 
+    }
+   public Vector3[] GetPath()
+    {
+        return positions;
     }
     void DrawLinearCurve()
     {

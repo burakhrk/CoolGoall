@@ -348,6 +348,7 @@ MonoBehaviour:
   point0: {fileID: 2026101372}
   point1: {fileID: 82815581}
   point2: {fileID: 707170789}
+  isShoot: 0
 --- !u!120 &426759921
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -412,7 +413,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -471,7 +472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707170788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14.6}
+  m_LocalPosition: {x: 0, y: 1, z: 15.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

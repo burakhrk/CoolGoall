@@ -15,4 +15,11 @@ public class GameController : MonoBehaviour
         topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+            {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Burak");
+        }
+    }
 }

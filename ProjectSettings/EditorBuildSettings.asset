@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Burak/Burak.unity
+    guid: c48ec13ecc53546baa147d098dd7802d
   m_configObjects: {}
