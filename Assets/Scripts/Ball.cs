@@ -4,45 +4,136 @@ using UnityEngine;
 using DG.Tweening;
 public class Ball : MonoBehaviour
 {
-    Vector3[] path;
-    [SerializeField] float speed = 0.02f;
-    bool collision = false;
-     public void Shoot(Vector3[] vector3)
+     
+    private Rigidbody rb;
+    public Animator animPlayer;
+    public GameObject confetti;
+    public Transform[] confettiPos;
+    private int currentPos = 1;
+    [SerializeField] private float speed;
+    private bool hit = false;
+    [HideInInspector] public bool isKick = false;
+
+    private void Awake()
     {
-        path = vector3;
-        Invoke("ShootWaited", 1f);
+        rb = GetComponent<Rigidbody>();
     }
-    void ShootWaited()
+    public void Shoot(Vector3[] path)
     {
-        StartCoroutine(MovePath());
+
     }
-    IEnumerator MovePath()
+    private void Update()
     {
-        for (int i = 0; i < path.Length-1; i++)
+        FollowToRoute();
+    }
+
+    public void FollowToRoute()
+    {
+        /*
+        if (currentPos < 17 & isKick && !hit)
         {
-            if (collision)
-                yield break;
-
-            transform.DOMove(path[i], speed).SetEase(Ease.Linear);
-            yield return new WaitForSeconds(speed);
+            if (transform.position != rc.route[currentPos].transform.position)
+            {
+                Vector3 pos = Vector3.MoveTowards(transform.position, rc.route[currentPos].transform.position, speed * Time.deltaTime);
+                rb.MovePosition(pos);
+            }
+            else
+            {
+                currentPos++;
+            }
         }
-       
+        */
     }
-    void Collision()
-    {
-        //StopCoroutine(MovePath());
-        collision = true;
 
-    }
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        Debug.Log("Fail");
+
+        hit = true;
+        rb.useGravity = true;
+        Enemy.isDefence = true;
+
+        ContactPoint[] contact = collision.contacts;
+        Vector3 dir = (transform.position - contact[0].point).normalized;
+        rb.AddForce(dir * 15, ForceMode.Impulse);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Goal"))
         {
-            Collision();
-            Enemy.isDefence = true;
+            Debug.Log("Win");
+            animPlayer.SetTrigger("Goal");
+            for (int i = 0; i < 2; i++)
+            {
+                Instantiate(confetti, confettiPos[i].position, Quaternion.identity);
+            }
         }
-          
-
-        Debug.Log(other.transform.name);
     }
+    /*
+public class Ball : MonoBehaviour
+{
+   public RouteCreator rc;
+   private Rigidbody rb;
+   public Animator animPlayer;
+   public GameObject confetti;
+   public Transform[] confettiPos;
+   private int currentPos = 1;
+   [SerializeField] private float speed;
+   private bool hit = false;
+   [HideInInspector] public bool isKick = false;
+
+   private void Awake()
+   {
+       rb = GetComponent<Rigidbody>();
+   }
+
+   private void Update()
+   {
+       FollowToRoute();
+   }
+
+   public void FollowToRoute()
+   {
+       if (currentPos < 17 & isKick && !hit)
+       {
+           if (transform.position != rc.route[currentPos].transform.position)
+           {
+               Vector3 pos = Vector3.MoveTowards(transform.position, rc.route[currentPos].transform.position, speed * Time.deltaTime);
+               rb.MovePosition(pos);
+           }
+           else
+           {
+               currentPos++;
+           }
+       }
+   }
+
+   private void OnCollisionEnter(Collision collision)
+   {
+       GameManager.instance.FailPanel();
+
+       hit = true;
+       rb.useGravity = true;
+       Enemy.isDefence = true;
+
+       ContactPoint[] contact = collision.contacts;
+       Vector3 dir = (transform.position - contact[0].point).normalized;
+       rb.AddForce(dir * 15, ForceMode.Impulse);
+   }
+
+   private void OnTriggerEnter(Collider other)
+   {
+       if (other.CompareTag("Goal"))
+       {
+           GameManager.instance.SuccessPanel();
+           animPlayer.SetTrigger("Goal");
+           for (int i = 0; i < 2; i++)
+           {
+               Instantiate(confetti, confettiPos[i].position, Quaternion.identity);
+           }
+       }
+   }
+}
+    */
 }

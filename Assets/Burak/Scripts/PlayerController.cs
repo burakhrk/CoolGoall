@@ -85,7 +85,7 @@ using UnityEngine.InputSystem;
             MoveGoal();
         }
 
-        if (Mathf.Abs(b) > 7f)
+        if (Mathf.Abs(a) > 3f)
         {
              MoveGoal();
         }
@@ -97,11 +97,39 @@ using UnityEngine.InputSystem;
     }
     void ResetGoalPos()
     {
-        bezierGoal.transform.position = goalStartPos;
+       // bezierGoal.transform.position = goalStartPos;
     }
     void MoveGoal()
     {
         Vector3 a = (Vector3)move;
-         bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x+(a.x*sensivity/2),bezierGoal.transform.position.y,bezierGoal.transform.position.z);
+         bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x+(a.x*sensivity/2),bezierGoal.transform.position.y+(a.y*sensivity/2),bezierGoal.transform.position.z);
+
+        if(Mathf.Abs(bezierGoal.transform.position.x)>3.5f)
+        {
+            Debug.Log(1);
+           
+            if(bezierGoal.transform.position.x> 3.5f)
+            bezierGoal.transform.position = new Vector3(3.5f, bezierGoal.transform.position.y, bezierGoal.transform.position.z);
+
+            else
+                bezierGoal.transform.position = new Vector3(-3.5f, bezierGoal.transform.position.y, bezierGoal.transform.position.z);
+
+        }
+ 
+
+        if ((bezierGoal.transform.position.y) > 3f)
+        {
+            Debug.Log(2);
+
+            bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x, 3f, bezierGoal.transform.position.z);
+
+        }
+        if ((bezierGoal.transform.position.y) < 0)
+        {
+            Debug.Log(3);
+
+            bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x, 0, bezierGoal.transform.position.z);
+
+        }
     }
 }
