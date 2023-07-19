@@ -18,11 +18,12 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject cheerText;
     Bezier bezier;
     public UnityAction OnGameEnd;
-    private void Awake()
+    private void Start()
     {
+
         levelController = GetComponent<LevelController>();
         kale = FindObjectOfType<Kale>().gameObject;
-       topPos.transform.position = top.transform.position;
+        topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;
     }
     private void Update()
