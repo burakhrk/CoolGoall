@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour
        bool isKick = false;
     Vector3[] Path;
     GameController gameController;
+    [SerializeField] Bezier bezier;
     private void Awake()
     {
         gameController = FindObjectOfType<GameController>();
@@ -46,6 +47,7 @@ public class Ball : MonoBehaviour
             }
             else
             {
+                bezier.DisableDot(currentPos);
                 currentPos++;
             }
         } 

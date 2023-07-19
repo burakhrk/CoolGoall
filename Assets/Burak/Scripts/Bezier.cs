@@ -8,10 +8,11 @@ public class Bezier : MonoBehaviour
     public Transform point0, point1,point2;
     private int numPoints = 50;
     private Vector3[] positions = new Vector3[50];
-
+  [SerializeField]  GameController gameController;
     public bool isShoot = false;
     [SerializeField] GameObject dot;
     List<GameObject> dotList= new List<GameObject>();
+    
     private void Awake()
     {
         for (int i = 0; i < numPoints-1; i++)
@@ -19,6 +20,28 @@ public class Bezier : MonoBehaviour
             var go = Instantiate(dot);
             dotList.Add(go);
         }
+    }
+    private void OnEnable()
+    {
+        gameController.OnGameEnd += GameEnd;
+    }
+    private void OnDisable()
+    {
+        gameController.OnGameEnd -= GameEnd;
+
+    }
+    void GameEnd()
+    {
+ 
+        for (int i = 0; i < numPoints - 1; i++)
+        {
+            dotList[i].SetActive(false);
+        }
+    }
+    public void DisableDot(int index)
+    {
+        dotList[0].SetActive(false);
+        dotList[index].SetActive(false);
     }
     private void Start()
     {
