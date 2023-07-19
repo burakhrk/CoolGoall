@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject kale;
+    GameObject kale;
     [SerializeField] GameObject top;
 
     [SerializeField] GameObject topPos;
@@ -21,7 +21,8 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         levelController = GetComponent<LevelController>();
-        topPos.transform.position = top.transform.position;
+        kale = FindObjectOfType<Kale>().gameObject;
+       topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;
     }
     private void Update()

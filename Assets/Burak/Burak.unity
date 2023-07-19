@@ -1087,8 +1087,16 @@ MonoBehaviour:
   - {fileID: 8130821487495587340, guid: d694d132f04a0454c9de1eccc8f6c03a, type: 3}
   - {fileID: 5917240450057639102, guid: 34e4ba095756a6144bd476d50d9e98e5, type: 3}
   - {fileID: 6856649035511328929, guid: 688f6c416c9044143a57d9f51280bdbb, type: 3}
-  playSpecificLevel: 0
-  Level: 0
+  - {fileID: 1213113545124952577, guid: ca93a5fe8b481a440a2035ca4f045479, type: 3}
+  - {fileID: 7667383151625369998, guid: 250106f9beda7de4f84330591b406a81, type: 3}
+  - {fileID: 2876625525583114845, guid: 2efc5c38dcd168347a92f1504f8222f3, type: 3}
+  - {fileID: 666405456118520248, guid: 6b4152990ed56ad4bb0c8e461b331393, type: 3}
+  - {fileID: 1192198804439587918, guid: e215669668c2ebf44b999a689788dc20, type: 3}
+  - {fileID: 1838677611931770800, guid: d6eab1c8b78cc6140b131efddbd7d7fa, type: 3}
+  - {fileID: 3752109174744743396, guid: 1f8446991580c9644b14ccd3f8295cda, type: 3}
+  - {fileID: 2753029499791365390, guid: 2f9fc5c2b65fafe4fac6273e47080c2b, type: 3}
+  playSpecificLevel: 1
+  Level: 23
   Leveltext: {fileID: 1584361437}
   levelIndex: 0
 --- !u!114 &1068583534
