@@ -13,4 +13,8 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("Shoot",true);
     }
+    public void Goal()
+    {
+        animator.SetTrigger("Goal");
+    }
  }

@@ -349,6 +349,7 @@ MonoBehaviour:
   point1: {fileID: 82815581}
   point2: {fileID: 707170789}
   isShoot: 0
+  dot: {fileID: 2938568919014731631, guid: 08bea35cf71814548b0ef025125ed811, type: 3}
 --- !u!120 &426759921
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -512,6 +513,7 @@ MonoBehaviour:
   top: {fileID: 1962299160}
   topPos: {fileID: 2026101371}
   kalePos: {fileID: 707170788}
+  player: {fileID: 1294833704}
 --- !u!4 &1068583532
 Transform:
   m_ObjectHideFlags: 0
@@ -743,8 +745,10 @@ MonoBehaviour:
   move: {x: 0, y: 0}
   bezierMove: {fileID: 82815580}
   bezierGoal: {fileID: 707170788}
-  sensivity: 7.7
-  bound: 3
+  sensivity: 7.5
+  boundx: 4
+  x: 0
+  y: 0
 --- !u!114 &1294833702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,6 +779,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1294833704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 565552051, guid: bdd1e6de8a632444ca042709650cac16, type: 3}
+  m_PrefabInstance: {fileID: 108775794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294833697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1402f555df15a42bec3e7b14829604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1294833705 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6930245211186164683, guid: bdd1e6de8a632444ca042709650cac16, type: 3}
+  m_PrefabInstance: {fileID: 108775794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1388222144
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoccerBall
       objectReference: {fileID: 0}
+    - target: {fileID: 7749279132424499192, guid: 459ec1b144a7c584b8ab280e610fc576, type: 3}
+      propertyPath: animPlayer
+      value: 
+      objectReference: {fileID: 1294833705}
     - target: {fileID: 7782291818286762141, guid: 459ec1b144a7c584b8ab280e610fc576, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1090,7 +1114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999280777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.64, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1137,6 +1161,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.043184325
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
+      propertyPath: m_Size.z
+      value: 0.037395623
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
+      propertyPath: m_Center.y
+      value: -0.0101705985
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0067579015
+      objectReference: {fileID: 0}
     - target: {fileID: 7259191720059339211, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
       propertyPath: m_RootOrder
       value: 4

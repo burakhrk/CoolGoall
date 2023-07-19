@@ -7,68 +7,78 @@ public class Ball : MonoBehaviour
      
     private Rigidbody rb;
     public Animator animPlayer;
-    public GameObject confetti;
-    public Transform[] confettiPos;
-    private int currentPos = 1;
+     private int currentPos = 1;
     [SerializeField] private float speed;
     private bool hit = false;
-    [HideInInspector] public bool isKick = false;
-
+       bool isKick = false;
+    Vector3[] Path;
+    GameController gameController;
     private void Awake()
     {
+        gameController = FindObjectOfType<GameController>();
         rb = GetComponent<Rigidbody>();
     }
     public void Shoot(Vector3[] path)
     {
+        Path = path;
+        StartCoroutine(WaitForAnim());
+    }
+   IEnumerator WaitForAnim()
+    {
+        yield return new WaitForSeconds(1f);
+        isKick = true;
 
     }
     private void Update()
     {
+        if(isKick&&!hit)
         FollowToRoute();
     }
 
     public void FollowToRoute()
     {
-        /*
-        if (currentPos < 17 & isKick && !hit)
+     if(currentPos<Path.Length-1)
         {
-            if (transform.position != rc.route[currentPos].transform.position)
+            if (transform.position != Path[currentPos])
             {
-                Vector3 pos = Vector3.MoveTowards(transform.position, rc.route[currentPos].transform.position, speed * Time.deltaTime);
+                Vector3 pos = Vector3.MoveTowards(transform.position, Path[currentPos], speed * Time.deltaTime);
                 rb.MovePosition(pos);
             }
             else
             {
                 currentPos++;
             }
-        }
-        */
+        } 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    void Fail()
     {
-        Debug.Log("Fail");
-
+        
         hit = true;
         rb.useGravity = true;
         Enemy.isDefence = true;
+        Debug.Log("Fail");
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        Fail();
 
         ContactPoint[] contact = collision.contacts;
         Vector3 dir = (transform.position - contact[0].point).normalized;
         rb.AddForce(dir * 15, ForceMode.Impulse);
     }
-
+    void Win()
+    {
+        Debug.Log("Win");
+        gameController.Goal();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Goal"))
         {
-            Debug.Log("Win");
-            animPlayer.SetTrigger("Goal");
-            for (int i = 0; i < 2; i++)
-            {
-                Instantiate(confetti, confettiPos[i].position, Quaternion.identity);
-            }
-        }
+            Win();
+         }
     }
     /*
 public class Ball : MonoBehaviour
