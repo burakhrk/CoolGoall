@@ -9,6 +9,6 @@ public class Truck : MonoBehaviour
 
     private void Start()
     {
-        tire1.transform.DOLocalRotateQuaternion(Quaternion.Euler(90,0,0),2f) ;
+     //   tire1.transform.DOLocalRotateQuaternion(Quaternion.Euler(90,0,0),2f) ;
     }
 }
