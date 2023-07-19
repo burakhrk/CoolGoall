@@ -59,16 +59,16 @@ public class Ball : MonoBehaviour
         rb.useGravity = true;
         Enemy.isDefence = true;
         Debug.Log("Fail");
-        gameController.Lose();
 
     }
     private void OnCollisionEnter(Collision collision)
     {
 
+        Fail();
+
         ContactPoint[] contact = collision.contacts;
         Vector3 dir = (transform.position - contact[0].point).normalized;
         rb.AddForce(dir * 15, ForceMode.Impulse);
-        Fail();
     }
     void Win()
     {
