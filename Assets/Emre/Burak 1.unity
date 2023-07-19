@@ -722,8 +722,9 @@ MonoBehaviour:
   - {fileID: 1192198804439587918, guid: e215669668c2ebf44b999a689788dc20, type: 3}
   - {fileID: 1838677611931770800, guid: d6eab1c8b78cc6140b131efddbd7d7fa, type: 3}
   - {fileID: 3752109174744743396, guid: 1f8446991580c9644b14ccd3f8295cda, type: 3}
-  playSpecificLevel: 0
-  Level: 2
+  - {fileID: 2753029499791365390, guid: 2f9fc5c2b65fafe4fac6273e47080c2b, type: 3}
+  playSpecificLevel: 1
+  Level: 23
   Leveltext: {fileID: 1584361437}
   levelIndex: 0
 --- !u!114 &1068583534
