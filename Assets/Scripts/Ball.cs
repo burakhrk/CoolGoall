@@ -7,8 +7,7 @@ public class Ball : MonoBehaviour
      
     private Rigidbody rb;
     public Animator animPlayer;
-     
-    private int currentPos = 1;
+     private int currentPos = 1;
     [SerializeField] private float speed;
     private bool hit = false;
        bool isKick = false;
@@ -32,7 +31,7 @@ public class Ball : MonoBehaviour
     }
     private void Update()
     {
-        if(isKick)
+        if(isKick&&!hit)
         FollowToRoute();
     }
 
@@ -51,26 +50,34 @@ public class Ball : MonoBehaviour
             }
         } 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    void Fail()
     {
-        Debug.Log("Fail");
-
+        
         hit = true;
         rb.useGravity = true;
         Enemy.isDefence = true;
+        Debug.Log("Fail");
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        Fail();
 
         ContactPoint[] contact = collision.contacts;
         Vector3 dir = (transform.position - contact[0].point).normalized;
         rb.AddForce(dir * 15, ForceMode.Impulse);
     }
-
+    void Win()
+    {
+        Debug.Log("Win");
+        gameController.Goal();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Goal"))
         {
-            Debug.Log("Win");
-            gameController.Goal();
+            Win();
          }
     }
     /*

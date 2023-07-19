@@ -12,7 +12,7 @@ using UnityEngine.InputSystem;
     [SerializeField] GameObject bezierMove;
     [SerializeField] GameObject bezierGoal;
     [SerializeField] float sensivity=1f;
-    [SerializeField] float bound=3f;
+    [SerializeField] float boundx=4f;
 
     bool shoot=false;
     private void Awake()
@@ -50,8 +50,7 @@ using UnityEngine.InputSystem;
          if(go==Vector2.zero)
         {
             ResetBezier();
-            ResetGoalPos();
-        }
+         }
         else
         {
             MoveBezier();
@@ -62,38 +61,36 @@ using UnityEngine.InputSystem;
      void ResetBezier()
     {
         
-        bezierMove.transform.position = bezierStartPos;
+       // bezierMove.transform.position = bezierStartPos;
     }
+    [SerializeField] float x;
+    [SerializeField] float y;
+
     void MoveBezier()
     { 
 
         bezierMove.transform.position += (Vector3)move * sensivity ;
        
         
-        var a = bezierMove.transform.position.y ;
-        var b = bezierMove.transform.position.x;
+       y = bezierMove.transform.position.y ;
+        x = bezierMove.transform.position.x;
 
        
 
-        if (a < 0)
+        if (y < 0)
             bezierMove.transform.position = new Vector3(bezierMove.transform.position.x,0,bezierMove.transform.position.z);
 
 
-        if (b>3)
+        if (x>7)
         {
             MoveGoal();
          }
-        if(b<-3f)
+        if(x<-7f)
         {
             MoveGoal();
          }
-        else
-        {
-           // bezierMove.transform.position = new Vector3(bezierMove.transform.position.x, bezierMove.transform.position.y, bezierMove.transform.position.z);
-          //  Debug.Log(6);
-
-        }
-        if(a > 3f)
+        
+        if(y > 3f)
         {
              MoveGoal();
  
@@ -105,27 +102,43 @@ using UnityEngine.InputSystem;
 
             //   ResetGoalPos();
         }
+       
 
     }
     void ResetGoalPos()
     {
-       // bezierGoal.transform.position = goalStartPos;
+        bezierGoal.transform.position = goalStartPos;
     }
     void MoveGoal()
     {
+        
         Vector3 a = (Vector3)move;
-         bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x+(a.x*sensivity/2),bezierGoal.transform.position.y+(a.y*sensivity/2),bezierGoal.transform.position.z);
-
-        if(Mathf.Abs(bezierGoal.transform.position.x)>3.5f)
+        if(a==Vector3.zero)
         {
-            
-            if(bezierGoal.transform.position.x> 3.5f)
-            bezierGoal.transform.position = new Vector3(3.5f, bezierGoal.transform.position.y, bezierGoal.transform.position.z);
-
-            else
-                bezierGoal.transform.position = new Vector3(-3.5f, bezierGoal.transform.position.y, bezierGoal.transform.position.z);
+            if(bezierMove.transform.position.x>5.5f)
+            {
+                bezierGoal.transform.position = bezierGoal.transform.position + Vector3.right;
+            }
+            if (bezierMove.transform.position.x < -5.5f)
+            {
+                bezierGoal.transform.position = bezierGoal.transform.position +Vector3.left;
+            }
+        }
+        else
+        {
+            bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x + (a.x * sensivity / 2), bezierGoal.transform.position.y + (a.y * sensivity / 2), bezierGoal.transform.position.z);
 
         }
+
+
+
+        if (bezierGoal.transform.position.x> boundx)
+            bezierGoal.transform.position = new Vector3(boundx, bezierGoal.transform.position.y, bezierGoal.transform.position.z);
+
+        if (bezierGoal.transform.position.x < -boundx)
+            bezierGoal.transform.position = new Vector3(-boundx, bezierGoal.transform.position.y, bezierGoal.transform.position.z);
+
+        
  
 
         if ((bezierGoal.transform.position.y) > 3f)
