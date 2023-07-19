@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
     [SerializeField] GameObject kale;
@@ -14,7 +15,9 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject winPanel;
     [SerializeField] GameObject losePanel;
     LevelController levelController;
-
+    [SerializeField] GameObject cheerText;
+    Bezier bezier;
+    public UnityAction OnGameEnd;
     private void Awake()
     {
         levelController = GetComponent<LevelController>();
@@ -30,11 +33,14 @@ public class GameController : MonoBehaviour
     }
     public void Goal()
     {
+        OnGameEnd?.Invoke();
+        cheerText.SetActive(true);
         player.Goal();
-        ActivateWinPanel();
+        Invoke("ActivateWinPanel", 2f);
     }
     public void Lose()
     {
+        OnGameEnd?.Invoke();
         Invoke("ActivateLosePanel",2f);
     }
  void ActivateWinPanel()
