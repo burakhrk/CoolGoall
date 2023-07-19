@@ -349,6 +349,7 @@ MonoBehaviour:
   point1: {fileID: 82815581}
   point2: {fileID: 707170789}
   isShoot: 0
+  dot: {fileID: 2938568919014731631, guid: 08bea35cf71814548b0ef025125ed811, type: 3}
 --- !u!120 &426759921
 LineRenderer:
   m_ObjectHideFlags: 0

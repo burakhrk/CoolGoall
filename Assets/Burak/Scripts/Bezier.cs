@@ -10,6 +10,16 @@ public class Bezier : MonoBehaviour
     private Vector3[] positions = new Vector3[50];
 
     public bool isShoot = false;
+    [SerializeField] GameObject dot;
+    List<GameObject> dotList= new List<GameObject>();
+    private void Awake()
+    {
+        for (int i = 0; i < numPoints-1; i++)
+        {
+            var go = Instantiate(dot);
+            dotList.Add(go);
+        }
+    }
     private void Start()
     {
         lineRenderer.positionCount = numPoints-1;
@@ -24,6 +34,13 @@ public class Bezier : MonoBehaviour
 
         DrawQuadraticCurve();
 
+    }
+    void UpdateDotsPos()
+    {
+        for (int i = 0; i < numPoints-1; i++)
+        {
+            dotList[i].transform.position = positions[i];
+        }
     }
    public Vector3[] GetPath()
     {
@@ -47,7 +64,7 @@ public class Bezier : MonoBehaviour
             positions[i - 1] = CalculateQuadraticBezierPoint(t,point0.position,point1.position,point2.position);
         }
         lineRenderer.SetPositions(positions);
-
+        UpdateDotsPos();
     }
     Vector3 CalculateLinearBezierPoint(float t, Vector3 p0, Vector3 p1 )
     {

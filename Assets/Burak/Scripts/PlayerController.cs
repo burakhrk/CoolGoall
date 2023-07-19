@@ -141,10 +141,10 @@ using UnityEngine.InputSystem;
         
  
 
-        if ((bezierGoal.transform.position.y) > 3f)
+        if ((bezierGoal.transform.position.y) > 3.5f)
         {
  
-            bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x, 3f, bezierGoal.transform.position.z);
+            bezierGoal.transform.position = new Vector3(bezierGoal.transform.position.x, 3.5f, bezierGoal.transform.position.z);
 
         }
         if ((bezierGoal.transform.position.y) < 0.1f)
