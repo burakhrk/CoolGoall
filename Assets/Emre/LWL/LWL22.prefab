@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7952612548047078706}
-  - {fileID: 4522145393037611387}
+  - {fileID: 2126498075058277407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95,7 +95,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6507544850657026600, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
   m_PrefabInstance: {fileID: 3752109175530628890}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6520147031639789744
+--- !u!1001 &8736704907886628308
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -103,20 +103,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 3752109174744743397}
     m_Modifications:
     - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_Size.y
-      value: 0.043184325
+      propertyPath: m_Size.x
+      value: 0.10330277
       objectReference: {fileID: 0}
     - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_Size.z
-      value: 0.037395623
+      propertyPath: m_Center.x
+      value: 0.0001815051
       objectReference: {fileID: 0}
     - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
       propertyPath: m_Center.y
-      value: -0.0101705985
-      objectReference: {fileID: 0}
-    - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_Center.z
-      value: 0.0067579015
+      value: -0.0064519527
       objectReference: {fileID: 0}
     - target: {fileID: 7259191720059339211, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
       propertyPath: m_RootOrder
@@ -164,16 +160,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067641022544894833, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
       propertyPath: m_Name
-      value: Kale
-      objectReference: {fileID: 0}
-    - target: {fileID: 8067641022544894833, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Kale (11)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
---- !u!4 &4522145393037611387 stripped
+--- !u!4 &2126498075058277407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7259191720059339211, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-  m_PrefabInstance: {fileID: 6520147031639789744}
+  m_PrefabInstance: {fileID: 8736704907886628308}
   m_PrefabAsset: {fileID: 0}

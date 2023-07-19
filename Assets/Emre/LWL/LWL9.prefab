@@ -61,7 +61,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3868494156127828042}
-  - {fileID: 5025132276254849794}
+  - {fileID: 5933209119892586072}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1378,7 +1378,7 @@ Transform:
   m_Father: {fileID: 3868494156127828042}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 54.19, z: 0}
---- !u!1001 &2378198874857487049
+--- !u!1001 &3957303060804812691
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1386,20 +1386,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 6879191201632300009}
     m_Modifications:
     - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_Size.y
-      value: 0.043184325
+      propertyPath: m_Size.x
+      value: 0.10330277
       objectReference: {fileID: 0}
     - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_Size.z
-      value: 0.037395623
+      propertyPath: m_Center.x
+      value: 0.0001815051
       objectReference: {fileID: 0}
     - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
       propertyPath: m_Center.y
-      value: -0.0101705985
-      objectReference: {fileID: 0}
-    - target: {fileID: 2011096687, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_Center.z
-      value: 0.0067579015
+      value: -0.0064519527
       objectReference: {fileID: 0}
     - target: {fileID: 7259191720059339211, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
       propertyPath: m_RootOrder
@@ -1447,18 +1443,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067641022544894833, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
       propertyPath: m_Name
-      value: Kale (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8067641022544894833, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Kale (13)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
---- !u!4 &5025132276254849794 stripped
+--- !u!4 &5933209119892586072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7259191720059339211, guid: 66f22dac0bc66e048802c270b6be0a8c, type: 3}
-  m_PrefabInstance: {fileID: 2378198874857487049}
+  m_PrefabInstance: {fileID: 3957303060804812691}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8947742697468636371
 PrefabInstance:
