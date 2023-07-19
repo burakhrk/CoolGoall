@@ -70,7 +70,7 @@ public class LevelController : MonoBehaviour
     }
     public void NextLevel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
 
     }
     public void Restart()
