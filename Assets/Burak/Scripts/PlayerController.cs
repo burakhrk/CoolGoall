@@ -117,11 +117,11 @@ using UnityEngine.InputSystem;
         {
             if(bezierMove.transform.position.x>5.5f)
             {
-                bezierGoal.transform.position = bezierGoal.transform.position + Vector3.right;
+                bezierGoal.transform.position = bezierGoal.transform.position + (Vector3.right/3);
             }
             if (bezierMove.transform.position.x < -5.5f)
             {
-                bezierGoal.transform.position = bezierGoal.transform.position +Vector3.left;
+                bezierGoal.transform.position = bezierGoal.transform.position +Vector3.left/3;
             }
         }
         else
