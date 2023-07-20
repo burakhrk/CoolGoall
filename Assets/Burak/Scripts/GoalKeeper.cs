@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class GoalKeeper : MonoBehaviour
 {
     bool workOnce = false;
@@ -11,8 +11,25 @@ public class GoalKeeper : MonoBehaviour
         anima = GetComponent<Animator>();
     }
    
-   public void Jump(GameObject ball )
+   public void Jump(GameObject ball , int direct )
     {
-        anima.SetBool("Jump",true);
+        if(direct==1)
+        {
+            anima.SetBool("JumpLeft", true);
+            Vector3 a = new Vector3(ball.transform.position.x, transform.position.y, transform.position.z);
+            transform.DOMove(a + Vector3.left * 2, 0.3f);
+        }
+        if (direct == 2)
+        {
+            anima.SetBool("JumpRight", true);
+            Vector3 a = new Vector3(ball.transform.position.x, transform.position.y, transform.position.z);
+            transform.DOMove(a + Vector3.right * 2, 0.3f);
+        }
+        if (direct == 3)
+        {
+            anima.SetBool("JumpUp", true);
+            Vector3 a = new Vector3(ball.transform.position.x, transform.position.y, transform.position.z);
+            transform.DOMove(a + Vector3.up * 2, 0.3f);
+        }
     }
 }
