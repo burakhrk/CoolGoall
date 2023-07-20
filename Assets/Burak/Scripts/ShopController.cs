@@ -9,7 +9,7 @@ public class ShopController : MonoBehaviour
     CoinController coinController;
     [SerializeField] GameObject formaPanel;
     [SerializeField] GameObject topPanel;
-
+    SkinController skinController;
     private void Awake()
     {
         coinController = GetComponent<CoinController>();
@@ -90,5 +90,9 @@ public class ShopController : MonoBehaviour
 
         topPanel.SetActive(true);
         formaPanel.SetActive(false);
+    }
+    public void SkinSelected(PlayerSkin a)
+    {
+        skinController.ChangeSkin(skinList.IndexOf(a));
     }
 }

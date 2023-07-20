@@ -64,6 +64,6 @@ public class PlayerSkin : MonoBehaviour
     }
     public void SelectSkin()
     {
-
+        shopController.SkinSelected(this);
     }
 }
