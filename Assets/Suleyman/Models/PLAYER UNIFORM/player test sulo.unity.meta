@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Emre/UI.meta
+guid: eff7d47df8c074c4b9ff8cd423a40f06
+folderAsset: yes
+========
 guid: 1ca3be0afc4235b44a32453dcc8dbdb9
+>>>>>>>> origin/Suleyman:Assets/Suleyman/Models/PLAYER UNIFORM/player test sulo.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

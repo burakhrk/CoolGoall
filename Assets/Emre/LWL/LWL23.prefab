@@ -216,9 +216,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2858119814512927869}
-  m_LocalRotation: {x: -0.7071069, y: -0.00000002235174, z: -0.000000029802319, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: 1.8, z: -0.099991284}
-  m_LocalScale: {x: 100, y: 99.99998, z: 99.99998}
+  m_LocalRotation: {x: -0.7071068, y: 0.000000014901156, z: 0.000000022351735, w: 0.70710677}
+  m_LocalPosition: {x: 0.0000005494803, y: 1.8, z: -0.099976875}
+  m_LocalScale: {x: 99.99999, y: 100, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3852342295014285135}
@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 5419201065864911373}
   - component: {fileID: 5419201065864911372}
   - component: {fileID: 5185252280144820276}
+  - component: {fileID: 7296680761761376304}
   m_Layer: 0
   m_Name: Kale (16)
   m_TagString: Goal
@@ -403,6 +404,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.10330277, y: 0.050621618, z: 0.041304093}
   m_Center: {x: 0.0001815051, y: -0.0064519527, z: 0.008712134}
+--- !u!114 &7296680761761376304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883345813447525674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b475f1a2d56644cdb89afaf13c7ae546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2988270370934556372
 GameObject:
   m_ObjectHideFlags: 0

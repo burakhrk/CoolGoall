@@ -16,8 +16,13 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject losePanel;
     LevelController levelController;
     [SerializeField] GameObject cheerText;
-    Bezier bezier;
-    public UnityAction OnGameEnd;
+     public UnityAction OnGameEnd;
+
+    CoinController coinController;
+    private void Awake()
+    {
+        coinController = GetComponent<CoinController>();
+    }
     private void Start()
     {
 
@@ -48,11 +53,14 @@ public class GameController : MonoBehaviour
  void ActivateWinPanel()
     {
         PlayerPrefs.SetInt("Level", levelController.Level + 1);
+        coinController.MakeCoin(100);
         winPanel.SetActive(true);
 
     }
     void ActivateLosePanel()
     {
+        coinController.MakeCoin(25);
+
         losePanel.SetActive(true);
     }
 }

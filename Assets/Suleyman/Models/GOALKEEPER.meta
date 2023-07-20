@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Burak/Prefabs/LosePanel.prefab.meta
+guid: 041ac17b22671467ab95ad01502912ef
+PrefabImporter:
+========
 guid: c03d05410cad1dd409d9a20d0fbf9a59
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> origin/Suleyman:Assets/Suleyman/Models/GOALKEEPER.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

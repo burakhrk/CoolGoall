@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Burak/Prefabs/WinPanel.prefab.meta
+guid: b321cfc8d99d949f897c8b26c18a9b6b
+PrefabImporter:
+========
 guid: 3e23860a4edad4c4198e28d5c276f41b
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> origin/Suleyman:Assets/Suleyman/Models/PLAYER UNIFORM.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
