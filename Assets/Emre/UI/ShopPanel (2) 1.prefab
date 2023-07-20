@@ -1638,7 +1638,7 @@ GameObject:
   - component: {fileID: 8694428928716543553}
   - component: {fileID: 8694428928716543552}
   m_Layer: 5
-  m_Name: ShopPanel (2)
+  m_Name: ShopPanel (2) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
