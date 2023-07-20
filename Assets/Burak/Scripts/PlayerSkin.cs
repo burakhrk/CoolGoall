@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class PlayerSkin : MonoBehaviour
 {
     public bool Unlocked;
@@ -12,8 +13,9 @@ public class PlayerSkin : MonoBehaviour
     CoinController coinController;
     private void Awake()
     {
-        unlockButton = GetComponentInChildren<Button>();
-        selectButton = GetComponent<Button>();
+      //  unlockButton = GetComponentInChildren<Button>();
+       // selectButton = GetComponent<Button>();
+        GetComponentInChildren<TextMeshProUGUI>().text = Price.ToString();
 
     }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
@@ -27,6 +29,8 @@ public class PlayerSkin : MonoBehaviour
 
         else
             SelectButton(false);
+
+
     }
  public   void UnlockedItem()
     {

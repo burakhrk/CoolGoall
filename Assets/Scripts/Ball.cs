@@ -54,7 +54,11 @@ public class Ball : MonoBehaviour
     }
     void Fail()
     {
-        
+        if (hit)
+            return;
+
+        gameController.Lose();
+
         hit = true;
         rb.useGravity = true;
         Enemy.isDefence = true;
