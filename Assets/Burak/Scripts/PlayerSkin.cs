@@ -34,6 +34,7 @@ public class PlayerSkin : MonoBehaviour
     }
  public   void UnlockedItem()
     {
+        Debug.Log("unlocked");
         unlockButton.gameObject.SetActive(false);
         SelectButton(true);
     }
@@ -47,6 +48,10 @@ public class PlayerSkin : MonoBehaviour
     {
         selectButton.interactable = enable;
 
+
+    }
+    public void SelectSkin()
+    {
 
     }
 }

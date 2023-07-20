@@ -22,7 +22,7 @@ public class CoinController : MonoBehaviour
     }
     void updateText()
     {
-       // coinText.text = coin.ToString();
+        coinText.text = coin.ToString();
     }
     public void MakeCoin(int plus)
     {
