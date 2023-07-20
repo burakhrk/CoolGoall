@@ -11,11 +11,12 @@ public class PlayerSkin : MonoBehaviour
     [SerializeField] Button selectButton;
     ShopController shopController;
     CoinController coinController;
+  [SerializeField]  TextMeshProUGUI priceText;
     private void Awake()
     {
-      //  unlockButton = GetComponentInChildren<Button>();
-       // selectButton = GetComponent<Button>();
-        GetComponentInChildren<TextMeshProUGUI>().text = Price.ToString();
+        //  unlockButton = GetComponentInChildren<Button>();
+        // selectButton = GetComponent<Button>();
+        priceText.text = Price.ToString();
 
     }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
@@ -32,11 +33,23 @@ public class PlayerSkin : MonoBehaviour
 
 
     }
- public   void UnlockedItem()
+    public void CheckMoney(int a)
+    {
+        if (a < Price)
+            unlockButton.interactable = false;
+        else
+            unlockButton.interactable = true;
+
+    }
+
+    public   void UnlockedItem()
     {
         Debug.Log("unlocked");
+        Unlocked = true;
         unlockButton.gameObject.SetActive(false);
         SelectButton(true);
+
+        shopController.NewSkinUnlocked(this);
     }
     public void Unlock()
     {
@@ -47,7 +60,6 @@ public class PlayerSkin : MonoBehaviour
     void SelectButton(bool enable)
     {
         selectButton.interactable = enable;
-
 
     }
     public void SelectSkin()

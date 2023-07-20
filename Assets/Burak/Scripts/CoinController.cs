@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 public class CoinController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI coinText;
-
+    public UnityAction<int> onCoinChanged;
     public int coin;
     private void Awake()
     {
@@ -30,12 +31,20 @@ public class CoinController : MonoBehaviour
         PlayerPrefs.SetInt("Coin", coin);
         updateText();
 
-
+        onCoinChanged?.Invoke(coin);
+        if (coin < 0)
+            Debug.LogError("bug");
     }
     public void SpendCoin(int minus)
     {
+       
+
         coin = coin - minus;
         PlayerPrefs.SetInt("Coin", coin);
         updateText();
+
+        onCoinChanged?.Invoke(coin);
+        if (coin < 0)
+            Debug.LogError("bug");
     }
 }

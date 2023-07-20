@@ -420,3 +420,4 @@ MonoBehaviour:
   Price: 0
   unlockButton: {fileID: 7789666959459277119}
   selectButton: {fileID: 7789666960630363977}
+  priceText: {fileID: 7789666959469070883}
