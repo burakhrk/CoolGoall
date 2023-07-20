@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject winPanel;
     [SerializeField] GameObject losePanel;
+    [SerializeField] GameObject shopPanel;
+
     LevelController levelController;
     [SerializeField] GameObject cheerText;
      public UnityAction OnGameEnd;
@@ -55,11 +57,12 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("Level", levelController.Level + 1);
         coinController.MakeCoin(100);
         winPanel.SetActive(true);
-
+        shopPanel.SetActive(true);
     }
     void ActivateLosePanel()
     {
         coinController.MakeCoin(25);
+        shopPanel.SetActive(true);
 
         losePanel.SetActive(true);
     }

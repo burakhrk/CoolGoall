@@ -7,9 +7,13 @@ public class ShopController : MonoBehaviour
     [SerializeField] PlayerSkin[] buttons;
     [SerializeField] List<PlayerSkin> unlockedSkinList = new List<PlayerSkin>();
     [SerializeField] List<PlayerSkin> skinList = new List<PlayerSkin>();
+    CoinController coinController;
+    [SerializeField] GameObject formaPanel;
+    [SerializeField] GameObject topPanel;
 
     private void Awake()
     {
+        coinController = GetComponent<CoinController>();
         if(PlayerPrefs.GetInt("Unlock0",0)==1)
         {
             unlockedSkinList.Add(buttons[0]);
@@ -47,13 +51,29 @@ public class ShopController : MonoBehaviour
             unlockedSkinList.Add(buttons[8]);
         }
 
+        InitButtons();
         UpdateUnlockedButtons();
     }
     void UpdateUnlockedButtons()
     {
-        foreach (var item in unlockedSkinList)
+        
+    }
+    void InitButtons()
+    {
+        foreach (var item in skinList)
         {
-            item.UnlockedItem();
+            item.Init(this,coinController,unlockedSkinList.Contains(item));
         }
+    }
+    public void OpenFormaPanel()
+    {
+        topPanel.SetActive(false);
+        formaPanel.SetActive(true);
+    }
+    public void OpenTopPanel()
+    {
+
+        topPanel.SetActive(true);
+        formaPanel.SetActive(false);
     }
 }
