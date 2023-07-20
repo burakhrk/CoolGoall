@@ -19,11 +19,27 @@ public class GoalKeeperTrigger : MonoBehaviour
         {
             workOnce = true;
 
+            var a = goalKeeper.transform.position.x - other.gameObject.transform.position.x;
+            var b = goalKeeper.transform.position.y - other.gameObject.transform.position.y;
+            if (a>0)
+            {
+                if(b<0)
+                goalKeeper.Jump(other.gameObject, 2,true);
+                else
+                    goalKeeper.Jump(other.gameObject, 2, true);
 
-            if (goalKeeper.transform.position.x-other.gameObject.transform.position.x>0)
-                goalKeeper.Jump(other.gameObject,2);
-            if (goalKeeper.transform.position.x - other.gameObject.transform.position.x < 0)
-                goalKeeper.Jump(other.gameObject, 1);
+            }
+            if (a < 0)
+            {
+                if(b<0)
+                goalKeeper.Jump(other.gameObject, 1,true);
+                else
+                    goalKeeper.Jump(other.gameObject, 1,false);
+
+
+            }
+
+
         }
     }
 }
