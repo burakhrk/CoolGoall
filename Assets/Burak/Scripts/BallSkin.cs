@@ -50,7 +50,7 @@ public class BallSkin : MonoBehaviour
         unlockButton.gameObject.SetActive(false);
         SelectButton(true);
 
-       // shopController.NewSkinUnlocked(this);
+       shopController.NewBallSkinUnlocked(this);
     }
     public void Unlock()
     {
@@ -65,7 +65,7 @@ public class BallSkin : MonoBehaviour
     }
     public void SelectSkin()
     {
-     //   shopController.SkinSelected(this);
+       shopController.SkinSelectedBall(this);
     }
 }
 
