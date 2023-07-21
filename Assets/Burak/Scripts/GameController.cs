@@ -83,9 +83,14 @@ public class GameController : MonoBehaviour
     }
     public void CloseShop()
     {
-        CanShoot = true;
         shopPanel.SetActive(false);
         closeShopButton.SetActive(false);
+
+        Invoke("Asd", 0.3f);
+    }
+    void Asd()
+    {
+        CanShoot = true;
 
     }
 }
