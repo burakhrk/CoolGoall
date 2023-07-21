@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
+
+    public AudioSource WinSound;
+    public AudioSource LoseSound;
     
     GameObject kale;
     [SerializeField] GameObject top;
@@ -44,7 +47,7 @@ public class GameController : MonoBehaviour
     }
     public void Goal()
     {
-        
+        WinSound.Play();
         OnGameEnd?.Invoke();
         cheerText.SetActive(true);
         player.Goal();
@@ -52,6 +55,7 @@ public class GameController : MonoBehaviour
     }
     public void Lose()
     {
+        LoseSound.Play();
         OnGameEnd?.Invoke();
         player.Fail();
         Invoke("ActivateLosePanel",2f);
