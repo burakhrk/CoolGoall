@@ -31,9 +31,10 @@ Transform:
   m_GameObject: {fileID: 7443202795581805095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0.5, z: -4.5}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 33.648, y: 33.648, z: 33.648}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5504847858236959595}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -237,9 +238,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f93a50e9b44d404eb85f8a5962e3566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rc: {fileID: 0}
+  HitParticle: {fileID: 0}
+  GoalParticle: {fileID: 5504847858255367307}
   animPlayer: {fileID: 0}
-  confetti: {fileID: 0}
-  confettiPos: []
   speed: 222
-  isKick: 0
+  bezier: {fileID: 0}
+--- !u!1001 &3043579111870124892
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7782291818286762141}
+    m_Modifications:
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375157748672916061, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+      propertyPath: m_Name
+      value: ConfettiBlastRainbow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+--- !u!4 &5504847858236959595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7375157748672624695, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+  m_PrefabInstance: {fileID: 3043579111870124892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5504847858255367307 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7375157748690902999, guid: f1dd5e2fe91b4924db0a0fff5ae219a1, type: 3}
+  m_PrefabInstance: {fileID: 3043579111870124892}
+  m_PrefabAsset: {fileID: 0}

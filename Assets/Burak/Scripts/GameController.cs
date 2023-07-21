@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
+    
     GameObject kale;
     [SerializeField] GameObject top;
 
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
 
         levelController = GetComponent<LevelController>();
         kale = FindObjectOfType<Kale>().gameObject;
+        
         topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;
     }
@@ -46,6 +48,7 @@ public class GameController : MonoBehaviour
     }
     public void Goal()
     {
+        
         OnGameEnd?.Invoke();
         cheerText.SetActive(true);
         player.Goal();
