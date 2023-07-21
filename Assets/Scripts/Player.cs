@@ -17,4 +17,9 @@ public class Player : MonoBehaviour
     {
         animator.SetTrigger("Goal");
     }
- }
+    public void Fail()
+    {
+        animator.SetTrigger("Fail");
+
+    }
+}

@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
     public void Lose()
     {
         OnGameEnd?.Invoke();
+        player.Fail();
         Invoke("ActivateLosePanel",2f);
     }
  void ActivateWinPanel()

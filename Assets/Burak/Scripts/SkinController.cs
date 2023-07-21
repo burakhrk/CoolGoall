@@ -11,6 +11,6 @@ public class SkinController : MonoBehaviour
     public void ChangeSkin(int a)
     {
         model1.material = materials[a];
-        model2.material = materials[a];
+       // model2.material = materials[a];
     }
 }

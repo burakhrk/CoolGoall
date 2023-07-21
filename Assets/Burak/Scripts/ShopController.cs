@@ -9,7 +9,7 @@ public class ShopController : MonoBehaviour
     CoinController coinController;
     [SerializeField] GameObject formaPanel;
     [SerializeField] GameObject topPanel;
-    SkinController skinController;
+   [SerializeField] SkinController skinController;
     private void Awake()
     {
         coinController = GetComponent<CoinController>();
