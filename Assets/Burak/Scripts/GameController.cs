@@ -19,8 +19,12 @@ public class GameController : MonoBehaviour
     LevelController levelController;
     [SerializeField] GameObject cheerText;
      public UnityAction OnGameEnd;
-
+    public bool CanShoot = true;
     CoinController coinController;
+
+    [SerializeField] GameObject closeShopButton;
+    [SerializeField] GameObject openShopButton;
+
     private void Awake()
     {
         coinController = GetComponent<CoinController>();
@@ -59,12 +63,29 @@ public class GameController : MonoBehaviour
         coinController.MakeCoin(100);
         winPanel.SetActive(true);
         shopPanel.SetActive(true);
+        closeShopButton.SetActive(false);
+        openShopButton.SetActive(false);
     }
     void ActivateLosePanel()
     {
         coinController.MakeCoin(25);
         shopPanel.SetActive(true);
+        closeShopButton.SetActive(false);
+        openShopButton.SetActive(false);
 
         losePanel.SetActive(true);
+    }
+    public void OpenShop()
+    {
+        CanShoot = false;
+        closeShopButton.SetActive(true);
+        shopPanel.SetActive(true);
+    }
+    public void CloseShop()
+    {
+        CanShoot = true;
+        shopPanel.SetActive(false);
+        closeShopButton.SetActive(false);
+
     }
 }

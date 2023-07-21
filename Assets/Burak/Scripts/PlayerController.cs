@@ -13,12 +13,13 @@ using UnityEngine.InputSystem;
     [SerializeField] GameObject bezierGoal;
     [SerializeField] float sensivity=1f;
     [SerializeField] float boundx=4f;
-
+    GameController gameController;
     bool shoot=false;
     private void Awake()
     {
        bezierStartPos= bezierMove.transform.position;
         goalStartPos = bezierGoal.transform.position;
+        gameController = FindObjectOfType<GameController>();
     }
 
 
@@ -35,7 +36,7 @@ using UnityEngine.InputSystem;
         if (shoot)
             return;
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)&&gameController.CanShoot)
         {
             Shoot();
             return;
