@@ -11,13 +11,14 @@ public class ShopController : MonoBehaviour
     [SerializeField] List<BallSkin> BallskinList = new List<BallSkin>();
 
 
-
+   public AdManager adManager;
     CoinController coinController;
     [SerializeField] GameObject formaPanel;
     [SerializeField] GameObject topPanel;
     [SerializeField] SkinController skinController;
     private void Awake()
     {
+       
         for (int i = 0; i < skinList.Count; i++)
         {
             if (PlayerPrefs.GetInt("Unlock" + i, 0) == 1)
