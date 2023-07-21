@@ -53,7 +53,7 @@ public class TrafficController : MonoBehaviour
             Instantiate(Ambulance, new Vector3(-25, 0, 0), Quaternion.identity);
             yield return new WaitForSeconds(2f);
             Instantiate(Bus, new Vector3(35, 0, 0), Quaternion.identity);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
 
         }
