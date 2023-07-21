@@ -4,7 +4,12 @@ using UnityEngine;
 using DG.Tweening;
 public class Ball : MonoBehaviour
 {
-     
+    public ParticleSystem HitParticle;
+
+    public ParticleSystem GoalParticle;
+    
+   
+
     private Rigidbody rb;
     public Animator animPlayer;
      private int currentPos = 1;
@@ -28,7 +33,7 @@ public class Ball : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         isKick = true;
-
+        HitParticle.Play();
     }
     private void Update()
     {
@@ -83,6 +88,7 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag("Goal"))
         {
+            GoalParticle.Play();
             Win();
          }
     }
