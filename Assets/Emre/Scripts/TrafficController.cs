@@ -50,10 +50,10 @@ public class TrafficController : MonoBehaviour
 
         while (!stopSpawn) 
         {
-            Instantiate(Ambulance, new Vector3(-20, 0, 0), Quaternion.identity);
+            Instantiate(Ambulance, new Vector3(-25, 0, 0), Quaternion.identity);
+            yield return new WaitForSeconds(2f);
+            Instantiate(Bus, new Vector3(35, 0, 0), Quaternion.identity);
             yield return new WaitForSeconds(3f);
-            Instantiate(Bus, new Vector3(45, 0, 0), Quaternion.identity);
-            yield return new WaitForSeconds(4f);
 
 
         }

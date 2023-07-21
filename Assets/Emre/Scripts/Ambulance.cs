@@ -24,7 +24,7 @@ public class Ambulance : MonoBehaviour
         
         
         
-        transform.DOMoveX(transform.position.x+35, 3.5f).SetEase(Ease.Linear).OnComplete(() =>
+        transform.DOMoveX(transform.position.x+35, 2f).SetEase(Ease.Linear).OnComplete(() =>
         {
 
             Destroy(gameObject);
