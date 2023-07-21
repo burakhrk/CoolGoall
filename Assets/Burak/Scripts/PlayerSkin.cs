@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class PlayerSkin : MonoBehaviour
 {
+    public bool rewarded;
     public bool Unlocked;
     public int Price;
     [SerializeField] Button unlockButton;
@@ -53,8 +54,19 @@ public class PlayerSkin : MonoBehaviour
     }
     public void Unlock()
     {
+        if (rewarded)
+        {
+            UnlockRewarded();
+            return;
+        }
+          
+
         coinController.SpendCoin(Price);
         UnlockedItem();
+
+    }
+    void UnlockRewarded()
+    {
 
     }
     void SelectButton(bool enable)
