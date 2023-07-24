@@ -60,6 +60,8 @@ public class BallSkin : MonoBehaviour
         SelectButton(true);
 
        shopController.NewBallSkinUnlocked(this);
+        SelectSkin();
+
     }
     public void Unlock()
     {

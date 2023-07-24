@@ -62,6 +62,8 @@ public class PlayerSkin : MonoBehaviour
         SelectButton(true);
 
         shopController.NewSkinUnlocked(this);
+
+        SelectSkin();
     }
     public void Unlock()
     {
