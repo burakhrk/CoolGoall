@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1068583531}
+    - target: {fileID: 5606841925182621211, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: Price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606841925182621211, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: Unlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8694428928716543554, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_Name
       value: ShopPanel (2)
