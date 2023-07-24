@@ -15,12 +15,16 @@ public class PlayerSkin : MonoBehaviour
     ShopController shopController;
     CoinController coinController;
   [SerializeField]  TextMeshProUGUI priceText;
+    [SerializeField] GameObject adIcon;
     private void Awake()
     {
         //  unlockButton = GetComponentInChildren<Button>();
         // selectButton = GetComponent<Button>();
         if(rewarded)
-            priceText.text =" ";
+        {
+            priceText.text = " ";
+            adIcon.SetActive(true);
+        }
 
         else
 

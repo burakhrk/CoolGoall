@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     LevelController levelController;
     [SerializeField] GameObject cheerText;
      public UnityAction OnGameEnd;
+    bool gameEnd=false;
     public bool CanShoot = true;
     CoinController coinController;
 
@@ -51,20 +52,33 @@ public class GameController : MonoBehaviour
     }
     public void Goal()
     {
+        if (gameEnd)
+            return;
+
         WinSound.Play();
-        OnGameEnd?.Invoke();
+        GameEnded();
+        
         cheerText.SetActive(true);
         player.Goal();
         Invoke("ActivateWinPanel", 2f);
     }
     public void Lose()
     {
+        if (gameEnd)
+            return;
+
+        GameEnded();
         LoseSound.Play();
-        OnGameEnd?.Invoke();
         player.Fail();
         Invoke("ActivateLosePanel",2f);
     }
- void ActivateWinPanel()
+
+    private void GameEnded()
+    {
+        OnGameEnd?.Invoke();
+        gameEnd = true;
+    }
+    void ActivateWinPanel()
     {
         PlayerPrefs.SetInt("Level", levelController.Level + 1);
         coinController.MakeCoin(100);
