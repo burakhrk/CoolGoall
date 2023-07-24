@@ -10,6 +10,8 @@ public class UIPlayer : MonoBehaviour
 
 
     [SerializeField] List<GameObject> balls = new List<GameObject>();
+
+   [SerializeField] UIBall iBall;
     private void Awake()
     {
         if (PlayerPrefs.HasKey("ActiveSkin"))
@@ -20,6 +22,10 @@ public class UIPlayer : MonoBehaviour
         {
             balls[PlayerPrefs.GetInt("ActiveBallSkin")].SetActive(true);
         }
+    }
+    private void Start()
+    {
+        iBall.Init();
     }
     public void ChangeBallSkin(int a)
     {
