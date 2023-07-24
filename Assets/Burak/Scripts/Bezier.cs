@@ -18,6 +18,7 @@ public class Bezier : MonoBehaviour
         for (int i = 0; i < numPoints-1; i++)
         {
             var go = Instantiate(dot);
+            go.transform.parent = gameController.transform;
             dotList.Add(go);
         }
     }

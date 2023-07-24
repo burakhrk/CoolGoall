@@ -14,12 +14,20 @@ public class BallSkin : MonoBehaviour
     ShopController shopController;
     CoinController coinController;
     [SerializeField] TextMeshProUGUI priceText;
+    [SerializeField] GameObject adIcon;
     private void Awake()
     {
         //  unlockButton = GetComponentInChildren<Button>();
         // selectButton = GetComponent<Button>();
-        priceText.text = Price.ToString();
+        if (rewarded)
+        {
+            priceText.text = " ";
+            adIcon.SetActive(true);
+        }
 
+        else
+
+            priceText.text = Price.ToString();
     }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
     {
