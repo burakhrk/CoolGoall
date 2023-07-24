@@ -10,7 +10,11 @@ public class CoinController : MonoBehaviour
     public int coin;
     private void Awake()
     {
-        if(PlayerPrefs.HasKey("Coin"))
+        if(coin>0)
+            PlayerPrefs.SetInt("Coin", coin);
+
+
+        if (PlayerPrefs.HasKey("Coin"))
         {
             coin = PlayerPrefs.GetInt("Coin");
         }

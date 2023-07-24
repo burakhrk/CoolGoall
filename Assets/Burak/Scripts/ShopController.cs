@@ -1,57 +1,48 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
-     [SerializeField] List<PlayerSkin> unlockedSkinList = new List<PlayerSkin>();
+    [SerializeField] List<PlayerSkin> unlockedSkinList = new List<PlayerSkin>();
     [SerializeField] List<PlayerSkin> skinList = new List<PlayerSkin>();
+
+
+    [SerializeField] List<BallSkin> unlockedBallSkinList = new List<BallSkin>();
+    [SerializeField] List<BallSkin> BallskinList = new List<BallSkin>();
+
+
+   public AdManager adManager;
     CoinController coinController;
     [SerializeField] GameObject formaPanel;
     [SerializeField] GameObject topPanel;
-   [SerializeField] SkinController skinController;
+    [SerializeField] SkinController skinController;
     private void Awake()
     {
-        coinController = GetComponent<CoinController>();
-        if(PlayerPrefs.GetInt("Unlock0",0)==1)
+       
+        for (int i = 0; i < skinList.Count; i++)
         {
-            unlockedSkinList.Add(skinList[0]);
-        }
-        if (PlayerPrefs.GetInt("Unlock1", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[1]);
-        }
-        if (PlayerPrefs.GetInt("Unlock2", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[2]);
-        }
-        if (PlayerPrefs.GetInt("Unlock3", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[3]);
-        }
-        if (PlayerPrefs.GetInt("Unlock4", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[4]);
-        }
-        if (PlayerPrefs.GetInt("Unlock5", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[5]);
-        }
-        if (PlayerPrefs.GetInt("Unlock6", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[6]);
-        }
-        if (PlayerPrefs.GetInt("Unlock7", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[7]);
-        }
-        if (PlayerPrefs.GetInt("Unlock8", 0) == 1)
-        {
-            unlockedSkinList.Add(skinList[8]);
+            if (PlayerPrefs.GetInt("Unlock" + i, 0) == 1)
+            {
+                unlockedSkinList.Add(skinList[i]);
+            }
         }
 
+
+        for (int i = 0; i < BallskinList.Count; i++)
+        {
+            if (PlayerPrefs.GetInt("UnlockBall" + i, 0) == 1)
+            {
+                unlockedBallSkinList.Add(BallskinList[i]);
+            }
+        }
+
+
+        coinController = GetComponent<CoinController>();
+        
+
+         
         InitButtons();
-     }
+    }
     private void OnEnable()
     {
         coinController.onCoinChanged += CheckButtonAvailabity;
@@ -68,16 +59,25 @@ public class ShopController : MonoBehaviour
             item.CheckMoney(a);
         }
     }
-     public void NewSkinUnlocked(PlayerSkin playerSkin)
+    public void NewSkinUnlocked(PlayerSkin playerSkin)
     {
         int a = skinList.IndexOf(playerSkin);
         PlayerPrefs.SetInt("Unlock" + a, 1);
+    }
+    public void NewBallSkinUnlocked(BallSkin ballSkin)
+    {
+        int a = BallskinList.IndexOf(ballSkin);
+        PlayerPrefs.SetInt("UnlockBall" + a, 1);
     }
     void InitButtons()
     {
         foreach (var item in skinList)
         {
-            item.Init(this,coinController,unlockedSkinList.Contains(item));
+            item.Init(this, coinController, unlockedSkinList.Contains(item));
+        }
+        foreach (var item in BallskinList)
+        {
+            item.Init(this, coinController, unlockedBallSkinList.Contains(item));
         }
     }
     public void OpenFormaPanel()
@@ -94,5 +94,11 @@ public class ShopController : MonoBehaviour
     public void SkinSelected(PlayerSkin a)
     {
         skinController.ChangeSkin(skinList.IndexOf(a));
+    }
+
+    public void SkinSelectedBall(BallSkin a)
+    {
+        skinController.ChangeBallSkin(BallskinList.IndexOf(a));
+
     }
 }
