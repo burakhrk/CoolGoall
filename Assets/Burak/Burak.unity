@@ -206,6 +206,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -124.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3234584032546975853, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: rewarded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372356490793439998, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: rewarded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3923575140260806251, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -230,6 +238,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -299.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4392839700871677861, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: rewarded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4644852880521889717, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -302,6 +314,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -299.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6785922445928292423, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: rewarded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7731308985487285253, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -325,6 +341,14 @@ PrefabInstance:
     - target: {fileID: 7731308985487285253, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -474.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127031277607499384, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: rewarded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435951391877610487, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: rewarded
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8694428928417849155, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2048,6 +2072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc52c4cb147d4153893206352547554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WinSound: {fileID: 0}
+  LoseSound: {fileID: 0}
   top: {fileID: 1962299160}
   topPos: {fileID: 2026101371}
   kalePos: {fileID: 707170788}
