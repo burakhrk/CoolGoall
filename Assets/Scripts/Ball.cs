@@ -7,7 +7,8 @@ public class Ball : MonoBehaviour
     public ParticleSystem HitParticle;
 
     public ParticleSystem GoalParticle;
-    
+
+    public AudioSource ShootSound;
    
 
     private Rigidbody rb;
@@ -26,14 +27,18 @@ public class Ball : MonoBehaviour
     }
     public void Shoot(Vector3[] path)
     {
+
         Path = path;
         StartCoroutine(WaitForAnim());
     }
    IEnumerator WaitForAnim()
     {
+
         yield return new WaitForSeconds(1f);
         isKick = true;
         HitParticle.Play();
+        ShootSound.Play();
+
     }
     private void Update()
     {

@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.PlayerLoop;
+
 public class Truck : MonoBehaviour
 {
-    [SerializeField] GameObject tire1, tire2, tire3, tire4;
+    
 
    [SerializeField] DOTweenAnimation truck;
+  
+   
     
     private void Start()
     {
-        truck.DOPlay();
+       
+        //truck.DOPlay();
      //   tire1.transform.DOLocalRotateQuaternion(Quaternion.Euler(90,0,0),2f) ;
     }
+
+  
+   
+
 }

@@ -1178,11 +1178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3657000224744552029, guid: e60ac5ac1bed7ce4ca63bf4a4ec81173, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 92.29
+      value: 103.16
       objectReference: {fileID: 0}
     - target: {fileID: 3657000224744552029, guid: e60ac5ac1bed7ce4ca63bf4a4ec81173, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0000030398369
+      value: -0.000003099441
       objectReference: {fileID: 0}
     - target: {fileID: 3657000224744552029, guid: e60ac5ac1bed7ce4ca63bf4a4ec81173, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 0, y: 0, z: -30}
+  endValueV3: {x: 0, y: 0, z: -40}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
