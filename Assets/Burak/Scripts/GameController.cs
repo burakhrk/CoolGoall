@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     LevelController levelController;
     [SerializeField] GameObject cheerText;
      public UnityAction OnGameEnd;
-    bool gameEnd=false;
+   public bool gameEnd=false;
     public bool CanShoot = true;
     CoinController coinController;
 

@@ -9,8 +9,10 @@ public class GoalKeeper : MonoBehaviour
 
     bool doNotMove=false;
     float startx=0f;
+    GameController gameController;
     private void Awake()
     {
+        gameController = FindObjectOfType<GameController>();
         anima = GetComponent<Animator>();
     }
     private void Start()
@@ -57,6 +59,9 @@ public class GoalKeeper : MonoBehaviour
    
    public void Jump(GameObject ball , int direct,bool up )
     {
+        if (gameController.gameEnd)
+            return;
+
         doNotMove = true;
         StopCoroutine(kaleciMove());
         mySequence.Kill();
