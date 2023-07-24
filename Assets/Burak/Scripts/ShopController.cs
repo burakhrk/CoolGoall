@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ShopController : MonoBehaviour
 {
     [SerializeField] List<PlayerSkin> unlockedSkinList = new List<PlayerSkin>();
@@ -15,6 +15,7 @@ public class ShopController : MonoBehaviour
     CoinController coinController;
     [SerializeField] GameObject formaPanel;
     [SerializeField] GameObject topPanel;
+    [SerializeField] Image formaButton,topButton;
     [SerializeField] SkinController skinController;
     private void Awake()
     {
@@ -38,9 +39,10 @@ public class ShopController : MonoBehaviour
 
 
         coinController = GetComponent<CoinController>();
-        
 
-         
+        topButton.color = Color.white;
+        formaButton.color = Color.gray;
+
         InitButtons();
     }
     private void OnEnable()
@@ -82,12 +84,15 @@ public class ShopController : MonoBehaviour
     }
     public void OpenFormaPanel()
     {
+        topButton.color = Color.white;
+        formaButton.color = Color.gray;
         topPanel.SetActive(false);
         formaPanel.SetActive(true);
     }
     public void OpenTopPanel()
     {
-
+        topButton.color = Color.gray;
+        formaButton.color = Color.white;
         topPanel.SetActive(true);
         formaPanel.SetActive(false);
     }
