@@ -2072,8 +2072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc52c4cb147d4153893206352547554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinSound: {fileID: 0}
-  LoseSound: {fileID: 0}
+  WinSound: {fileID: 1577673438}
+  LoseSound: {fileID: 1577673436}
   top: {fileID: 1962299160}
   topPos: {fileID: 2026101371}
   kalePos: {fileID: 707170788}
@@ -3739,6 +3739,78 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7116980173562070521, guid: 9de4bb84bf671ca41af6968e2e6b2520, type: 3}
   m_PrefabInstance: {fileID: 1734241951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1577673435
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.557194
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1712475
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7438193
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813464, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217056499203813467, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+      propertyPath: m_Name
+      value: Sounds
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+--- !u!82 &1577673436 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8217056499855044016, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+  m_PrefabInstance: {fileID: 1577673435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1577673437 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8217056500253693813, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+  m_PrefabInstance: {fileID: 1577673435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1577673438 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8217056498969871932, guid: 84390e405ec8138459b5a21945e6bcb8, type: 3}
+  m_PrefabInstance: {fileID: 1577673435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1584361435
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,6 +4239,10 @@ PrefabInstance:
       propertyPath: bezier
       value: 
       objectReference: {fileID: 426759920}
+    - target: {fileID: 7749279132424499192, guid: 459ec1b144a7c584b8ab280e610fc576, type: 3}
+      propertyPath: ShootSound
+      value: 
+      objectReference: {fileID: 1577673437}
     - target: {fileID: 7749279132424499192, guid: 459ec1b144a7c584b8ab280e610fc576, type: 3}
       propertyPath: animPlayer
       value: 

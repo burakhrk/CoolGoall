@@ -19,7 +19,12 @@ public class PlayerSkin : MonoBehaviour
     {
         //  unlockButton = GetComponentInChildren<Button>();
         // selectButton = GetComponent<Button>();
-        priceText.text = Price.ToString();
+        if(rewarded)
+            priceText.text =" ";
+
+        else
+
+            priceText.text = Price.ToString();
 
     }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
