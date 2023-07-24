@@ -5,10 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Emre/asd.unity
-    guid: 5faef116d77a7ac41b759fed69c504ee
   - enabled: 1
-    path: Assets/Burak/Burak.unity
-    guid: c48ec13ecc53546baa147d098dd7802d
+    path: Assets/Emre/Burak 1.unity
+    guid: d12076c393dc1d047a8b077899f8c58b
   m_configObjects: {}
