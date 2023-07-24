@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class TruckWheel : MonoBehaviour
 {
-
-
+   
     private void Start()
     {
         RotateWheel();
@@ -15,6 +14,7 @@ public class TruckWheel : MonoBehaviour
 
     public void RotateWheel()
     {
+
         this.transform.DOLocalRotate(new Vector3(90, 0, 0), 1.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             RotateWheel2();
