@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   - {fileID: 5119812647652426530, guid: 3732ce7168ebaa747bb6e9e000f13f71, type: 3}
   - {fileID: 2537906810067368098, guid: 75bd53b614ec4a940b53a2b7c1149ab7, type: 3}
   - {fileID: 4453577928645079695, guid: f81236b4784d636409cb2a69c4dc08b5, type: 3}
-  - {fileID: 8978204707490333149, guid: d694d132f04a0454c9de1eccc8f6c03a, type: 3}
+  - {fileID: 8130821487495587340, guid: d694d132f04a0454c9de1eccc8f6c03a, type: 3}
   - {fileID: 5917240450057639102, guid: 34e4ba095756a6144bd476d50d9e98e5, type: 3}
   - {fileID: 6856649035511328929, guid: 688f6c416c9044143a57d9f51280bdbb, type: 3}
   - {fileID: 1213113545124952577, guid: ca93a5fe8b481a440a2035ca4f045479, type: 3}
@@ -1664,8 +1664,8 @@ MonoBehaviour:
   - {fileID: 4503463471725573527, guid: 389fb32f525ce9945b0efec0dad15b9e, type: 3}
   - {fileID: 565309124373656144, guid: ba6127d23275a0c40927cee902fc94b9, type: 3}
   - {fileID: 3966447376695594380, guid: 6063d9e47baacce4d83e11b29a533163, type: 3}
-  playSpecificLevel: 0
-  Level: 10
+  playSpecificLevel: 1
+  Level: 1
   Leveltext: {fileID: 1584361437}
   levelIndex: 0
 --- !u!114 &1068583534

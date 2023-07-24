@@ -27,17 +27,21 @@ public class GoalKeeper : MonoBehaviour
     {
         while (!doNotMove)
         {
+
            
+
 
             anima.SetBool("L",true);
             anima.SetBool("R", false);
 
            mySequence = transform.DOMoveX(startx + 3f, 2.5f).SetEase(Ease.Linear);
-             
 
-            
+            if (doNotMove)
+                yield break;
+
             yield return new WaitForSeconds(2.5f);
-            
+            if (doNotMove)
+                yield break;
             anima.SetBool("L", false);
             anima.SetBool("R", true);
 
@@ -46,7 +50,8 @@ public class GoalKeeper : MonoBehaviour
            
 
             yield return new WaitForSeconds(2.5f);
-            
+            if (doNotMove)
+                yield break;
         }
     }
    
@@ -57,6 +62,7 @@ public class GoalKeeper : MonoBehaviour
         mySequence.Kill();
         tween.Kill();
         DOTween.Kill(gameObject);
+        GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
         if (direct==1)
         {
             anima.SetBool("JumpLeft", true);

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Emre/Burak 1.unity
-    guid: d12076c393dc1d047a8b077899f8c58b
+    path: Assets/Burak/Burak.unity
+    guid: c48ec13ecc53546baa147d098dd7802d
   m_configObjects: {}
