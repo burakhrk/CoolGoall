@@ -2,147 +2,92 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-#if LAGGED
 public class GameManager : MonoBehaviour
 {
-    public Text gameControlText;
-    public Button callRewardAd;
 
-    private string usingBoardID;
+    public Text gameControlText;
+    public Text rewardedAdText;
+    public Text rewardPlayerText;
+
+    public Text scoreText;
+    public Text levelText;
 
     void Awake()
     {
-        LaggedAPIUnity.OnResumeGame += OnResumeGame;
-        LaggedAPIUnity.OnPauseGame += OnPauseGame;
-        LaggedAPIUnity.onRewardAdReady += onRewardAdReady;
-        LaggedAPIUnity.onRewardAdSuccess += onRewardAdSuccess;
-        LaggedAPIUnity.onRewardAdFailure += onRewardAdFailure;
+        GameDistribution.OnResumeGame += OnResumeGame;
+        GameDistribution.OnPauseGame += OnPauseGame;
+        GameDistribution.OnPreloadRewardedVideo += OnPreloadRewardedVideo;
+        GameDistribution.OnRewardedVideoSuccess += OnRewardedVideoSuccess;
+        GameDistribution.OnRewardedVideoFailure += OnRewardedVideoFailure;
+        GameDistribution.OnRewardGame += OnRewardGame;
     }
 
     public void OnResumeGame()
     {
-        //
-        // Ad is complete, Resume game/music
-        //
-
-        gameControlText.text = "Ad completed - RESUME GAME";
+        // RESUME MY GAME
+        gameControlText.text = "RESUME GAME";
     }
 
     public void OnPauseGame()
     {
-        //
-        // Ad is started, pause game/music
-        //
-
-        gameControlText.text = "Ad running - GAME PAUSED";
+        // PAUSE MY GAME
+        gameControlText.text = "GAME PAUSED";
+    }
+    public void OnRewardGame()
+    {
+        // REWARD PLAYER HERE
+        rewardPlayerText.text = "Give Reward Here.";
+    }
+    public void OnRewardedVideoSuccess()
+    {
+        rewardedAdText.text = "Rewarded video succeeded...";
     }
 
-    public void onRewardAdReady()
+    public void OnRewardedVideoFailure()
     {
-        //
-        // reward ad is avaible and ready to play, you can show user reward button
-        //
-
-        gameControlText.text = "Reward ad is ready";
-
-        //
-        // show/create reward button
-        //
-
-        callRewardAd.interactable=true;
-
+        rewardedAdText.text = "Rewarded video failed...";
     }
 
-    public void onRewardAdSuccess()
+    public void OnPreloadRewardedVideo(int loaded)
     {
-        //
-        // reward ad is sucessful, give user a reward
-        //
-
-        gameControlText.text = "Reward ad succesful, give user reward";
-
-        //
-        // hide/remove reward button
-        //
-
-        callRewardAd.interactable=false;
-
-    }
-
-    public void onRewardAdFailure()
-    {
-        //
-        // reward ad failed, do not give user a reward
-        //
-
-        gameControlText.text = "Reward ad failure";
-
-        //
-        // hide/remove reward button
-        //
-
-        callRewardAd.interactable=false;
-
+        // FEEDBACK ABOUT PRELOADED AD
+        rewardedAdText.text = loaded == 1 ? "Rewarded video has been loaded." : "Rewarded video couldn't be loaded.";
     }
 
     public void ShowAd()
     {
-
-        //
-        // Show a normal ad
-        //
-
-        LaggedAPIUnity.Instance.ShowAd();
+        GameDistribution.Instance.ShowAd();
     }
 
-    public void CheckRewardAd()
+    public void ShowRewardedAd()
     {
-      //
-      // Check if reward ad is available
-      //
-
-      gameControlText.text = "Checking reward ad...";
-
-      LaggedAPIUnity.Instance.CheckRewardAd();
-
+        GameDistribution.Instance.ShowRewardedAd();
     }
 
-    public void PlayRewardAd()
+    public void PreloadRewardedAd()
     {
-      //
-      // play reward ad if avaible
-      //
-
-      gameControlText.text = "Playing reward ad if available...";
-
-      LaggedAPIUnity.Instance.PlayRewardAd();
-
+        GameDistribution.Instance.PreloadRewardedAd();
     }
 
-    public void SetBoardID(string board){
-
-      //
-      // sets board_id for High scores
-      //
-
-        usingBoardID=board;
-    }
-
-    public void CallHighScore(int score)
+    public void SendGameEvent()
     {
-      //
-      // save high score
-      //
-      LaggedAPIUnity.Instance.CallHighScore(score, usingBoardID);
-    }
-
-    public void SaveAchievement(string award)
-    {
-      //
-      // save achievement
-      //
-        LaggedAPIUnity.Instance.SaveAchievement(award);
+        //You can push your data here how ever you want 
+        ////////////////////////          Example 1          ////////////////////////
+        // int level = Int32.Parse(Regex.Replace(levelText, "[^0-9]", ""));
+        // int score = Int32.Parse(Regex.Replace(scoreText, "[^0-9]", ""));
+        // var obj = new EventData<GameEventData>();
+        // var data = new GameEventData();
+        // data.level = level;
+        // data.score = score;
+        // obj.data = data;
+        // obj.eventName = "game_event";
+        ////////////////////////          Example 2          ////////////////////////
+        var obj = new EventData<MileStoneData>();
+        var data = new MileStoneData();
+        data.isAuthorized = true;
+        data.milestoneDescription = "Test Description";
+        obj.data = data;
+        obj.eventName = "track-milestone";
+        GameDistribution.Instance.SendEvent(JsonUtility.ToJson(obj));
     }
 }
-
-#endif

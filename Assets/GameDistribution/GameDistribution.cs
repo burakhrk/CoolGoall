@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using System.Text.RegularExpressions;
-#if EN_GDAD
 public class GameDistribution : MonoBehaviour
 {
     public static GameDistribution Instance;
@@ -33,13 +32,6 @@ public class GameDistribution : MonoBehaviour
 
     void Awake()
     {
-    
-
-       // Init();
-    }
-
-    public void Init()
-    {
         if (GameDistribution.Instance == null)
             GameDistribution.Instance = this;
         else
@@ -47,6 +39,11 @@ public class GameDistribution : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
+        Init();
+    }
+
+   public void Init()
+    {
         try
         {
             SDK_Init(GAME_KEY);
@@ -162,5 +159,3 @@ public class GameDistribution : MonoBehaviour
         return _isRewardedVideoLoaded;
     }
 }
-
-#endif

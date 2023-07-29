@@ -126,6 +126,13 @@ public class BallSkin : MonoBehaviour
         adManager.RewardedAdManager.UnRegisterOnAdClosedEvent(RewardedClosed);
         adManager.RewardedAdManager.UnRegisterOnAdShowFailedEvent(RewardedClosed);
         adManager.RewardedAdManager.UnRegisterOnUserEarnedRewarededEvent(RewardEarned);
+
+#if CRAZY_GSDK
+        if (Unlocked)
+            return;
+
+        RewardEarned(null, null);
+#endif
     }
 
     void SelectButton(bool enable)
