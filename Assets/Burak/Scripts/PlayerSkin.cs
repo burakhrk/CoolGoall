@@ -78,9 +78,9 @@ public class PlayerSkin : MonoBehaviour
         UnlockedItem();
 
     }
-    AdManager adManager;
     void UnlockRewarded()
     {
+        /*
         adManager = shopController.adManager;
        if(adManager.RewardedAdManager.IsRewardedAdReady())
         {
@@ -89,16 +89,15 @@ public class PlayerSkin : MonoBehaviour
             adManager.RewardedAdManager.RegisterOnUserEarnedRewarededEvent(RewardEarned);
             adManager.RewardedAdManager.ShowAd();
         }
+        */
     }
 
-    private void RewardEarned(IronSourcePlacement arg1, IronSourceAdInfo arg2)
+    private void RewardEarned()
     {
-#if CRAZY_GSDK
+
         if (Unlocked)
             return;
 
-        
-#endif
 
         Debug.Log("unlocked");
         Unlocked = true;
@@ -109,35 +108,33 @@ public class PlayerSkin : MonoBehaviour
     }
 
      
-    private void RewardedClosed(IronSourceError arg1, IronSourceAdInfo arg2)
+    private void RewardedClosedTwo()
     {
+        /*
         adManager.RewardedAdManager.UnRegisterOnAdClosedEvent(RewardedClosed);
         adManager.RewardedAdManager.UnRegisterOnAdShowFailedEvent(RewardedClosed);
         adManager.RewardedAdManager.UnRegisterOnUserEarnedRewarededEvent(RewardEarned);
 
 
-
-#if CRAZY_GSDK
-        if (Unlocked)
+        */
+         if (Unlocked)
             return;
 
-            RewardEarned(null,null);
-#endif
-    }
+            RewardEarned();
+     }
 
-    private void RewardedClosed(IronSourceAdInfo obj)
+    private void RewardedClosedOne()
     {
+        /*
         adManager.RewardedAdManager.UnRegisterOnAdClosedEvent(RewardedClosed);
         adManager.RewardedAdManager.UnRegisterOnAdShowFailedEvent(RewardedClosed);
         adManager.RewardedAdManager.UnRegisterOnUserEarnedRewarededEvent(RewardEarned);
-
-#if CRAZY_GSDK
-        if (Unlocked)
+        */
+         if (Unlocked)
             return;
 
-        RewardEarned(null, null);
-#endif
-    }
+        RewardEarned();
+     }
 
 
     void SelectButton(bool enable)

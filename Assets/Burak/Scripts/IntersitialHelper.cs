@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class IntersitialHelper : MonoBehaviour
 {
-    [SerializeField] AdManager adManager;
+  //  [SerializeField] AdManager adManager;
 
     
     private void Awake()
     {
-        adManager.Init();
+       // adManager.Init();
     }
     private void Start()
     {
-        ShowIntersitial();
+      //  ShowIntersitial();
     }
     public void ShowIntersitial()
     {
+        /*
         if(adManager.InterstatialAdManager.IsInterstatialAdReady())
         {
             adManager.InterstatialAdManager.ShowAd();
         }
+        */
     }
 }

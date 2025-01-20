@@ -11,8 +11,7 @@ public class ShopController : MonoBehaviour
     [SerializeField] List<BallSkin> BallskinList = new List<BallSkin>();
 
 
-   public AdManager adManager;
-    CoinController coinController;
+     CoinController coinController;
     [SerializeField] GameObject formaPanel;
     [SerializeField] GameObject topPanel;
     [SerializeField] Image formaButton,topButton;
