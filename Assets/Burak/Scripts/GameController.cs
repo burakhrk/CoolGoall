@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using System.Threading;
 public class GameController : MonoBehaviour
 {
 
@@ -32,13 +33,19 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        CanShoot= false;
         coinController = GetComponent<CoinController>();
+    }
+    void AllowShoot()
+    {
+        CanShoot= true;
     }
     private void Start()
     {
+        Invoke("AllowShoot", 1f);
 
         levelController = GetComponent<LevelController>();
-        kale = FindObjectOfType<Kale>().gameObject;
+        kale = FindFirstObjectByType<Kale>().gameObject;
         
         topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;

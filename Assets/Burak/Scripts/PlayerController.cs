@@ -19,17 +19,17 @@ using UnityEngine.InputSystem;
     {
        bezierStartPos= bezierMove.transform.position;
         goalStartPos = bezierGoal.transform.position;
-        gameController = FindObjectOfType<GameController>();
+        gameController = FindFirstObjectByType<GameController>();
     }
 
 
     private void Shoot()
     {
         shoot = true;
-        Bezier bezier= FindObjectOfType<Bezier>();
+        Bezier bezier= FindFirstObjectByType<Bezier>();
         bezier.isShoot = true;
-        FindObjectOfType<Ball>().Shoot(bezier.GetPath());
-        FindObjectOfType<Player>().Shoot();
+        FindFirstObjectByType<Ball>().Shoot(bezier.GetPath());
+        FindFirstObjectByType<Player>().Shoot();
     }
     private void Update()
     {
@@ -40,11 +40,7 @@ using UnityEngine.InputSystem;
         {
             Shoot();
             return;
-
         }
-       
-
-
         Vector2 go;
         go = player.actions["Move"].ReadValue<Vector2>();
        move= go - lastPos;
