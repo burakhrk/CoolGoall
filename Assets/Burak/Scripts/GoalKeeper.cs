@@ -67,7 +67,7 @@ public class GoalKeeper : MonoBehaviour
         mySequence.Kill();
         tween.Kill();
         DOTween.Kill(gameObject);
-        GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
+        GetComponentInChildren<Rigidbody>().linearVelocity = Vector3.zero;
         if (direct==1)
         {
             anima.SetBool("JumpLeft", true);
