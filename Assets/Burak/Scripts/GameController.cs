@@ -38,7 +38,11 @@ public class GameController : MonoBehaviour
     }
     void AllowShoot()
     {
-        CanShoot= true;
+        if (!shopPanel.active)
+            CanShoot = true;
+        else
+            Invoke("AllowShoot", 1f);
+
     }
     private void Start()
     {
@@ -113,8 +117,7 @@ public class GameController : MonoBehaviour
     {
         shopPanel.SetActive(false);
         closeShopButton.SetActive(false);
-
-        Invoke("Asd", 0.3f);
+         Invoke("Asd", 0.5f);
     }
     void Asd()
     {

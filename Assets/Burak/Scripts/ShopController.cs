@@ -43,6 +43,7 @@ public class ShopController : MonoBehaviour
         formaButton.color = Color.gray;
 
         InitButtons();
+        
     }
     private void OnEnable()
     {
@@ -53,11 +54,19 @@ public class ShopController : MonoBehaviour
         coinController.onCoinChanged -= CheckButtonAvailabity;
 
     }
+    private void Start()
+    {
+        CheckButtonAvailabity(coinController.coin);
+    }
     void CheckButtonAvailabity(int a)
     {
         foreach (var item in skinList)
         {
             item.CheckMoney(a);
+        }
+        foreach (var item in BallskinList)
+        {
+            item.CheckMoney(a); 
         }
     }
     public void NewSkinUnlocked(PlayerSkin playerSkin)

@@ -20,14 +20,12 @@ public class PlayerSkin : MonoBehaviour
     {
         //  unlockButton = GetComponentInChildren<Button>();
         // selectButton = GetComponent<Button>();
-        if(rewarded)
+        if (rewarded)
         {
-            priceText.text = " ";
+            priceText.text = Price.ToString();
             adIcon.SetActive(true);
         }
-
-        else
-
+        else 
             priceText.text = Price.ToString();
 
     }

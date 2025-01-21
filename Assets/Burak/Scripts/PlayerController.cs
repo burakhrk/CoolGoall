@@ -14,26 +14,37 @@ using UnityEngine.InputSystem;
     [SerializeField] float sensivity=1f;
     [SerializeField] float boundx=4f;
     GameController gameController;
-    bool shoot=false;
+    bool shoot= false;
     private void Awake()
     {
-       bezierStartPos= bezierMove.transform.position;
+        bezierStartPos = bezierMove.transform.position;
         goalStartPos = bezierGoal.transform.position;
         gameController = FindFirstObjectByType<GameController>();
+
+        // Upgrade sistemi
+// futbolcu top statları
+//  şut hızı vs 
+// shop fiytlandırma parabolik
+// shop kısmında şut atıyo 
+
+
     }
 
 
     private void Shoot()
     {
+        Debug.Log("Shoot");
         shoot = true;
         Bezier bezier= FindFirstObjectByType<Bezier>();
         bezier.isShoot = true;
         bezier.DisableDotVisuals();
         FindFirstObjectByType<Ball>().Shoot(bezier.GetPath());
         FindFirstObjectByType<Player>().Shoot();
-       
+
     }
-    private void Update()
+   
+
+        private void Update()
     {
         if (shoot)
             return;
@@ -43,6 +54,8 @@ using UnityEngine.InputSystem;
             Shoot();
             return;
         }
+        Vector2 startPos;
+        startPos= player.actions["Move"].ReadValue<Vector2>();
         Vector2 go;
         go = player.actions["Move"].ReadValue<Vector2>();
        move= go - lastPos;
@@ -70,14 +83,16 @@ using UnityEngine.InputSystem;
 
         bezierMove.transform.position += (Vector3)move * sensivity ;
        
-        
        y = bezierMove.transform.position.y ;
         x = bezierMove.transform.position.x;
 
-        Debug.LogError("mousepos farkı olması lazım");
-
+        if (y >= 3.5f)
+        {
+            y = 3.5f;
+        }
+ 
         if (y < 0)
-            bezierMove.transform.position = new Vector3(bezierMove.transform.position.x,0,bezierMove.transform.position.z);
+            bezierMove.transform.position = new Vector3(bezierMove.transform.position.x,0.1f,bezierMove.transform.position.z);
 
 
         if (x>4.5f)
@@ -88,21 +103,9 @@ using UnityEngine.InputSystem;
         {
             MoveGoal();
          }
-        
-        if(y > 3f)
-        {
-             MoveGoal();
- 
-        }
-        else
-        {
-            //bezierMove.transform.position = new Vector3(bezierMove.transform.position.x, bezierMove.transform.position.y, bezierMove.transform.position.z);
-            //Debug.Log(8);
-
-            //   ResetGoalPos();
-        }
+        Debug.Log(y);
        
-
+             MoveGoal(); 
     }
     void ResetGoalPos()
     {

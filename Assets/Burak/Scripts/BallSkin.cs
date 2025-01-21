@@ -21,12 +21,11 @@ public class BallSkin : MonoBehaviour
         // selectButton = GetComponent<Button>();
         if (rewarded)
         {
-            priceText.text = " ";
+            priceText.text = Price.ToString();
             adIcon.SetActive(true);
         }
 
         else
-
             priceText.text = Price.ToString();
     }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
@@ -69,8 +68,7 @@ public class BallSkin : MonoBehaviour
         {
             UnlockRewarded();
             return;
-        }
-
+        } 
         coinController.SpendCoin(Price);
         UnlockedItem();
 
