@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Animator animator;
-    float startCounter=2f;
+    float startCounter=1f;
     bool allowShoot=false;
     private void Awake()
     {

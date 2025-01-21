@@ -1705,8 +1705,8 @@ MonoBehaviour:
   - {fileID: 4503463471725573527, guid: 389fb32f525ce9945b0efec0dad15b9e, type: 3}
   - {fileID: 565309124373656144, guid: ba6127d23275a0c40927cee902fc94b9, type: 3}
   - {fileID: 3966447376695594380, guid: 6063d9e47baacce4d83e11b29a533163, type: 3}
-  playSpecificLevel: 0
-  Level: 26
+  playSpecificLevel: 1
+  Level: 4
   Leveltext: {fileID: 1584361437}
   levelIndex: 0
 --- !u!114 &1068583534

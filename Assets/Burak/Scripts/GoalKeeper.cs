@@ -12,7 +12,7 @@ public class GoalKeeper : MonoBehaviour
     GameController gameController;
     private void Awake()
     {
-        gameController = FindObjectOfType<GameController>();
+        gameController = FindFirstObjectByType<GameController>();
         anima = GetComponent<Animator>();
     }
     private void Start()
@@ -28,11 +28,7 @@ public class GoalKeeper : MonoBehaviour
     IEnumerator kaleciMove()
     {
         while (!doNotMove)
-        {
-
-           
-
-
+        { 
             anima.SetBool("L",true);
             anima.SetBool("R", false);
 
@@ -72,9 +68,15 @@ public class GoalKeeper : MonoBehaviour
         {
             anima.SetBool("JumpLeft", true);
             Vector3 a = new Vector3(ball.transform.position.x, transform.position.y, transform.position.z);
+            float c = ball.transform.position.x;
+            float d = ball.transform.position.y;
             if (up)
+            {
+
+                transform.DOMoveY(d, 0.35f);
+            }
                a= a + Vector3.up;
-            transform.DOMove(a + Vector3.left , 0.2f);
+            transform.DOMoveX(c/2 , 0.35f);
         }
         if (direct == 2)
         {
@@ -83,7 +85,7 @@ public class GoalKeeper : MonoBehaviour
             if (up)
                 a = a + Vector3.up;
 
-            transform.DOMove(a + Vector3.right , 0.2f);
+            transform.DOMove(a + Vector3.right/2 , 0.2f);
         }
       
         /*

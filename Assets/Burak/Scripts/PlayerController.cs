@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,8 +28,10 @@ using UnityEngine.InputSystem;
         shoot = true;
         Bezier bezier= FindFirstObjectByType<Bezier>();
         bezier.isShoot = true;
+        bezier.DisableDotVisuals();
         FindFirstObjectByType<Ball>().Shoot(bezier.GetPath());
         FindFirstObjectByType<Player>().Shoot();
+       
     }
     private void Update()
     {
@@ -72,17 +74,17 @@ using UnityEngine.InputSystem;
        y = bezierMove.transform.position.y ;
         x = bezierMove.transform.position.x;
 
-       
+        Debug.LogError("mousepos farkı olması lazım");
 
         if (y < 0)
             bezierMove.transform.position = new Vector3(bezierMove.transform.position.x,0,bezierMove.transform.position.z);
 
 
-        if (x>7)
+        if (x>4.5f)
         {
             MoveGoal();
          }
-        if(x<-7f)
+        if(x<-4.5f)
         {
             MoveGoal();
          }

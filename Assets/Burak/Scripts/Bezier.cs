@@ -66,6 +66,13 @@ public class Bezier : MonoBehaviour
             dotList[i].transform.position = positions[i];
         }
     }
+    public void DisableDotVisuals()
+    {
+        for (int i = 0; i < numPoints - 1; i++)
+        {
+          dotList[i].gameObject.SetActive(false);
+        }
+    }
    public Vector3[] GetPath()
     {
         return positions;
