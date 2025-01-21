@@ -23,11 +23,7 @@ using UnityEngine.InputSystem;
 
         // Upgrade sistemi
 // futbolcu top statları
-//  şut hızı vs 
-// shop fiytlandırma parabolik
-// shop kısmında şut atıyo 
-
-
+//  şut hızı vs  
     }
 
 
