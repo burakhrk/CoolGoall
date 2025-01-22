@@ -8,14 +8,16 @@ public class TruckWheel : MonoBehaviour
    
     private void Start()
     {
+        float random = Random.RandomRange(0, 1f);
         RotateWheel();
+      
     }
 
 
     public void RotateWheel()
     {
 
-        this.transform.DOLocalRotate(new Vector3(90, 0, 0), 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+        this.transform.DOLocalRotate(new Vector3(90, 0, 0), 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             RotateWheel2();
 
@@ -23,7 +25,7 @@ public class TruckWheel : MonoBehaviour
     }
     public void RotateWheel2()
     {
-        this.transform.DOLocalRotate(new Vector3(0, 0, 0), 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+        this.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             RotateWheel();
 
