@@ -7,10 +7,8 @@ public class TruckWheel : MonoBehaviour
 {
    
     private void Start()
-    {
-        float random = Random.RandomRange(0, 1f);
-        RotateWheel();
-      
+    { 
+        RotateWheel(); 
     }
 
 

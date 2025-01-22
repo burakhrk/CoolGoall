@@ -8,4 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Burak/Burak.unity
     guid: c48ec13ecc53546baa147d098dd7802d
+  - enabled: 1
+    path: Assets/Burak/BurakBallDragging.unity
+    guid: f7995cfc9eb96a0438bad355367b95a5
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
