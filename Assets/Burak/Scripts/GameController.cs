@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using System.Threading;
+using UnityEditor;
 public class GameController : MonoBehaviour
 {
 
@@ -27,12 +28,26 @@ public class GameController : MonoBehaviour
     public UnityAction OnShopClosed;
 
     public bool gameEnd=false;
-    public bool CanShoot = true;
-    CoinController coinController;
+    public bool CanShoot = false;
+    
 
-    [SerializeField] GameObject closeShopButton;
+
+
+CoinController coinController;
+  [SerializeField]  PlayerController playerController;
+   [SerializeField] GameObject closeShopButton;
     [SerializeField] GameObject openShopButton;
-
+  public  bool onboarding;
+    public void OnBoarding()
+    {
+       playerController.OnBoarding();
+        onboarding = true;
+    }
+    public void OnBoardingDone()
+    {
+        playerController.OnBoardingDOne();
+        CanShoot = true;
+    }
     private void Awake()
     {
         CanShoot= false;
@@ -48,7 +63,11 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        Invoke("AllowShoot", 1f);
+        if(!onboarding)
+        {
+            Invoke("AllowShoot", 1f);
+            Debug.Log("sasdasdsasd");
+        }
 
         levelController = GetComponent<LevelController>();
         kale = FindFirstObjectByType<Kale>().gameObject;

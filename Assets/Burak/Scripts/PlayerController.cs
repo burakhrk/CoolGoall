@@ -15,6 +15,8 @@ using UnityEngine.InputSystem;
     [SerializeField] float boundx=4f;
     GameController gameController;
     bool shoot= false;
+    bool isOnBoarding = false;
+  [SerializeField]  OnBoardingController onBoardingController;
     private void Awake()
     {
         bezierStartPos = bezierMove.transform.position;
@@ -33,8 +35,15 @@ using UnityEngine.InputSystem;
    cheer  text ekle   
        */
     }
+    public void OnBoarding()
+    {
+        isOnBoarding=true;
+    }
+    public void OnBoardingDOne()
+    {
+        isOnBoarding = false;
 
-
+    }
     private void Shoot()
     {
         Debug.Log("Shoot");
@@ -47,17 +56,25 @@ using UnityEngine.InputSystem;
 
     }
    
-
+    void OnBoardingNext()
+    { 
+        onBoardingController.NextStep();
+    }
         private void Update()
     {
         if (shoot)
             return;
 
-        if (Input.GetMouseButtonUp(0)&&gameController.CanShoot)
+        if (Input.GetMouseButtonUp(0) && gameController.CanShoot&&!isOnBoarding)
         {
             Shoot();
             return;
         }
+        if (Input.GetMouseButtonUp(0)&&isOnBoarding)
+        {
+           OnBoardingNext();
+        }
+        
         Vector2 startPos;
         startPos= player.actions["Move"].ReadValue<Vector2>();
         Vector2 go;

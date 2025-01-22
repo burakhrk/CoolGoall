@@ -11,6 +11,8 @@ public class LevelController : MonoBehaviour
     public int Level;
     GameObject activeLevel;
     public TextMeshProUGUI Leveltext;
+
+  [SerializeField]  OnBoardingController boardingController;
     private void Awake()
     {
 
@@ -30,7 +32,14 @@ public class LevelController : MonoBehaviour
         else
             Level = 1;
 
+        if (Level == 1)
+        {
+            boardingController.StartOnBoarding();
+            gameController.OnBoarding();
+        }
+
         ActivateLevel();
+       
     }
 
     public int levelIndex;
