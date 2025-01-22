@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
  public class PlayerController : MonoBehaviour
@@ -53,15 +54,23 @@ using UnityEngine.InputSystem;
         bezier.DisableDotVisuals();
         FindFirstObjectByType<Ball>().Shoot(bezier.GetPath());
         FindFirstObjectByType<Player>().Shoot();
-
     }
-   
+    float onboardingTimer = 3f;
+    bool waitForSeconds=false;
+    int counterBoarding=0;
     void OnBoardingNext()
     { 
         onBoardingController.NextStep();
     }
         private void Update()
     {
+        if (isOnBoarding)
+        {
+            onboardingTimer -= Time.deltaTime;
+            if (onboardingTimer <= 0)
+                waitForSeconds = true;
+        }
+
         if (shoot)
             return;
 
@@ -72,7 +81,23 @@ using UnityEngine.InputSystem;
         }
         if (Input.GetMouseButtonUp(0)&&isOnBoarding)
         {
-           OnBoardingNext();
+            if (waitForSeconds)
+            {
+                waitForSeconds = false;
+                onboardingTimer = 3f;
+                OnBoardingNext();
+            }
+            else
+            {
+               counterBoarding++;
+                if(counterBoarding>=2)
+                {
+                    waitForSeconds = false;
+                    onboardingTimer = 3f;
+                    OnBoardingNext();
+                    counterBoarding = 0;
+                }
+            }
         }
         
         Vector2 startPos;
@@ -113,7 +138,7 @@ using UnityEngine.InputSystem;
         }
  
         if (y < 0)
-            bezierMove.transform.position = new Vector3(bezierMove.transform.position.x,0.1f,bezierMove.transform.position.z);
+            bezierMove.transform.position = new Vector3(bezierMove.transform.position.x,0.32f,bezierMove.transform.position.z);
 
 
         if (x>4.5f)

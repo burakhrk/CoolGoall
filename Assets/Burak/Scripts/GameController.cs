@@ -66,8 +66,7 @@ CoinController coinController;
         if(!onboarding)
         {
             Invoke("AllowShoot", 1f);
-            Debug.Log("sasdasdsasd");
-        }
+         }
 
         levelController = GetComponent<LevelController>();
         kale = FindFirstObjectByType<Kale>().gameObject;
