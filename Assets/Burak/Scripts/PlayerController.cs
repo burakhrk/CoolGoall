@@ -105,14 +105,17 @@ using UnityEngine.InputSystem;
         Vector2 go;
         go = player.actions["Move"].ReadValue<Vector2>();
        move= go - lastPos;
+
          if(go==Vector2.zero)
         {
             ResetBezier();
          }
         else
         {
-            MoveBezier();
+            if (move.y > 3.5f)
+                move.y = 3.5f;
 
+            MoveBezier();
         }
         lastPos = go;
     }
@@ -125,8 +128,7 @@ using UnityEngine.InputSystem;
     [SerializeField] float y;
 
     void MoveBezier()
-    { 
-
+    {  
         bezierMove.transform.position += (Vector3)move * sensivity ;
        
        y = bezierMove.transform.position.y ;
