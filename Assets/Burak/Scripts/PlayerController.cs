@@ -20,10 +20,18 @@ using UnityEngine.InputSystem;
         bezierStartPos = bezierMove.transform.position;
         goalStartPos = bezierGoal.transform.position;
         gameController = FindFirstObjectByType<GameController>();
-
+        // onboarding
         // Upgrade sistemi
 // futbolcu top statları
 //  şut hızı vs  
+
+        
+
+
+
+        /*
+   cheer  text ekle   
+       */
     }
 
 
@@ -98,9 +106,7 @@ using UnityEngine.InputSystem;
         if(x<-4.5f)
         {
             MoveGoal();
-         }
-        Debug.Log(y);
-       
+         } 
              MoveGoal(); 
     }
     void ResetGoalPos()

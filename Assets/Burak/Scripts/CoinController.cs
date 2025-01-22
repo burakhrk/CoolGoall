@@ -8,9 +8,14 @@ public class CoinController : MonoBehaviour
     [SerializeField] TextMeshProUGUI coinText;
     public UnityAction<int> onCoinChanged;
     public int coin;
+  public  bool setMoney = false;
     private void Awake()
     {
-        if(coin>0)
+        if(setMoney)
+            PlayerPrefs.SetInt("Coin", coin);
+
+
+        if (coin>0)
             PlayerPrefs.SetInt("Coin", coin);
 
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using CrazyGames;
 using UnityEngine.UI;
 using TMPro;
 public class BallSkin : MonoBehaviour
@@ -51,6 +51,28 @@ public class BallSkin : MonoBehaviour
 
     }
 
+    void RewardedShow()
+    {
+        CrazySDK.Ad.RequestAd(
+                 CrazyAdType.Rewarded,
+                 () =>
+                 {
+                     Debug.Log("Rewarded ad started");
+                 },
+                 (error) =>
+                 {
+                     Debug.Log("Rewarded ad error: " + error);
+                 },
+                 () =>
+                 {
+                     RewardedClosed();
+                 }
+             );
+    }
+    void RewardedClosed()
+    { 
+        RewardEarned();
+    }
     public void UnlockedItem()
     {
         Debug.Log("unlocked");
@@ -62,78 +84,24 @@ public class BallSkin : MonoBehaviour
         SelectSkin();
 
     }
+    public void UnlockAd()
+    {
+        RewardedShow();
+    }
     public void Unlock()
-    {
-        if (rewarded)
-        {
-            UnlockRewarded();
-            return;
-        } 
+    { 
         coinController.SpendCoin(Price);
-        UnlockedItem();
-
-    }
-   
-    void UnlockRewarded()
-    {
-        /*
-        adManager = shopController.adManager;
-        if (adManager.RewardedAdManager.IsRewardedAdReady())
-        {
-            adManager.RewardedAdManager.RegisterOnAdClosedEvent(RewardedClosed);
-            adManager.RewardedAdManager.RegisterOnAdShowFailedEvent(RewardedClosed);
-            adManager.RewardedAdManager.RegisterOnUserEarnedRewarededEvent(RewardEarned);
-            adManager.RewardedAdManager.ShowAd();
-        }
-        */
-    }
-
+        UnlockedItem(); 
+    } 
     private void RewardEarned()
-    {
-#if CRAZY_GSDK
-        if (Unlocked)
-            return;
- 
-#endif
-
+    { 
         Debug.Log("unlocked");
         Unlocked = true;
         unlockButton.gameObject.SetActive(false);
         SelectButton(true);
 
         shopController.NewBallSkinUnlocked(this);
-    }
-
-
-    private void RewardedClosedOne()
-    {
-        /*
-        adManager.RewardedAdManager.UnRegisterOnAdClosedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnAdShowFailedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnUserEarnedRewarededEvent(RewardEarned);
-
-        */
-        /*
-         if (Unlocked)
-            return;
-
-        RewardEarned(null, null);
-        */
-     }
-
-    private void RewardedClosedTwo()
-    {
-        /*
-        adManager.RewardedAdManager.UnRegisterOnAdClosedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnAdShowFailedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnUserEarnedRewarededEvent(RewardEarned);
-        */
-         if (Unlocked)
-            return;
-
-        RewardEarned();
-     }
-
+    } 
     void SelectButton(bool enable)
     {
         selectButton.interactable = enable;

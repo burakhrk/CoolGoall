@@ -24,7 +24,9 @@ public class GameController : MonoBehaviour
     LevelController levelController;
     [SerializeField] GameObject cheerText;
      public UnityAction OnGameEnd;
-   public bool gameEnd=false;
+    public UnityAction OnShopClosed;
+
+    public bool gameEnd=false;
     public bool CanShoot = true;
     CoinController coinController;
 
@@ -60,6 +62,12 @@ public class GameController : MonoBehaviour
             {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Burak");
         }
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            ActivateWinPanel();
+        }
+        Debug.Log("remove here");
     }
     public void Goal()
     {
@@ -89,6 +97,7 @@ public class GameController : MonoBehaviour
         OnGameEnd?.Invoke();
         gameEnd = true;
     }
+ 
     void ActivateWinPanel()
     {
         PlayerPrefs.SetInt("Level", levelController.Level + 1);
@@ -118,6 +127,7 @@ public class GameController : MonoBehaviour
         shopPanel.SetActive(false);
         closeShopButton.SetActive(false);
          Invoke("Asd", 0.5f);
+       OnShopClosed?.Invoke();
     }
     void Asd()
     {

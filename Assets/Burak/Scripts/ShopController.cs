@@ -104,6 +104,7 @@ public class ShopController : MonoBehaviour
         topPanel.SetActive(true);
         formaPanel.SetActive(false);
     }
+ 
     public void SkinSelected(PlayerSkin a)
     {
         skinController.ChangeSkin(skinList.IndexOf(a));
@@ -111,7 +112,6 @@ public class ShopController : MonoBehaviour
 
     public void SkinSelectedBall(BallSkin a)
     {
-        skinController.ChangeBallSkin(BallskinList.IndexOf(a));
-
+        skinController.ChangeBallSkin(BallskinList.IndexOf(a)); 
     }
 }

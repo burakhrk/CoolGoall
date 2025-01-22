@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-
+using CrazyGames;
 public class PlayerSkin : MonoBehaviour
 {
     public bool rewarded;
@@ -17,9 +17,7 @@ public class PlayerSkin : MonoBehaviour
   [SerializeField]  TextMeshProUGUI priceText;
     [SerializeField] GameObject adIcon;
     private void Awake()
-    {
-        //  unlockButton = GetComponentInChildren<Button>();
-        // selectButton = GetComponent<Button>();
+    { 
         if (rewarded)
         {
             priceText.text = Price.ToString();
@@ -28,7 +26,7 @@ public class PlayerSkin : MonoBehaviour
         else 
             priceText.text = Price.ToString();
 
-    }
+    } 
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
     {
         shopController = shopController1;
@@ -53,43 +51,24 @@ public class PlayerSkin : MonoBehaviour
     }
 
     public   void UnlockedItem()
-    {
-        Debug.Log("unlocked");
+    { 
         Unlocked = true;
         unlockButton.gameObject.SetActive(false);
         SelectButton(true);
 
         shopController.NewSkinUnlocked(this);
-
-        SelectSkin();
+      //  SelectSkin();
+    }
+    public void UnlockAd()
+    {
+        RewardedShow();
     }
     public void Unlock()
-    {
-        if (rewarded)
-        {
-            UnlockRewarded();
-            return;
-        }
-          
-
+    { 
         coinController.SpendCoin(Price);
         UnlockedItem();
 
-    }
-    void UnlockRewarded()
-    {
-        /*
-        adManager = shopController.adManager;
-       if(adManager.RewardedAdManager.IsRewardedAdReady())
-        {
-            adManager.RewardedAdManager.RegisterOnAdClosedEvent(RewardedClosed);
-            adManager.RewardedAdManager.RegisterOnAdShowFailedEvent(RewardedClosed);
-            adManager.RewardedAdManager.RegisterOnUserEarnedRewarededEvent(RewardEarned);
-            adManager.RewardedAdManager.ShowAd();
-        }
-        */
-    }
-
+    } 
     private void RewardEarned()
     {
 
@@ -105,43 +84,41 @@ public class PlayerSkin : MonoBehaviour
         shopController.NewSkinUnlocked(this);
     }
 
-     
-    private void RewardedClosedTwo()
+     void RewardedShow()
     {
-        /*
-        adManager.RewardedAdManager.UnRegisterOnAdClosedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnAdShowFailedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnUserEarnedRewarededEvent(RewardEarned);
-
-
-        */
+        CrazySDK.Ad.RequestAd(
+                 CrazyAdType.Rewarded,
+                 () =>
+                 {
+                     Debug.Log("Rewarded ad started");
+                 },
+                 (error) =>
+                 {
+                     Debug.Log("Rewarded ad error: " + error);
+                 },
+                 () =>
+                 {
+                     RewardedClosed();
+                 }
+             );
+    }
+    private void RewardedClosed()
+    { 
          if (Unlocked)
             return;
 
             RewardEarned();
-     }
-
-    private void RewardedClosedOne()
-    {
-        /*
-        adManager.RewardedAdManager.UnRegisterOnAdClosedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnAdShowFailedEvent(RewardedClosed);
-        adManager.RewardedAdManager.UnRegisterOnUserEarnedRewarededEvent(RewardEarned);
-        */
-         if (Unlocked)
-            return;
-
-        RewardEarned();
-     }
-
+    }
+ 
 
     void SelectButton(bool enable)
     {
         selectButton.interactable = enable;
-
     }
     public void SelectSkin()
     {
+        if(Unlocked)
         shopController.SkinSelected(this);
+       
     }
 }
