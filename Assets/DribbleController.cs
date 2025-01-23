@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class DribbleController : MonoBehaviour
@@ -25,16 +26,38 @@ public class DribbleController : MonoBehaviour
     bool allowAimShoot = false;
     float doubleSpaceBlocker = 0.3f;
     Animator animator;
+    bool aiming = false;
+    [SerializeField] float loseBallAimingTimer=7f;
+    float aimingTimerReturn;
+    ShotController shotController;
+
+
+
+    private void Awake()
+    {
+        shotController = GetComponent<ShotController>();    
+    }
     void Start()
     {
+        aimingTimerReturn = loseBallAimingTimer;
+        moveSpeedWhileShooting = moveSpeed / 3;
          animator = GetComponent<Animator>();   
     }
-
+    float moveSpeedWhileShooting;
     void Update()
     {
-        HandleMovementInput();
-    }
+        if(!isShooting)
+        {
+            HandleMovementInput();
+            moveSpeed = moveSpeedWhileShooting * 3;
+        }
+        else
+        {
+            moveSpeed = moveSpeedWhileShooting;
+        }
 
+    }
+  
     void FixedUpdate()
     {
         if(isShooting)
@@ -45,8 +68,27 @@ public class DribbleController : MonoBehaviour
                 allowAimShoot=true;
             }
         }
+        if(aiming)
+        {
+            loseBallAimingTimer -= Time.deltaTime;
+            if(loseBallAimingTimer < 0 )
+            {
+                LoseBall();
+            }
+        }
+        else
+        {
+            loseBallAimingTimer = aimingTimerReturn;
+        }
+
+        if(isShooting && hasBall )
+        {
+            HandleMovement();
+            HandleDribble();
+        }
         if (Input.GetKeyDown(KeyCode.Space) && !isShooting && hasBall)
         {
+            
             HandleShoot();
             return;
         }
@@ -72,57 +114,73 @@ public class DribbleController : MonoBehaviour
     void HandleAim()
     {
         animator.SetBool("Shoot", true);
+        CalculateShoot();
+        sliderController.ResetSlider();
+        aiming = false;
+     }
+    float distanceToCenter;
+    void CalculateShoot()
+    {
         float aimQuality;
         aimQuality = sliderController.GetValue();
-        sliderController.ShootValueFeedBack();
-        Debug.Log( "shoot value "+aimQuality);
-        sliderController.ResetSlider(); 
-     }
+        distanceToCenter = Mathf.Abs(aimQuality - 0.5f);
+        shotController.ShowFeedBackText(distanceToCenter);
+    }
     public void AnimationEnd()
     {
-        Debug.Log("it works animation end ");
+         Debug.Log("Ball" + ball);
+        shotController.GetReadyForShoot(ball.transform);
+        Debug.Log("shoot value " + distanceToCenter);
         EndShoot();
+    }
+    void LoseBall()
+    {
+        aiming = false;
+        EndShoot();
+        sliderController.ResetSlider();
+        Vector3 a = ballVelocity;
+        a = a * 3;
+        Vector3 direct = ball.transform.position - transform.position;
+        direct=direct * 25;
+        direct.y = Mathf.Max(direct.y, 0.25f); // Prevent ball from going below ground level
+
+        // ball.transform.position = Vector3.SmoothDamp(ball.transform.position, direct, ref(a), smoothDribbleFactor);
+       ballrb=ball.GetComponent<Rigidbody>();
+        ballrb.isKinematic = false;
+        ballrb.AddForce(direct);
+        Invoke("StopBall", 3f);
+    }
+    Rigidbody ballrb;
+
+    void StopBall()
+    {
+        if(ball.GetComponent<DribblingBall>().hasOwner)
+        {
+            Debug.LogError("might be causing bug");
+        }
+        else
+        { 
+            ballrb.angularVelocity = Vector3.zero;
+            ballrb.linearVelocity = Vector3.zero;
+        }
+
     }
     void EndShoot()
     {
-
-        animator.applyRootMotion = true;
-        /*
-        // Animasyonun son karesindeki pozisyonu hesapla
-        animator.Play("Shoot", 0, 1f); // Animasyonu son kareye getir
-        animator.Update(0f); // Animasyonu güncelle
-
-        Vector3 endPosition = transform.position;
-
-        animator.Play("Idle"); //animasyonu idle'a geri döndür
-        animator.Update(0f); //animasyonu güncelle
-        
-        // Karakteri son karedeki pozisyona yerleştir
-        transform.position = endPosition;
-        */
         animator.SetBool("Shoot", false);
         isShooting = false;
         hasBall = false;
         allowAimShoot= false;
         doubleSpaceBlocker = 0.3f;
-       
     }
-    /*
-    IEnumerator ShootEndNumerator()
-    {
-        yield return new WaitForSeconds(1);
-        animator.SetBool("Shoot", false);
-        isShooting = false;
-        hasBall = false;
-        GetComponent<Rigidbody>().isKinematic = false;
-
-    }
-    */
+   
+    
     void HandleShoot()
     {
          animator.SetBool("Running", false);
         sliderController.StartSlider();
         isShooting = true;
+        aiming = true;
       //  Time.timeScale = Time.timeScale / 2;   
     }
     
@@ -184,6 +242,9 @@ public class DribbleController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isShooting)
+            return;
+
         if (other.gameObject.CompareTag("Ball"))
         {
             ball = other.gameObject;

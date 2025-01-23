@@ -7,6 +7,11 @@ public class SliderController : MonoBehaviour
     public float sliderIncreaseAmount = 0.1f;
    public bool startSlider = false;
    [SerializeField] bool sliderMoveRight = true;
+    [SerializeField] TextMesh feedBackText;
+    [SerializeField] float perfectThreshold;
+    [SerializeField] float niceThreshold;
+   [SerializeField] float badThreshold;
+
     private void Start()
     {
         startSlider = false;
@@ -49,9 +54,5 @@ public class SliderController : MonoBehaviour
     public  float GetValue()
     {
         return slider.value;
-    }
-    public void ShootValueFeedBack()
-    {
-        Debug.Log("Tell users some good or bad stuff here");
-    }
+    } 
 }
