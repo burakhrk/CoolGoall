@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using UnityEngine;
 
 public class DribbleController : MonoBehaviour
@@ -5,7 +6,7 @@ public class DribbleController : MonoBehaviour
     [Header("Player Movement Settings")]
     public float moveSpeed = 5f;
     public float rotationSpeed = 720f;
-
+    [SerializeField] SliderController sliderController;
     [Header("Dribble Settings")]
     public GameObject ball;
     public Transform ballFollowPoint;
@@ -20,7 +21,9 @@ public class DribbleController : MonoBehaviour
     private float dribbleTimer;
     private bool hasBall = false;
     private Vector3 ballVelocity = Vector3.zero;
-
+   [SerializeField] bool isShooting = false;
+    bool allowAimShoot = false;
+    float doubleSpaceBlocker = 0.3f;
     Animator animator;
     void Start()
     {
@@ -34,13 +37,95 @@ public class DribbleController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(isShooting)
+        {
+            doubleSpaceBlocker -=Time.deltaTime;
+            if(doubleSpaceBlocker < 0 )
+            {
+                allowAimShoot=true;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && !isShooting && hasBall)
+        {
+            HandleShoot();
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && isShooting && hasBall&&allowAimShoot)
+        {
+            HandleAim();
+            return;
+        }
+        if(isShooting)
+            return;
+
+
         HandleMovement();
+       
         if (hasBall)
         {
             HandleDribble();
         }
-    }
+      
 
+    }
+   
+    void HandleAim()
+    {
+        animator.SetBool("Shoot", true);
+        float aimQuality;
+        aimQuality = sliderController.GetValue();
+        sliderController.ShootValueFeedBack();
+        Debug.Log( "shoot value "+aimQuality);
+        sliderController.ResetSlider(); 
+     }
+    public void AnimationEnd()
+    {
+        Debug.Log("it works animation end ");
+        EndShoot();
+    }
+    void EndShoot()
+    {
+
+        animator.applyRootMotion = true;
+        /*
+        // Animasyonun son karesindeki pozisyonu hesapla
+        animator.Play("Shoot", 0, 1f); // Animasyonu son kareye getir
+        animator.Update(0f); // Animasyonu güncelle
+
+        Vector3 endPosition = transform.position;
+
+        animator.Play("Idle"); //animasyonu idle'a geri döndür
+        animator.Update(0f); //animasyonu güncelle
+        
+        // Karakteri son karedeki pozisyona yerleştir
+        transform.position = endPosition;
+        */
+        animator.SetBool("Shoot", false);
+        isShooting = false;
+        hasBall = false;
+        allowAimShoot= false;
+        doubleSpaceBlocker = 0.3f;
+       
+    }
+    /*
+    IEnumerator ShootEndNumerator()
+    {
+        yield return new WaitForSeconds(1);
+        animator.SetBool("Shoot", false);
+        isShooting = false;
+        hasBall = false;
+        GetComponent<Rigidbody>().isKinematic = false;
+
+    }
+    */
+    void HandleShoot()
+    {
+         animator.SetBool("Running", false);
+        sliderController.StartSlider();
+        isShooting = true;
+      //  Time.timeScale = Time.timeScale / 2;   
+    }
+    
     void HandleMovementInput()
     {
         float horizontal = Input.GetAxis("Horizontal");
