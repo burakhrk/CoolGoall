@@ -115,8 +115,7 @@ CoinController coinController;
         OnGameEnd?.Invoke();
         gameEnd = true;
     }
- 
-    void ActivateWinPanel()
+     void ActivateWinPanel()
     {
         PlayerPrefs.SetInt("Level", levelController.Level + 1);
         coinController.MakeCoin(100);
