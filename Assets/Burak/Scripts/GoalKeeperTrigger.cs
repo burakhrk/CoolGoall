@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GoalKeeperTrigger : MonoBehaviour
 {
+ 
     bool workOnce = false;
     GoalKeeper goalKeeper;
     private void Awake()
@@ -12,6 +13,7 @@ public class GoalKeeperTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         if (workOnce)
             return;
 

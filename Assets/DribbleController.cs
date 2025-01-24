@@ -215,8 +215,19 @@ public class DribbleController : MonoBehaviour
             float angle = Mathf.LerpAngle(transform.eulerAngles.y, targetAngle, Time.deltaTime * rotationSpeed);
             transform.rotation = Quaternion.Euler(0, angle, 0);
 
+            // Save the current position before moving
+            Vector3 originalPosition = transform.position;
+
             // Move the player
             transform.Translate(movementInput * moveSpeed * Time.deltaTime, Space.World);
+
+            // Clamp the position within the x and z borders
+            float clampedX = Mathf.Clamp(transform.position.x, -17f, 18f);
+            float clampedZ = Mathf.Clamp(transform.position.z, -17,9);
+
+            // Apply the clamped position if out of bounds
+            transform.position = new Vector3(clampedX, transform.position.y, clampedZ);
+
             animator.SetBool("Running", true);
         }
         else

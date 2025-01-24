@@ -6,6 +6,19 @@ using TMPro;
 {
     public TextMeshProUGUI goalText;
     bool workOnce = false;
+    int coin;
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey("Coin"))
+        {
+            coin = PlayerPrefs.GetInt("Coin");
+        }
+        else
+        {
+            coin = 0;
+            PlayerPrefs.SetInt("Coin", coin);
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -20,5 +33,10 @@ using TMPro;
 
         workOnce = true;
         goalText.gameObject.SetActive(true);
+    }
+    public void GoldCollected(int plus)
+    {
+        coin = coin + plus;
+        PlayerPrefs.SetInt("Coin", coin);
     }
 }
