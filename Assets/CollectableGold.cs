@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 public class CollectableGold : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clip;
 
     [SerializeField] DribbleGameController controller;
-    private void OnTriggerEnter(Collider other)
+     private void OnTriggerEnter(Collider other)
     {
         controller.GoldCollected(25);
         gameObject.SetActive(false);
-        audioSource.Play(); 
+        controller.soundController.PlayAudio(clip);
     }
-      
+       
 }

@@ -4,9 +4,18 @@ using UnityEngine.UI;
 using TMPro;
  public class DribbleGameController : MonoBehaviour
 {
+    public SoundController soundController;
     public TextMeshProUGUI goalText;
     bool workOnce = false;
     int coin;
+    private void Start()
+    {
+        StartGame();
+    }
+    void StartGame()
+    {
+        soundController.PlayWhistle();
+    }
     private void Awake()
     {
         if (PlayerPrefs.HasKey("Coin"))
