@@ -55,9 +55,12 @@ public class GoalKeeper : MonoBehaviour
    
    public void Jump(GameObject ball , int direct,bool up )
     {
-        if (gameController.gameEnd)
-            return;
-
+        if(gameController)
+        {
+            if (gameController.gameEnd)
+                return;
+        }
+       
         doNotMove = true;
         StopCoroutine(kaleciMove());
         mySequence.Kill();

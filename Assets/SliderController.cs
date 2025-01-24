@@ -7,8 +7,7 @@ public class SliderController : MonoBehaviour
     public float sliderIncreaseAmount = 0.1f;
    public bool startSlider = false;
    [SerializeField] bool sliderMoveRight = true;
-    [SerializeField] TextMesh feedBackText;
-    [SerializeField] float perfectThreshold;
+     [SerializeField] float perfectThreshold;
     [SerializeField] float niceThreshold;
    [SerializeField] float badThreshold;
 

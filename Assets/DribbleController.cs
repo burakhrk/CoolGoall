@@ -24,18 +24,20 @@ public class DribbleController : MonoBehaviour
     private Vector3 ballVelocity = Vector3.zero;
    [SerializeField] bool isShooting = false;
     bool allowAimShoot = false;
-    float doubleSpaceBlocker = 0.3f;
+    float doubleSpaceBlocker = 0.15f;
     Animator animator;
     bool aiming = false;
     [SerializeField] float loseBallAimingTimer=7f;
     float aimingTimerReturn;
     ShotController shotController;
 
-
-
+    bool sprinting = false;
+    float sprintSpeed = 5f;
+    float moveSpeedReturner;
     private void Awake()
     {
-        shotController = GetComponent<ShotController>();    
+        shotController = GetComponent<ShotController>();
+        moveSpeedReturner = moveSpeed;
     }
     void Start()
     {
@@ -49,7 +51,18 @@ public class DribbleController : MonoBehaviour
         if(!isShooting)
         {
             HandleMovementInput();
+       
             moveSpeed = moveSpeedWhileShooting * 3;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                sprinting = true;
+                moveSpeed = sprintSpeed;
+            }
+            else
+            {
+                moveSpeed = moveSpeedReturner;
+                sprinting = false;
+            }
         }
         else
         {
@@ -83,6 +96,7 @@ public class DribbleController : MonoBehaviour
 
         if(isShooting && hasBall )
         {
+           
             HandleMovement();
             HandleDribble();
         }
@@ -188,6 +202,7 @@ public class DribbleController : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+       
         movementInput = new Vector3(horizontal, 0, vertical).normalized;
     }
 
@@ -239,7 +254,19 @@ public class DribbleController : MonoBehaviour
         // Rotate the ball for realism
         ball.transform.Rotate(Vector3.right * ballRotationSpeed * Time.deltaTime);
     }
-
+    void TakeBall()
+    {
+        
+        Debug.Log("Ball Taken");
+        hasBall = true;
+        ball.GetComponent<DribblingBall>().BallReceived();
+        // Optional: Disable physics on the ball when picked up
+        Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
+        if (ballRigidbody != null)
+        {
+            ballRigidbody.isKinematic = true;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (isShooting)
@@ -248,14 +275,9 @@ public class DribbleController : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             ball = other.gameObject;
-            hasBall = true;
 
-            // Optional: Disable physics on the ball when picked up
-            Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
-            if (ballRigidbody != null)
-            {
-                ballRigidbody.isKinematic = true;
-            }
+            if(ball.GetComponent<DribblingBall>().hasOwner==false)
+            TakeBall();
         }
     }
 }

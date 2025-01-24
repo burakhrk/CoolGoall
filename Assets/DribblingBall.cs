@@ -14,6 +14,14 @@ public class DribblingBall : MonoBehaviour
     private Vector3 endPoint; // Hedef pozisyon
     private float shotTimer; // Şut zamanlayıcısı
     private bool isShooting = false; // Şutun aktif olup olmadığını kontrol eder
+   [SerializeField] bool isGoal=false;
+    Rigidbody rb;
+
+    bool savedKeeper=false;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>(); 
+    }
     public void BallReceived()
     {
         hasOwner = true;
@@ -21,7 +29,7 @@ public class DribblingBall : MonoBehaviour
    
     private void LateUpdate()
     {
-        if (!hasOwner)
+        if (!hasOwner&&!isShooting&&!isGoal)
         {
             if (transform.position.y > 0.25f)
             {
@@ -39,20 +47,23 @@ public class DribblingBall : MonoBehaviour
                 shotTimer = 1f;
                 isShooting = false; // Şut bitti
             }
-
-            // Bezier eğrisi üzerinde topun pozisyonunu hesapla
-            Vector3 curvePosition = CalculateBezierPoint(shotTimer, startPoint, controlPoint, TargetPos);
-            ball.position = curvePosition;
-            if(curvePosition==TargetPos)
+            if(!savedKeeper)
             {
-                GetComponent<Rigidbody>().isKinematic = false;
-            }
+                // Bezier eğrisi üzerinde topun pozisyonunu hesapla
+                Vector3 curvePosition = CalculateBezierPoint(shotTimer, startPoint, controlPoint, TargetPos);
+                ball.position = curvePosition;
+                if (ball.position == TargetPos)
+                {
+                    hasOwner = false;
+                }
+            } 
         }
 
     }
     Vector3 TargetPos;
-    public void ShootSent(Vector3 Target)
+    public void ShootSent(Vector3 Target,bool Goal)
     {
+      isGoal= Goal;
         ball = transform;
         TargetPos = Target;
              // Şutun başlangıç pozisyonunu ve hedefini ayarla
@@ -68,8 +79,8 @@ public class DribblingBall : MonoBehaviour
             // Zamanlayıcıyı ve şut durumunu başlat
             shotTimer = 0f;
             isShooting = true;
-      
-        
+
+        rb.isKinematic = false;
     }
     private Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
     {
@@ -80,5 +91,37 @@ public class DribblingBall : MonoBehaviour
 
         Vector3 point = (uu * p0) + (2 * u * t * p1) + (tt * p2);
         return point;
+    }
+    public void StopBallViaKeeper()
+    {
+        savedKeeper = true;
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        rb.useGravity = true;
+        gameObject.GetComponent<SphereCollider>().isTrigger = false;
+        isGoal = false;
+        isShooting = false;
+        ResetBall();
+     }
+    void ResetBall()
+    {
+        ball.transform.position= Vector3.zero;
+    }
+    void Goal()
+    {
+        FindFirstObjectByType<DribbleGameController>().Goal();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.GetComponent<GoalKeeper>() != null) 
+        {
+            StopBallViaKeeper();
+        }
+         
+            if (other.CompareTag("Goal"))
+            {
+            Goal();
+            }
+         
     }
 } 

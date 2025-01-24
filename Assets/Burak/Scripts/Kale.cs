@@ -3,19 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Kale : MonoBehaviour
-{
-    
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
-   
-
+{ 
 }
