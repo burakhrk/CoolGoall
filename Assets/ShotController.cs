@@ -32,8 +32,7 @@ public class ShotController : MonoBehaviour
 
         // Oyuncunun yönü kaleye bakıyor mu?
           isFacingGoal = IsFacingGoal();
-        Debug.Log(isFacingGoal + "face");
-
+ 
         if (isFacingGoal)
         {
             // Zamanlama ve yön uygunsa şut kalitesi hesaplanır
@@ -80,8 +79,8 @@ public class ShotController : MonoBehaviour
             {
                 perfectTargets = new Vector3[]
                   {
-            new Vector3(- 2.49f,2.47f, goal.position.z), // Sol üst
-            new Vector3(2.49f, 2.47f, goal.position.z),  // Sağ üst
+            new Vector3(- 2.49f-Random.Range(0,0.35f),2.47f,16.75f), // Sol üst
+            new Vector3(2.49f+Random.Range(0,0.35f), 2.47f, 16.75f),  // Sağ üst
           //  new Vector3(goal.position.x - 3.35f, goal.position.y -2f, goal.position.z), // Sol üst
            // new Vector3(goal.position.x + 3.35f, goal.position.y -2f, goal.position.z)  // Sağ üst
                  };
@@ -97,8 +96,8 @@ public class ShotController : MonoBehaviour
                 // Nice için farklı noktalar (kalenin alt köşeleri)
                 niceTargets = new Vector3[]
                 {
-            new Vector3(2.46f - 2f, 0.25f, goal.position.z), // Sol alt
-            new Vector3(-2.46f + 2f,0.25f, goal.position.z)  // Sağ alt
+            new Vector3(2.46f- Random.Range(0,0.5f), 0.25f, 16.75f), // Sol alt
+            new Vector3(-2.46f+Random.Range(0,0.5f),0.25f, 16.75f)  // Sağ alt
 
                 };
 
@@ -114,7 +113,7 @@ public class ShotController : MonoBehaviour
             else
             {
                 // Miss durumunda bir hedef (kalenin dışına gider)
-                missTarget = new Vector3(goal.position.x+Random.Range(-5,5), goal.position.y + Random.Range(3,6), goal.position.z + Random.Range(3,6));
+                missTarget = new Vector3(goal.position.x+Random.Range(-5,5), goal.position.y + Random.Range(3,6), 17f+ Random.Range(3,6));
                 feedbackText.text = "Not Good!";
                 feedbackText.color = Color.red;
                 target = missTarget; // Miss hedefi
@@ -139,7 +138,7 @@ public class ShotController : MonoBehaviour
     }
     void ShootBall(Vector3 target)
     {
-        Debug.LogError("Shootball");
+        Debug.Log("Shootball");
         ball.gameObject.GetComponent<DribblingBall>().ShootSent(target,IsGoal);
     }
 
@@ -149,9 +148,7 @@ public class ShotController : MonoBehaviour
         Vector3 playerForward = player.forward.normalized; // Oyuncunun ileri yönü
         Vector3 toGoal = (goal.position - player.position).normalized; // Kaleye olan yön
 
-        float dot = Vector3.Dot(playerForward, toGoal);
-        Debug.Log(dot + "dot");
-        // Eğer dot product belirlenen eşikten büyükse, oyuncu kaleye bakıyordur
+        float dot = Vector3.Dot(playerForward, toGoal); 
         return (dot >= directionThreshold);
     }
 }

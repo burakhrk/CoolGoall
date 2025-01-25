@@ -90,8 +90,7 @@ public class LevelController : MonoBehaviour
     public void NextLevel()
     {
         Level = PlayerPrefs.GetInt("Level", 1);
-        Debug.Log("Level");
-        if (levels[Level].GetComponent<Level>().isDribbleLevel)
+         if (levels[Level-1].GetComponent<Level>().isDribbleLevel)
         {
             SceneManager.LoadScene(1); 
         }

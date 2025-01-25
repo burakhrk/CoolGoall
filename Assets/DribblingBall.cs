@@ -16,17 +16,29 @@ public class DribblingBall : MonoBehaviour
     private bool isShooting = false; // Şutun aktif olup olmadığını kontrol eder
    [SerializeField] bool isGoal=false;
     Rigidbody rb;
-
+    [SerializeField] GameObject claimedParticle;
     bool savedKeeper=false;
+    DribbleBoardingController boardingController;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
+        boardingController = FindFirstObjectByType<DribbleBoardingController>();
+
     }
     public void BallReceived()
     {
+        if(boardingController.isBoarding)
+        {
+            boardingController.BallTaken();
+        } 
         hasOwner = true;
+        claimedParticle.SetActive(true);
+        Invoke("DisableParticle", 1f);
     }
-   
+   void DisableParticle()
+    {
+        claimedParticle.SetActive(false);
+    }
     private void LateUpdate()
     {
         if (!hasOwner&&!isShooting&&!isGoal)

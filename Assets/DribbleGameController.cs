@@ -9,7 +9,9 @@ using TMPro;
     bool workOnce = false;
     int coin;
     [SerializeField] GameObject dribbleBall;
-    [SerializeField] LevelController levelController;
+    [SerializeField] LevelController levelController; 
+    DribbleBoardingController DribbleBoarding;
+     
     private void Start()
     {
         StartGame();

@@ -142,10 +142,8 @@ public class DribbleController : MonoBehaviour
     }
     public void AnimationEnd()
     {
-         Debug.Log("Ball" + ball);
-        shotController.GetReadyForShoot(ball.transform);
-        Debug.Log("shoot value " + distanceToCenter);
-        EndShoot();
+         shotController.GetReadyForShoot(ball.transform);
+         EndShoot();
     }
     void LoseBall()
     {
