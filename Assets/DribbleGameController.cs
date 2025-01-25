@@ -9,7 +9,7 @@ using TMPro;
     bool workOnce = false;
     int coin;
     [SerializeField] GameObject dribbleBall;
-    
+    [SerializeField] LevelController levelController;
     private void Start()
     {
         StartGame();
@@ -32,9 +32,14 @@ using TMPro;
     }
     private void Update()
     {
+        Debug.Log("Remove here");
         if (Input.GetKeyDown(KeyCode.R))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("BurakBallDragging");
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+           SpawnBall();
         }
     }
     public void Goal()
@@ -45,6 +50,11 @@ using TMPro;
         workOnce = true;
         goalText.gameObject.SetActive(true);
         soundController.GoalSound();
+        Invoke("DisableGoalText", 1.5f);
+    }
+    void DisableGoalText()
+    {
+        goalText.gameObject.SetActive(false);   
     }
     public void GoldCollected(int plus)
     {

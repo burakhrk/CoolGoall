@@ -37,4 +37,8 @@ public class Player : MonoBehaviour
         animator.SetTrigger("Fail");
 
     }
+    public void AnimationEnd()
+    {
+
+    }
 }

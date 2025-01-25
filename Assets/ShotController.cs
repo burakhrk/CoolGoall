@@ -80,8 +80,8 @@ public class ShotController : MonoBehaviour
             {
                 perfectTargets = new Vector3[]
                   {
-            new Vector3(goal.position.x - 3.35f, goal.position.y + 1f, goal.position.z), // Sol üst
-            new Vector3(goal.position.x + 3.35f, goal.position.y + 1f, goal.position.z),  // Sağ üst
+            new Vector3(- 2.49f,2.47f, goal.position.z), // Sol üst
+            new Vector3(2.49f, 2.47f, goal.position.z),  // Sağ üst
           //  new Vector3(goal.position.x - 3.35f, goal.position.y -2f, goal.position.z), // Sol üst
            // new Vector3(goal.position.x + 3.35f, goal.position.y -2f, goal.position.z)  // Sağ üst
                  };
@@ -97,8 +97,8 @@ public class ShotController : MonoBehaviour
                 // Nice için farklı noktalar (kalenin alt köşeleri)
                 niceTargets = new Vector3[]
                 {
-            new Vector3(goal.position.x - 2f, goal.position.y - 1.5f, goal.position.z), // Sol alt
-            new Vector3(goal.position.x + 2f, goal.position.y - 1.5f, goal.position.z)  // Sağ alt
+            new Vector3(2.46f - 2f, 0.25f, goal.position.z), // Sol alt
+            new Vector3(-2.46f + 2f,0.25f, goal.position.z)  // Sağ alt
 
                 };
 
@@ -114,7 +114,7 @@ public class ShotController : MonoBehaviour
             else
             {
                 // Miss durumunda bir hedef (kalenin dışına gider)
-                missTarget = new Vector3(goal.position.x+Random.Range(-10,10), goal.position.y + Random.Range(5,10), goal.position.z + Random.Range(5,10));
+                missTarget = new Vector3(goal.position.x+Random.Range(-5,5), goal.position.y + Random.Range(3,6), goal.position.z + Random.Range(3,6));
                 feedbackText.text = "Not Good!";
                 feedbackText.color = Color.red;
                 target = missTarget; // Miss hedefi

@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject losePanel;
     [SerializeField] GameObject shopPanel;
 
-    LevelController levelController;
+  [SerializeField]  LevelController levelController;
     [SerializeField] GameObject cheerText;
      public UnityAction OnGameEnd;
     public UnityAction OnShopClosed;
@@ -68,8 +68,7 @@ CoinController coinController;
             Invoke("AllowShoot", 1f);
          }
 
-        levelController = GetComponent<LevelController>();
-        kale = FindFirstObjectByType<Kale>().gameObject;
+         kale = FindFirstObjectByType<Kale>().gameObject;
         
         topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;

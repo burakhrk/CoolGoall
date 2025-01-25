@@ -6,6 +6,7 @@ public class GoalPositionTester : MonoBehaviour
     public Transform goal;
      void Start()
     {
+        goal = FindFirstObjectByType<Kale>().gameObject.transform;
        GameObject go= Instantiate(cube);
       go.transform.position = new Vector3(goal.position.x - 3.35f, goal.position.y + 1f, goal.position.z); // Sol üst
         GameObject go2 = Instantiate(cube);

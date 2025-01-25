@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LevelController : MonoBehaviour
 {
-    GameController gameController;
+   [SerializeField] GameController gameController;
     [SerializeField] GameObject[] levels;
     [SerializeField] bool playSpecificLevel = false;
     public int Level;
     GameObject activeLevel;
     public TextMeshProUGUI Leveltext;
-
+    [SerializeField] DribbleGameController dribbleGameController;
   [SerializeField]  OnBoardingController boardingController;
+    [SerializeField] DribbleBoardingController dribbleBoardingController;
     private void Awake()
     {
-        gameController = GetComponent<GameController>();
+        
         if (playSpecificLevel)
         {
             ActivateLevel();
@@ -30,12 +31,7 @@ public class LevelController : MonoBehaviour
         else
             Level = 1;
 
-        if (Level == 1)
-        {
-            boardingController.StartOnBoarding();
-            gameController.OnBoarding();
-        }
-
+        
         ActivateLevel();
        
     }
@@ -48,11 +44,11 @@ public class LevelController : MonoBehaviour
         Leveltext.text = b + a;
 
         levelIndex = Level % (levels.Length + 1);
-
+        GameObject go;
 
         if (Level <= levels.Length)
         {
-            var go = Instantiate(levels[levelIndex - 1]);
+              go = Instantiate(levels[levelIndex - 1]);
             go.transform.parent = transform;
             go.SetActive(true);
             //  levels[levelIndex - 1].SetActive(true);
@@ -63,13 +59,28 @@ public class LevelController : MonoBehaviour
 
         else
         {
-            var go = Instantiate(levels[levelIndex]);
+              go = Instantiate(levels[levelIndex]);
             go.transform.parent = transform;
 
             go.SetActive(true);
             activeLevel = go;
 
         }
+        Level level;
+        level=go.GetComponent<Level>();
+        if (level.isTutorial)
+        {
+            boardingController.StartOnBoarding();
+            gameController.OnBoarding();
+        }
+        else if (level.isDribblingTutorial)
+        {
+            if(dribbleBoardingController)
+                dribbleBoardingController=FindFirstObjectByType<DribbleBoardingController>();
+
+            dribbleBoardingController.StartDribbleBoarding();
+         }
+         
     }
 
     public GameObject GetActiveLevel()
@@ -79,12 +90,26 @@ public class LevelController : MonoBehaviour
     public void NextLevel()
     {
         Level = PlayerPrefs.GetInt("Level", 1);
-      // if (levels[Level].GetComponent<>)
-        SceneManager.LoadScene(0);
+        Debug.Log("Level");
+        if (levels[Level].GetComponent<Level>().isDribbleLevel)
+        {
+            SceneManager.LoadScene(1); 
+        }
+        else
+        {
+            SceneManager.LoadScene(0); 
+        } 
     }
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        if (levels[Level].GetComponent<Level>().isDribbleLevel)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
  
 

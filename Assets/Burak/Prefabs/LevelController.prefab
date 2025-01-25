@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6242018173324290630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8815088821122202568}
+  - component: {fileID: 4658042350088074846}
+  m_Layer: 0
+  m_Name: LevelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8815088821122202568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242018173324290630}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4658042350088074846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6242018173324290630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70207e0f1fc8432db4a0233f78b47d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 8893918005975696802, guid: ab1d6b33eefafa64597afa7d6fef15f7, type: 3}
+  - {fileID: 2601259148105481079, guid: e10c5000b7c90c24dbe6f12d8860e088, type: 3}
+  - {fileID: 8978380637375934921, guid: 6e4b4cf665ac5a447a2c1e9bd816a1f9, type: 3}
+  - {fileID: 4453577928645079695, guid: f81236b4784d636409cb2a69c4dc08b5, type: 3}
+  - {fileID: 3954595159823454173, guid: 63024ff7b49baa140bd567a24014df65, type: 3}
+  - {fileID: 1213113545124952577, guid: ca93a5fe8b481a440a2035ca4f045479, type: 3}
+  - {fileID: 2753029499791365390, guid: 2f9fc5c2b65fafe4fac6273e47080c2b, type: 3}
+  - {fileID: 6338178084121662464, guid: b44eea6f1441fe347aeb6829fdc6f6f1, type: 3}
+  - {fileID: 5917240450057639102, guid: 34e4ba095756a6144bd476d50d9e98e5, type: 3}
+  - {fileID: 2506018462300385661, guid: 01b971f6ead39414ca666a47a57cf138, type: 3}
+  - {fileID: 849113430900276558, guid: e82e7ada3f7ee874db143207d921ae29, type: 3}
+  - {fileID: 2537906810067368098, guid: 75bd53b614ec4a940b53a2b7c1149ab7, type: 3}
+  - {fileID: 8978204707490333149, guid: d694d132f04a0454c9de1eccc8f6c03a, type: 3}
+  - {fileID: 3935447996238968606, guid: fc1576bcd1b73e948a834c1aa8512940, type: 3}
+  - {fileID: 565309124373656144, guid: ba6127d23275a0c40927cee902fc94b9, type: 3}
+  - {fileID: 6856649035511328929, guid: 688f6c416c9044143a57d9f51280bdbb, type: 3}
+  - {fileID: 3446530498887960423, guid: 7bc67426cc730e9489c55247ec179ee9, type: 3}
+  - {fileID: 2876625525583114845, guid: 2efc5c38dcd168347a92f1504f8222f3, type: 3}
+  - {fileID: 7667383151625369998, guid: 250106f9beda7de4f84330591b406a81, type: 3}
+  - {fileID: 666405456118520248, guid: 6b4152990ed56ad4bb0c8e461b331393, type: 3}
+  - {fileID: 1192198804439587918, guid: e215669668c2ebf44b999a689788dc20, type: 3}
+  - {fileID: 5119812647652426530, guid: 3732ce7168ebaa747bb6e9e000f13f71, type: 3}
+  - {fileID: 1838677611931770800, guid: d6eab1c8b78cc6140b131efddbd7d7fa, type: 3}
+  - {fileID: 3752109174744743396, guid: 1f8446991580c9644b14ccd3f8295cda, type: 3}
+  - {fileID: 1699595758248163320, guid: 0b6b2edb740e70e4db14aa4e8ee80b78, type: 3}
+  - {fileID: 6005870506054524510, guid: fe849d6c6b4de634e80b6d1afcad15de, type: 3}
+  - {fileID: 7529632542559873424, guid: b3e6209a28069924d935571cc4a8cceb, type: 3}
+  - {fileID: 2549929906324321766, guid: 562be6b33f7497c45818584fc513375a, type: 3}
+  - {fileID: 6978760714060624994, guid: d1cb4ef95477aee479374b08e146736c, type: 3}
+  - {fileID: 4503463471725573527, guid: 389fb32f525ce9945b0efec0dad15b9e, type: 3}
+  - {fileID: 3966447376695594380, guid: 6063d9e47baacce4d83e11b29a533163, type: 3}
+  playSpecificLevel: 0
+  Level: 7
+  Leveltext: {fileID: 0}
+  boardingController: {fileID: 0}
+  levelIndex: 4

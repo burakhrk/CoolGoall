@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 8354172757446244939}
   - component: {fileID: 9185435894421003585}
   m_Layer: 0
-  m_Name: LWL1
+  m_Name: Dribble1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,8 +400,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1817086860584905192}
   - {fileID: 1827323705182196731}
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3785a77d483b14c977537a0945ff7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDribbleLevel: 0
-  isTutorial: 1
-  isDribblingTutorial: 0
+  isDribbleLevel: 1
+  isTutorial: 0
+  isDribblingTutorial: 1
 --- !u!1001 &544694648071090661
 PrefabInstance:
   m_ObjectHideFlags: 0
