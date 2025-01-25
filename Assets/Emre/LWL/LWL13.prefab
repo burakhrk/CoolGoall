@@ -312,6 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8366154345955622452}
+  - component: {fileID: 7939034451438574885}
   m_Layer: 0
   m_Name: LWL13
   m_TagString: Untagged
@@ -337,6 +338,19 @@ Transform:
   - {fileID: 1343676026108618033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7939034451438574885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978204707490333149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3785a77d483b14c977537a0945ff7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDribbleLevel: 0
 --- !u!1001 &3437596044420671926
 PrefabInstance:
   m_ObjectHideFlags: 0

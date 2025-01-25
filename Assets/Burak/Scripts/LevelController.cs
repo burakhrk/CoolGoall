@@ -15,8 +15,6 @@ public class LevelController : MonoBehaviour
   [SerializeField]  OnBoardingController boardingController;
     private void Awake()
     {
-
-
         gameController = GetComponent<GameController>();
         if (playSpecificLevel)
         {
@@ -80,8 +78,9 @@ public class LevelController : MonoBehaviour
     }
     public void NextLevel()
     {
+        Level = PlayerPrefs.GetInt("Level", 1);
+      // if (levels[Level].GetComponent<>)
         SceneManager.LoadScene(0);
-
     }
     public void Restart()
     {
