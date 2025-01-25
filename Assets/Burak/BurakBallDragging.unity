@@ -15437,6 +15437,8 @@ MonoBehaviour:
   goalText: {fileID: 2041024639}
   dribbleBall: {fileID: 9173990835269115877, guid: 8a84525450b280147a7cd8cc7018341f, type: 3}
   levelController: {fileID: 1056613951}
+  winPanel: {fileID: 2046291066}
+  LosePanel: {fileID: 1617485272}
 --- !u!114 &1068583535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24011,6 +24013,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.04402578, y: 0.3004159, z: -0.009292439}
     m_Extent: {x: 0.53725827, y: 0.87845063, z: 0.39799136}
   m_DirtyAABB: 0
+--- !u!1 &1617485272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3288207825007023935, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+  m_PrefabInstance: {fileID: 1194902986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1619209125
 GameObject:
   m_ObjectHideFlags: 0
@@ -30822,6 +30829,11 @@ Transform:
   - {fileID: 1209387494}
   m_Father: {fileID: 1814685795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2046291066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5419043111531462700, guid: be084cdee5c3f7345b02753e306d6068, type: 3}
+  m_PrefabInstance: {fileID: 1194659273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2050861065
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class ShotController : MonoBehaviour
     private Vector3[] perfectTargets; // Perfect için hedef noktalar
     private Vector3[] niceTargets; // Nice için hedef noktalar
     private Vector3 missTarget; // Miss durumunda hedef
-    bool IsGoal=false;
+    bool IsGoal=false; 
     void Start()
     {
         player = transform; 
@@ -67,7 +67,7 @@ public class ShotController : MonoBehaviour
         feedbackText.gameObject.SetActive(false);
     }
     public void GetReadyForShoot( Transform ballTrans)
-    {
+    { 
         ball = ballTrans;
          Vector3 target;
          // Oyuncunun yönü kaleye bakıyor mu?
@@ -132,7 +132,7 @@ public class ShotController : MonoBehaviour
             direct = direct *-3;
             direct.y = 0.25f;
             target = direct;
-        }
+        }   
 
         ShootBall(target);
     }

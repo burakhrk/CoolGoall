@@ -31,9 +31,7 @@ public class LevelController : MonoBehaviour
         else
             Level = 1;
 
-        
         ActivateLevel();
-       
     }
 
     public int levelIndex;
@@ -56,7 +54,6 @@ public class LevelController : MonoBehaviour
 
 
         }
-
         else
         {
               go = Instantiate(levels[levelIndex]);
@@ -66,8 +63,15 @@ public class LevelController : MonoBehaviour
             activeLevel = go;
 
         }
+        
         Level level;
         level=go.GetComponent<Level>();
+        if(level.isDribbleLevel&& SceneManager.GetActiveScene().buildIndex==0)
+        {
+            
+            SceneManager.LoadScene(1);
+            return;
+        }
         if (level.isTutorial)
         {
             boardingController.StartOnBoarding();

@@ -21,7 +21,11 @@ public class DribbleBoardingController : MonoBehaviour
     void TeachShooting()
     {
         Time.timeScale = 0.5f;
-        shootText.SetActive(true);
-
+        shootText.SetActive(true); 
+    }
+    public void ShootingBoardingDone()
+    {
+        shootText.SetActive(false);
+        Time.timeScale = 1f; 
     }
 }

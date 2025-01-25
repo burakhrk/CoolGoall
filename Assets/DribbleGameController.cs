@@ -11,7 +11,9 @@ using TMPro;
     [SerializeField] GameObject dribbleBall;
     [SerializeField] LevelController levelController; 
     DribbleBoardingController DribbleBoarding;
-     
+    public bool GameEnd = false;
+    public GameObject winPanel,LosePanel;
+
     private void Start()
     {
         StartGame();
@@ -34,8 +36,7 @@ using TMPro;
     }
     private void Update()
     {
-        Debug.Log("Remove here");
-        if (Input.GetKeyDown(KeyCode.R))
+         if (Input.GetKeyDown(KeyCode.R))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("BurakBallDragging");
         }
@@ -52,7 +53,25 @@ using TMPro;
         workOnce = true;
         goalText.gameObject.SetActive(true);
         soundController.GoalSound();
-        Invoke("DisableGoalText", 1.5f);
+        Invoke("DisableGoalText", 1.2f);
+        Win();
+    }
+  public  void Win()
+    {
+        if (GameEnd)
+            return;
+
+        GameEnd = true; 
+        winPanel.SetActive(true);
+    }
+  public  void Lose()
+    {
+        if (GameEnd)
+            return;
+
+        GameEnd = true;
+        LosePanel.SetActive(true);
+        
     }
     void DisableGoalText()
     {

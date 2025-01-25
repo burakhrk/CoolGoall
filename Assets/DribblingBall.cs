@@ -75,7 +75,11 @@ public class DribblingBall : MonoBehaviour
     Vector3 TargetPos;
     public void ShootSent(Vector3 Target,bool Goal)
     {
-      isGoal= Goal;
+        if (boardingController.isBoarding)
+        {
+            boardingController.ShootingBoardingDone();
+        }
+        isGoal = Goal;
         ball = transform;
         TargetPos = Target;
              // Şutun başlangıç pozisyonunu ve hedefini ayarla

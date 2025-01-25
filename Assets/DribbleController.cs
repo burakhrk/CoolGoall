@@ -36,6 +36,7 @@ public class DribbleController : MonoBehaviour
     float moveSpeedReturner;
     private void Awake()
     {
+        doubleSpaceBlocker = 0.1f;
         shotController = GetComponent<ShotController>();
         moveSpeedReturner = moveSpeed;
     }
@@ -127,6 +128,10 @@ public class DribbleController : MonoBehaviour
    
     void HandleAim()
     {
+        if (!aiming)
+            return;
+
+
         animator.SetBool("Shoot", true);
         CalculateShoot();
         sliderController.ResetSlider();
@@ -141,7 +146,7 @@ public class DribbleController : MonoBehaviour
         shotController.ShowFeedBackText(distanceToCenter);
     }
     public void AnimationEnd()
-    {
+    { 
          shotController.GetReadyForShoot(ball.transform);
          EndShoot();
     }
@@ -221,7 +226,7 @@ public class DribbleController : MonoBehaviour
 
             // Clamp the position within the x and z borders
             float clampedX = Mathf.Clamp(transform.position.x, -17f, 18f);
-            float clampedZ = Mathf.Clamp(transform.position.z, -17,9);
+            float clampedZ = Mathf.Clamp(transform.position.z, -17,6);
 
             // Apply the clamped position if out of bounds
             transform.position = new Vector3(clampedX, transform.position.y, clampedZ);
