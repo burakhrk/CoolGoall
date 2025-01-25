@@ -16,6 +16,15 @@ public class PlayerSkin : MonoBehaviour
     CoinController coinController;
   [SerializeField]  TextMeshProUGUI priceText;
     [SerializeField] GameObject adIcon;
+
+
+
+    [SerializeField] string Name;
+    [SerializeField] float speed;
+    [SerializeField] float power;
+    [SerializeField] float curve;
+
+
     private void Awake()
     { 
         if (rewarded)

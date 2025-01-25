@@ -16,6 +16,9 @@ public class ShopController : MonoBehaviour
     [SerializeField] GameObject topPanel;
     [SerializeField] Image formaButton,topButton;
     [SerializeField] SkinController skinController;
+
+
+    [SerializeField] StatsController statsController;
     private void Awake()
     {
        

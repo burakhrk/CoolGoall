@@ -15437,6 +15437,7 @@ MonoBehaviour:
   goalText: {fileID: 2041024639}
   dribbleBall: {fileID: 9173990835269115877, guid: 8a84525450b280147a7cd8cc7018341f, type: 3}
   levelController: {fileID: 1056613951}
+  GameEnd: 0
   winPanel: {fileID: 2046291066}
   LosePanel: {fileID: 1617485272}
 --- !u!114 &1068583535
@@ -17608,6 +17609,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1280199680}
     m_Modifications:
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.78414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.78414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.78414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207823624394741, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -208
+      objectReference: {fileID: 0}
     - target: {fileID: 3288207823624394742, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -17626,27 +17671,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023928, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023928, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023928, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023928, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023928, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023928, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023928, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17696,9 +17741,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3288207825007023929, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207825007023929, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 168ae817967308f43ab11e1a92942dc8, type: 3}
+    - target: {fileID: 3288207825007023929, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207825007023929, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3288207825007023935, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
       propertyPath: m_Name
       value: LosePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288207825007023935, guid: e5fb2f38def64a6478ebd9fe29be139e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
