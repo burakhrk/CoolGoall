@@ -38,7 +38,6 @@ public class SkinController : MonoBehaviour
         iPlayer.ChangeBallSkin(a);
 
     }
- 
     public void ChangeSkin(int a)
     { 
         model1.material = materials[a];

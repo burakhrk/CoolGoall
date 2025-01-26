@@ -37,6 +37,14 @@ public class UIPlayer : MonoBehaviour
 
         PlayerPrefs.SetInt("ActiveBallSkin", a);
     } 
+    public void PreviewSkin(int a)
+    {
+        model1.material = materials[a];
+    }
+    public void ReturnSkin(int a)
+    {
+        model1.material = materials[a];
+    }
     public void ChangeSkin(int a)
     {
         model1.material = materials[a];

@@ -15,15 +15,15 @@ public class BallSkin : MonoBehaviour
     CoinController coinController;
     [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] GameObject adIcon;
-
-    [SerializeField] string Name;
-    [SerializeField] float speed;
-    [SerializeField] float power;
-    [SerializeField] float curve;
+    Image image;
+    public string Name;
+    public float speed;
+    public float power;
+   public float curve;
     private void Awake()
     {
-        //  unlockButton = GetComponentInChildren<Button>();
-        // selectButton = GetComponent<Button>();
+        image = GetComponent<Image>();
+
         if (rewarded)
         {
             priceText.text = Price.ToString();
@@ -115,6 +115,30 @@ public class BallSkin : MonoBehaviour
     public void SelectSkin()
     {
        shopController.SkinSelectedBall(this);
+    }
+    public void SelectedColor()
+    {
+        if(image)
+        image.color = new Color(0, 185, 255, 255);
+        else
+        {
+            image = GetComponent<Image>();
+            image.color = new Color(0, 185, 255, 255);
+
+        }
+
+    }
+    public void UnselectedColor()
+    {
+        if(image)
+        image.color = Color.white;
+        else
+        {
+            image = GetComponent<Image>();
+            image.color = Color.white;
+
+        }
+
     }
 }
 

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using CrazyGames;
+using System.Net;
+using NUnit.Framework.Constraints;
 public class PlayerSkin : MonoBehaviour
 {
     public bool rewarded;
@@ -14,28 +16,30 @@ public class PlayerSkin : MonoBehaviour
     [SerializeField] Button selectButton;
     ShopController shopController;
     CoinController coinController;
-  [SerializeField]  TextMeshProUGUI priceText;
+    [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] GameObject adIcon;
 
 
 
-    [SerializeField] string Name;
-    [SerializeField] float speed;
-    [SerializeField] float power;
-    [SerializeField] float curve;
+    public string Name;
+    public float speed;
+    public float power;
+    public float curve;
 
-
+    Image image;
     private void Awake()
-    { 
+    {
         if (rewarded)
         {
             priceText.text = Price.ToString();
             adIcon.SetActive(true);
         }
-        else 
+        else
             priceText.text = Price.ToString();
 
-    } 
+
+        image = GetComponent<Image>();
+    }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
     {
         shopController = shopController1;
@@ -59,25 +63,25 @@ public class PlayerSkin : MonoBehaviour
 
     }
 
-    public   void UnlockedItem()
-    { 
+    public void UnlockedItem()
+    {
         Unlocked = true;
         unlockButton.gameObject.SetActive(false);
         SelectButton(true);
 
         shopController.NewSkinUnlocked(this);
-      //  SelectSkin();
+           SelectSkin();
     }
+ 
     public void UnlockAd()
     {
         RewardedShow();
     }
     public void Unlock()
-    { 
+    {
         coinController.SpendCoin(Price);
         UnlockedItem();
-
-    } 
+    }
     private void RewardEarned()
     {
 
@@ -93,7 +97,7 @@ public class PlayerSkin : MonoBehaviour
         shopController.NewSkinUnlocked(this);
     }
 
-     void RewardedShow()
+    void RewardedShow()
     {
         CrazySDK.Ad.RequestAd(
                  CrazyAdType.Rewarded,
@@ -112,22 +116,55 @@ public class PlayerSkin : MonoBehaviour
              );
     }
     private void RewardedClosed()
-    { 
-         if (Unlocked)
+    {
+        if (Unlocked)
             return;
 
-            RewardEarned();
+        RewardEarned();
     }
- 
 
+    public void Preview()
+    {
+        shopController.SkinPreview(this);
+    }
     void SelectButton(bool enable)
     {
         selectButton.interactable = enable;
     }
     public void SelectSkin()
     {
-        if(Unlocked)
-        shopController.SkinSelected(this);
-       
+        if (Unlocked)
+        {
+            shopController.SkinSelected(this);
+        }
+        else
+        {
+            Preview();
+        }
+
+    }
+    public void SelectedColor()
+    {
+        if (image)
+            image.color = new Color(0, 185, 255, 255);
+        else
+        {
+            image = GetComponent<Image>();
+            image.color = new Color(0, 185, 255, 255);
+
+        }
+    }
+    public void UnselectedColor()
+    {
+
+        if (image)
+            image.color = Color.white;
+
+        else
+        {
+            image = GetComponent<Image>();
+            image.color = new Color(0, 185, 255, 255);
+
+        }
     }
 }

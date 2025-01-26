@@ -8,4 +8,8 @@ public class StatsController : MonoBehaviour
     {
 
     }
+    public void UpdateStatsBall(float power, float speed, float curve)
+    {
+
+    }
 }

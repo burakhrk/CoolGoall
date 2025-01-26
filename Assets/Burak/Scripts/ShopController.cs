@@ -16,11 +16,13 @@ public class ShopController : MonoBehaviour
     [SerializeField] GameObject topPanel;
     [SerializeField] Image formaButton,topButton;
     [SerializeField] SkinController skinController;
-
-
+   [SerializeField] UIPlayer iPlayer;
+    GameController gameController;
     [SerializeField] StatsController statsController;
     private void Awake()
     {
+        gameController = GetComponent<GameController>();    
+        statsController = GetComponent<StatsController>();
        
         for (int i = 0; i < skinList.Count; i++)
         {
@@ -51,12 +53,15 @@ public class ShopController : MonoBehaviour
     private void OnEnable()
     {
         coinController.onCoinChanged += CheckButtonAvailabity;
+        gameController.OnShopClosed += ShopClosed;
     }
     private void OnDisable()
     {
         coinController.onCoinChanged -= CheckButtonAvailabity;
+        gameController.OnShopClosed -= ShopClosed;
 
     }
+
     private void Start()
     {
         CheckButtonAvailabity(coinController.coin);
@@ -107,14 +112,37 @@ public class ShopController : MonoBehaviour
         topPanel.SetActive(true);
         formaPanel.SetActive(false);
     }
- 
+  public  void SkinPreview(PlayerSkin a)
+    {
+        iPlayer.PreviewSkin(skinList.IndexOf(a));
+    }
+    void ShopClosed()
+    {
+         int a =PlayerPrefs.GetInt("ActiveSkin", 1);
+         iPlayer.ReturnSkin(a);
+    }
     public void SkinSelected(PlayerSkin a)
     {
         skinController.ChangeSkin(skinList.IndexOf(a));
+        
+        foreach (var item in skinList)
+        {
+            item.UnselectedColor();
+        }
+        a.SelectedColor();
+        statsController.UpdateStats(a.power,a.speed,a.curve);
     }
 
     public void SkinSelectedBall(BallSkin a)
     {
-        skinController.ChangeBallSkin(BallskinList.IndexOf(a)); 
+        skinController.ChangeBallSkin(BallskinList.IndexOf(a));
+
+ 
+        foreach (var item in BallskinList)
+        {
+            item.UnselectedColor();
+        }
+        a.SelectedColor();
+        statsController.UpdateStats(a.power, a.speed, a.curve);
     }
 }
