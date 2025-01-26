@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 public class ShopController : MonoBehaviour
 {
@@ -115,10 +116,13 @@ public class ShopController : MonoBehaviour
   public  void SkinPreview(PlayerSkin a)
     {
         iPlayer.PreviewSkin(skinList.IndexOf(a));
+        statsController.UpdateStats(a.power,a.speed,a.curve);
     }
     public void SkinPreviewBall(BallSkin a)
     {
         iPlayer.PreviewSkinBall(BallskinList.IndexOf(a));
+        statsController.UpdateStatsBall(a.power, a.speed, a.curve);
+
     }
     void ShopClosed()
     {
@@ -127,6 +131,8 @@ public class ShopController : MonoBehaviour
         int b = PlayerPrefs.GetInt("ActiveBallSkin",1);
 
         iPlayer.ReturnBallSkin(b);
+        statsController.UpdateStats(skinList[a].power, skinList[a].speed, skinList[a].curve);
+        statsController.UpdateStatsBall(BallskinList[b].power, BallskinList[b].speed, BallskinList[b].curve);
     }
     public void SkinSelected(PlayerSkin a)
     {
@@ -150,6 +156,6 @@ public class ShopController : MonoBehaviour
             item.UnselectedColor();
         }
         a.SelectedColor();
-        statsController.UpdateStats(a.power, a.speed, a.curve);
+        statsController.UpdateStatsBall(a.power, a.speed, a.curve);
     }
 }
