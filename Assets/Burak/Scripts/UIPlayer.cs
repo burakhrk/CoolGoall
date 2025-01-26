@@ -41,6 +41,22 @@ public class UIPlayer : MonoBehaviour
     {
         model1.material = materials[a];
     }
+    public void PreviewSkinBall(int a)
+    {
+        foreach (var item in balls)
+        {
+            item.SetActive(false);
+        }
+        balls[a].SetActive(true);
+    }
+    public void ReturnBallSkin(int a)
+    {
+        foreach (var item in balls)
+        {
+            item.SetActive(false);
+        }
+        balls[a].SetActive(true);
+    }
     public void ReturnSkin(int a)
     {
         model1.material = materials[a];

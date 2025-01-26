@@ -109,12 +109,23 @@ public class BallSkin : MonoBehaviour
     } 
     void SelectButton(bool enable)
     {
-        selectButton.interactable = enable;
-
+       // selectButton.interactable = enable; 
     }
     public void SelectSkin()
     {
-       shopController.SkinSelectedBall(this);
+        if (Unlocked)
+        {
+            shopController.SkinSelectedBall(this);
+        }
+        else
+        {
+            Preview();
+        }
+     }
+    public void Preview()
+    {
+        shopController.SkinPreviewBall(this);
+
     }
     public void SelectedColor()
     {

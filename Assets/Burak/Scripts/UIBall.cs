@@ -15,7 +15,6 @@ public class UIBall : MonoBehaviour
     }
     void asd()
     {
-        a.DOPlay();
-
+        a.DOPlay(); 
     }
 }

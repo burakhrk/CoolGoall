@@ -129,7 +129,7 @@ public class PlayerSkin : MonoBehaviour
     }
     void SelectButton(bool enable)
     {
-        selectButton.interactable = enable;
+       // selectButton.interactable = enable;
     }
     public void SelectSkin()
     {

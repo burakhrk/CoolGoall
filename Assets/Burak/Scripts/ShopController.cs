@@ -116,10 +116,17 @@ public class ShopController : MonoBehaviour
     {
         iPlayer.PreviewSkin(skinList.IndexOf(a));
     }
+    public void SkinPreviewBall(BallSkin a)
+    {
+        iPlayer.PreviewSkinBall(BallskinList.IndexOf(a));
+    }
     void ShopClosed()
     {
          int a =PlayerPrefs.GetInt("ActiveSkin", 1);
          iPlayer.ReturnSkin(a);
+        int b = PlayerPrefs.GetInt("ActiveBallSkin",1);
+
+        iPlayer.ReturnBallSkin(b);
     }
     public void SkinSelected(PlayerSkin a)
     {
