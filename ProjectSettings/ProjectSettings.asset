@@ -44,8 +44,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
-  defaultScreenWidthWeb: 922
-  defaultScreenHeightWeb: 487
+  defaultScreenWidthWeb: 1920
+  defaultScreenHeightWeb: 1080
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   unsupportedMSAAFallback: 0
@@ -462,7 +462,7 @@ PlayerSettings:
   m_TemplateCustomTags:
     BACKGROUND: 
     OPTIMIZE_FOR_PIXEL_ART: 
-    SCALE_TO_FIT: 922:487
+    SCALE_TO_FIT: 1920:1080
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -724,7 +724,7 @@ PlayerSettings:
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  webGLDecompressionFallback: 0
+  webGLDecompressionFallback: 1
   webGLInitialMemorySize: 32
   webGLMaximumMemorySize: 2048
   webGLMemoryGrowthMode: 2

@@ -92,16 +92,36 @@ public class LevelController : MonoBehaviour
         return activeLevel;
     }
     public void NextLevel()
-    {
-        Level = PlayerPrefs.GetInt("Level", 1);
-         if (levels[Level-1].GetComponent<Level>().isDribbleLevel)
+    { 
+        if (Level <= levels.Length)
+
+            Level = PlayerPrefs.GetInt("Level", 1);
+         
+        if(levels.Length<Level)
         {
-            SceneManager.LoadScene(1); 
+            if (levels[Level - 1].GetComponent<Level>().isDribbleLevel)
+            {
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
         else
         {
-            SceneManager.LoadScene(0); 
-        } 
+            levelIndex = Level % (levels.Length + 1);
+            GameObject go;
+            if (levels[Level - 1].GetComponent<Level>().isDribbleLevel)
+            {
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+        
     }
     public void Restart()
     {

@@ -133,6 +133,7 @@ public class ShopController : MonoBehaviour
         iPlayer.ReturnBallSkin(b);
         statsController.UpdateStats(skinList[a].power, skinList[a].speed, skinList[a].curve);
         statsController.UpdateStatsBall(BallskinList[b].power, BallskinList[b].speed, BallskinList[b].curve);
+        statsController.ApplyStats();
     }
     public void SkinSelected(PlayerSkin a)
     {

@@ -22,19 +22,7 @@ using UnityEngine.InputSystem;
     {
         bezierStartPos = bezierMove.transform.position;
         goalStartPos = bezierGoal.transform.position;
-        gameController = FindFirstObjectByType<GameController>();
-        // onboarding
-        // Upgrade sistemi
-// futbolcu top statları
-//  şut hızı vs  
-
-        
-
-
-
-        /*
-   cheer  text ekle   
-       */
+        gameController = FindFirstObjectByType<GameController>(); 
     }
     public void OnBoarding()
     {
@@ -55,7 +43,7 @@ using UnityEngine.InputSystem;
         FindFirstObjectByType<Ball>().Shoot(bezier.GetPath());
         FindFirstObjectByType<Player>().Shoot();
     }
-    float onboardingTimer = 3f;
+    float onboardingTimer = 2.5f;
     bool waitForSeconds=false;
     int counterBoarding=0;
     void OnBoardingNext()

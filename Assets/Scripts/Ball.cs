@@ -22,8 +22,12 @@ public class Ball : MonoBehaviour
     [SerializeField] Bezier bezier;
     private void Awake()
     {
-        gameController = FindObjectOfType<GameController>();
+        gameController = FindFirstObjectByType<GameController>();
         rb = GetComponent<Rigidbody>();
+    }
+    public void SetSpeed(int speedd)
+    {
+        speed = speedd;
     }
     public void Shoot(Vector3[] path)
     {
