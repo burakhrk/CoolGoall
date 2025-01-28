@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class BezierPosResetter : MonoBehaviour
 {
-    public float yLimit = 10f;
+    public float yLimit = 9.5f;
     void LateUpdate()
     {
       if  (Input.GetMouseButtonUp(0))

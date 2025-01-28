@@ -86,6 +86,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDribbleLevel: 0
+  isTutorial: 0
+  isDribblingTutorial: 0
 --- !u!1 &2883345813447525674
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +244,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10330277, y: 0.050621618, z: 0.041304093}
+  m_Size: {x: 0.087, y: 0.050621618, z: 0.041304093}
   m_Center: {x: 0.0001815051, y: -0.0064519527, z: 0.008712134}
 --- !u!114 &7296680761761376304
 MonoBehaviour:

@@ -72,20 +72,7 @@ CoinController coinController;
         
         topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;
-    }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-            {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Burak");
-        }
-
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            ActivateWinPanel();
-        }
-        Debug.Log("remove here");
-    }
+    } 
     public void Goal()
     {
         if (gameEnd)

@@ -7,7 +7,8 @@ public class StatsController : MonoBehaviour
 
     [SerializeField] int  speedX, curveX, powerX;
     [SerializeField] float speedB, curveB, powerB;
-
+    [SerializeField] Bezier bezier;
+    [SerializeField] TrailTest trail;
     // [SerializeField] float speedUp, curveUp, powerUp;
 
     [SerializeField] Ball ball;
@@ -37,17 +38,36 @@ public class StatsController : MonoBehaviour
     }
     public void ApplyStats()
     {
-        if(speedX<=89)
+        float speedLast=speedX+speedB;
+        float curveLast=curveX+curveB;
+        float powerLast=powerX+powerB;
+        if(speedLast <= 89)
         {
-            ball.SetSpeed(175); 
+            ball.SetSpeed(175);
+            trail.SetParticleLevel1();
         }
-       else if (speedX <= 99)
+       else if (speedLast <= 99)
         {
-            ball.SetSpeed(255); 
+            ball.SetSpeed(255);
+            trail.SetParticleLevel2(); 
         }
-        else if (speedX  <= 119)
+        else if (speedLast <= 119)
         {
-            ball.SetSpeed(355); 
+            ball.SetSpeed(355);
+            trail.SetParticleLevel3(); 
+        }
+
+        if (curveLast <= 89)
+        {
+            bezier.SetCurveStrength(0.9f);
+        }
+        else if (curveLast <= 99)
+        {
+            bezier.SetCurveStrength(1f);
+        }
+        else if (curveLast <= 119)
+        {
+            bezier.SetCurveStrength(1.1f);
         }
         SetPrefs();
     }
