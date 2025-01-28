@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDribbleLevel: 0
+  isTutorial: 0
+  isDribblingTutorial: 0
 --- !u!1001 &340377646415415457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2590,19 +2592,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4373786220673052, guid: fd22b2c95c8dc954fb22c5fac4ce7ce9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 4373786220673052, guid: fd22b2c95c8dc954fb22c5fac4ce7ce9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 4373786220673052, guid: fd22b2c95c8dc954fb22c5fac4ce7ce9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 4373786220673052, guid: fd22b2c95c8dc954fb22c5fac4ce7ce9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.07
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4373786220673052, guid: fd22b2c95c8dc954fb22c5fac4ce7ce9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2644,6 +2646,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23193163841824384, guid: fd22b2c95c8dc954fb22c5fac4ce7ce9, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a5eeecbf424603449bbbee6fcc4cc83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

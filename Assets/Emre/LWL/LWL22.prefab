@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDribbleLevel: 0
+  isTutorial: 0
+  isDribblingTutorial: 0
 --- !u!1001 &167883868974212983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,11 +215,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316711828751625902, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84
+      value: -83.78
       objectReference: {fileID: 0}
     - target: {fileID: 2725194724952732985, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -85.75
+      value: -85.891
       objectReference: {fileID: 0}
     - target: {fileID: 2725194724952732985, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -241,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560697901200282087, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -86
+      value: -86.12
       objectReference: {fileID: 0}
     - target: {fileID: 5157865452840861121, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -253,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5740247958729605612, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -85.84
+      value: -85.993
       objectReference: {fileID: 0}
     - target: {fileID: 5740247958729605612, guid: b6373d73da6652349bd5e456b901efc8, type: 3}
       propertyPath: m_LocalPosition.z

@@ -6,7 +6,11 @@ using UnityEngine.InputSystem;
  public class PlayerController : MonoBehaviour
 {
   [SerializeField]  PlayerInput player;
-   [SerializeField] Vector2 move;
+    [SerializeField] Ball ball;
+    [SerializeField] Player playersc;
+
+
+    [SerializeField] Vector2 move;
     Vector2 lastPos;
     Vector3 bezierStartPos;
     Vector3 goalStartPos;
@@ -39,9 +43,9 @@ using UnityEngine.InputSystem;
         shoot = true;
         Bezier bezier= FindFirstObjectByType<Bezier>();
         bezier.isShoot = true;
-        bezier.DisableDotVisuals();
-        FindFirstObjectByType<Ball>().Shoot(bezier.GetPath());
-        FindFirstObjectByType<Player>().Shoot();
+        bezier.DisableDotVisuals(); 
+       ball.Shoot(bezier.GetPath());
+        playersc.Shoot();
     }
     float onboardingTimer = 2.5f;
     bool waitForSeconds=false;
@@ -67,7 +71,7 @@ using UnityEngine.InputSystem;
             Shoot();
             return;
         }
-        if (Input.GetMouseButtonUp(0)&&isOnBoarding)
+        if (Input.GetMouseButton(0)&&isOnBoarding)
         {
             if (waitForSeconds)
             {
@@ -77,6 +81,7 @@ using UnityEngine.InputSystem;
             }
             else
             {
+                /*
                counterBoarding++;
                 if(counterBoarding>=2)
                 {
@@ -85,6 +90,7 @@ using UnityEngine.InputSystem;
                     OnBoardingNext();
                     counterBoarding = 0;
                 }
+                */
             }
         }
         

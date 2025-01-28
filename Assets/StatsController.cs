@@ -3,8 +3,12 @@ using TMPro;
 public class StatsController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI  powerText,speedText,curveText;
-    [SerializeField] int speed, curve, power;
-    [SerializeField] float speedUp, curveUp, powerUp;
+    [SerializeField] TextMeshProUGUI powerTextBall, speedTextBall, curveTextBall;
+
+    [SerializeField] int  speedX, curveX, powerX;
+    [SerializeField] float speedB, curveB, powerB;
+
+    // [SerializeField] float speedUp, curveUp, powerUp;
 
     [SerializeField] Ball ball;
     private void Awake()
@@ -14,20 +18,37 @@ public class StatsController : MonoBehaviour
     }
     public void SetPrefs()
     {
-        PlayerPrefs.SetInt("Power",power);
-        PlayerPrefs.SetInt("Speed", speed);
-        PlayerPrefs.SetInt("Curve", curve);
+        PlayerPrefs.SetInt("Power",powerX);
+        PlayerPrefs.SetInt("Speed", speedX);
+        PlayerPrefs.SetInt("Curve", curveX);
+        PlayerPrefs.SetInt("PowerBall",(int) powerB);
+        PlayerPrefs.SetInt("SpeedBall", (int)speedB);
+        PlayerPrefs.SetInt("CurveBall", (int)curveB);
 
     }
     public void GetPrefs()
     { 
-       power= PlayerPrefs.GetInt("Power", power);
-       speed= PlayerPrefs.GetInt("Speed", speed);
-       curve= PlayerPrefs.GetInt("Curve", curve);
+       powerX= PlayerPrefs.GetInt("Power", powerX);
+       speedX= PlayerPrefs.GetInt("Speed", speedX);
+       curveX= PlayerPrefs.GetInt("Curve", curveX);
+        powerB = PlayerPrefs.GetInt("PowerBall",(int) powerB);
+        speedB = PlayerPrefs.GetInt("SpeedBall", (int) speedB);
+        curveB = PlayerPrefs.GetInt("CurveBall", (int) curveB);
     }
     public void ApplyStats()
     {
-        ball.SetSpeed(speed);
+        if(speedX<=89)
+        {
+            ball.SetSpeed(175); 
+        }
+       else if (speedX <= 99)
+        {
+            ball.SetSpeed(255); 
+        }
+        else if (speedX  <= 119)
+        {
+            ball.SetSpeed(355); 
+        }
         SetPrefs();
     }
     public void UpdateStats(float power, float speed , float curve)
@@ -37,20 +58,20 @@ public class StatsController : MonoBehaviour
         speedText.text = speed.ToString();  
         curveText.text = curve.ToString();
 
-        powerUp = power;
-        speedUp=speed;
-        curveUp=curve;
+        powerX = (int)power;
+        speedX= (int)speed;
+        curveX= (int)curve;
 
      }
     public void UpdateStatsBall(float power, float speed, float curve)
     {
-        powerText.text = power.ToString();
-        speedText.text = speed.ToString();
-        curveText.text = curve.ToString();
+        powerTextBall.text = "+ " + powerB.ToString();
+        speedTextBall.text = "+ " + speedB.ToString();
+        curveTextBall.text = "+ " + curveB.ToString();
 
-        powerUp = power;
-        speedUp = speed;
-        curveUp = curve;
+        powerB = power;
+        speedB = speed;
+        curveB = curve;
 
      }
 }

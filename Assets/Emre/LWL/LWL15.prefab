@@ -699,6 +699,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDribbleLevel: 0
+  isTutorial: 0
+  isDribblingTutorial: 0
 --- !u!1001 &3479837865297406550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1531,7 +1533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011009888512, guid: 530fa55f5741741b4b922fc45f4918ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.58
+      value: -32.83
       objectReference: {fileID: 0}
     - target: {fileID: 4000011009888512, guid: 530fa55f5741741b4b922fc45f4918ef, type: 3}
       propertyPath: m_LocalPosition.y

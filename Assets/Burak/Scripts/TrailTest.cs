@@ -5,11 +5,10 @@ using UnityEngine;
 public class TrailTest : MonoBehaviour
 {
     public GameObject target;
-
-
-    // Update is called once per frame
+     
     void Update()
     {
+        if(target)
         transform.position = target.transform.position;
     }
 }

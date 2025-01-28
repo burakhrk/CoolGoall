@@ -42,7 +42,7 @@ public class SkinController : MonoBehaviour
     { 
         model1.material = materials[a];
         PlayerPrefs.SetInt("ActiveSkin", a);
-        iPlayer.ChangeSkin(a);
-       // model2.material = materials[a];
+        iPlayer.ChangeSkin(a);  
+        // model2.material = materials[a];
     }
 }

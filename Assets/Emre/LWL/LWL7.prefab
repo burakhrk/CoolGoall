@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDribbleLevel: 0
+  isTutorial: 0
+  isDribblingTutorial: 0
 --- !u!1 &4611958738136496081
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3957486448714117383, guid: e2d14d18a1a4b4f40afa1d419c0f13b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 3957486448714117383, guid: e2d14d18a1a4b4f40afa1d419c0f13b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -801,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3957486448714117383, guid: e2d14d18a1a4b4f40afa1d419c0f13b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.89
+      value: 3.1899998
       objectReference: {fileID: 0}
     - target: {fileID: 3957486448714117383, guid: e2d14d18a1a4b4f40afa1d419c0f13b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -941,7 +943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9338536d2b657124a92d1ddde0fbec7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.92
+      value: -4.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9338536d2b657124a92d1ddde0fbec7f, type: 3}
       propertyPath: m_LocalPosition.y

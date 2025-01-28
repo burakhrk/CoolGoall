@@ -38,10 +38,14 @@ public class PlayerSkin : MonoBehaviour
             priceText.text = Price.ToString();
 
 
+
         image = GetComponent<Image>();
     }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
     {
+        UnselectedColor();
+
+
         shopController = shopController1;
         coinController = coinController1;
         Unlocked = unlocked;
@@ -108,7 +112,7 @@ public class PlayerSkin : MonoBehaviour
                  (error) =>
                  {
                      Debug.Log("Rewarded ad error: " + error);
-                 },
+                  },
                  () =>
                  {
                      RewardedClosed();
@@ -141,7 +145,6 @@ public class PlayerSkin : MonoBehaviour
         {
             Preview();
         }
-
     }
     public void SelectedColor()
     {

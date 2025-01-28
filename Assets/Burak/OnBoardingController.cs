@@ -4,6 +4,8 @@ using TMPro;
 public class OnBoardingController : MonoBehaviour
 {
   [SerializeField]  GameController gameController;
+    [SerializeField] GameObject hand;
+
     [SerializeField] GameObject AimText,airShotText;
     int step = 0;
      public void StartOnBoarding()
@@ -23,11 +25,15 @@ public class OnBoardingController : MonoBehaviour
     void TeachAiming()
     {
          AimText.gameObject.SetActive(true);
+        hand.SetActive(true);
+
     }
-  public  void TeachOverShot()
+    public  void TeachOverShot()
     {
          AimText.SetActive(false);
-        airShotText.SetActive(true);    
+        airShotText.SetActive(true);
+        hand.SetActive(false);
+
     }
     void FinishBoarding()
     {

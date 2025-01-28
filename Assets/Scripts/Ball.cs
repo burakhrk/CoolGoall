@@ -27,7 +27,7 @@ public class Ball : MonoBehaviour
     }
     public void SetSpeed(int speedd)
     {
-        speed = speedd;
+        //speed = speedd;
     }
     public void Shoot(Vector3[] path)
     {

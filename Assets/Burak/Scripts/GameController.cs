@@ -58,14 +58,14 @@ CoinController coinController;
         if (!shopPanel.active)
             CanShoot = true;
         else
-            Invoke("AllowShoot", 1f);
+            Invoke("AllowShoot", 0.3f);
 
     }
     private void Start()
     {
         if(!onboarding)
         {
-            Invoke("AllowShoot", 1f);
+            Invoke("AllowShoot", 0.3f);
          }
 
          kale = FindFirstObjectByType<Kale>().gameObject;

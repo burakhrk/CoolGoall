@@ -19,12 +19,12 @@ public class CrazySDKLoadingScene : MonoBehaviour
             CrazySDK.Init(() =>
             {
                 Debug.Log("CrazySDK initialized");
-                SceneManager.LoadScene(nextSceneName);
+                SceneManager.LoadScene("Burak");
             });
         }
         else
         {
-            SceneManager.LoadScene(nextSceneName);
+            SceneManager.LoadScene("Burak");
         }
     }
 }

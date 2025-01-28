@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDribbleLevel: 0
+  isTutorial: 0
+  isDribblingTutorial: 0
 --- !u!1 &2617757192044742892
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +434,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 237240228172464807}
     m_Modifications:
+    - target: {fileID: 2289990501914656812, guid: d9abd8b10171d45adb0f369150656259, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.008982
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289990501914656812, guid: d9abd8b10171d45adb0f369150656259, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0064
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289990502557723545, guid: d9abd8b10171d45adb0f369150656259, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.008982
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289990502557723545, guid: d9abd8b10171d45adb0f369150656259, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0064
+      objectReference: {fileID: 0}
     - target: {fileID: 7259191720059339211, guid: d9abd8b10171d45adb0f369150656259, type: 3}
       propertyPath: m_RootOrder
       value: 4

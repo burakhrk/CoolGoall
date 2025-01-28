@@ -92,10 +92,12 @@ public class ShopController : MonoBehaviour
     {
         foreach (var item in skinList)
         {
+            item.UnselectedColor();
             item.Init(this, coinController, unlockedSkinList.Contains(item));
         }
         foreach (var item in BallskinList)
         {
+            item.UnselectedColor();
             item.Init(this, coinController, unlockedBallSkinList.Contains(item));
         }
     }

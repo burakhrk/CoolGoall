@@ -5,27 +5,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Animator animator;
-    float startCounter=1f;
-    bool allowShoot=false;
+     bool allowShoot=false;
+  [SerializeField]  GameController gameController;
     private void Awake()
     {
         animator = GetComponent<Animator>();
-    }
-    private void Update()
-    {
-        if (startCounter <= 0)
-        {
-            allowShoot = true;
-            return;
-
-        }
-
-        startCounter =startCounter-Time.deltaTime;
-
-    }
+    } 
     public void Shoot()
     {
-        if(allowShoot)
+        if(gameController.CanShoot)
         animator.SetBool("Shoot",true);
     }
     public void Goal()

@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDribbleLevel: 0
+  isTutorial: 0
+  isDribblingTutorial: 0
 --- !u!1 &4775621990916229606
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +213,10 @@ PrefabInstance:
     - target: {fileID: 810404979203318004, guid: f6f42901180bdd64fbe96726b533e089, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810404979469020906, guid: f6f42901180bdd64fbe96726b533e089, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

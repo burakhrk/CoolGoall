@@ -1,8 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using CrazyGames;
 public class LevelController : MonoBehaviour
 {
    [SerializeField] GameController gameController;
@@ -91,47 +92,62 @@ public class LevelController : MonoBehaviour
     {
         return activeLevel;
     }
-    public void NextLevel()
-    { 
-        if (Level <= levels.Length)
+    void ShowAd()
+    {
+        CrazySDK.Ad.RequestAd(
+                CrazyAdType.Midgame,
+                () =>
+                {
+                    Debug.Log("Rewarded ad started");
+                },
+                (error) =>
+                {
+                    IntersitialClosed();
+                },
+                () =>
+                {
+                    IntersitialClosed();
+                }
+            );
+    }
+    void IntersitialClosed()
+    {
+        // `Level` değerini al veya varsayılan olarak 1 ata
+        Level = PlayerPrefs.GetInt("Level", 1);
 
-            Level = PlayerPrefs.GetInt("Level", 1);
-         
-        if(levels.Length<Level)
+        // Seviye, dizi sınırlarını aşarsa modu al
+        if (Level > levels.Length)
         {
-            if (levels[Level - 1].GetComponent<Level>().isDribbleLevel)
-            {
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
-                SceneManager.LoadScene(0);
-            }
+            Level = (Level - 1) % levels.Length + 1; // 1 tabanlı seviyeyi koru
+        }
+
+        // İlgili sahneyi yükle
+        int levelIndex = Level - 1; // Diziler sıfır tabanlı
+        if (levels[levelIndex].GetComponent<Level>().isDribbleLevel)
+        {
+            SceneManager.LoadScene("BurakBallDragging");
         }
         else
         {
-            levelIndex = Level % (levels.Length + 1);
-            GameObject go;
-            if (levels[Level - 1].GetComponent<Level>().isDribbleLevel)
-            {
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
-                SceneManager.LoadScene(0);
-            }
+            SceneManager.LoadScene("Burak");
         }
+    }
+    public void NextLevel()
+    {
+        ShowAd();
+
+           
         
     }
     public void Restart()
     {
         if (levels[Level].GetComponent<Level>().isDribbleLevel)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("BurakBallDragging");
         }
         else
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Burak");
         }
     }
  
