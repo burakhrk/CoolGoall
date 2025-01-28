@@ -110,7 +110,7 @@ public class LevelController : MonoBehaviour
                 }
             );
     }
-    void IntersitialClosed()
+  public void IntersitialClosed()
     {
         // `Level` değerini al veya varsayılan olarak 1 ata
         Level = PlayerPrefs.GetInt("Level", 1);
@@ -126,18 +126,18 @@ public class LevelController : MonoBehaviour
         if (levels[levelIndex].GetComponent<Level>().isDribbleLevel)
         {
             SceneManager.LoadScene("BurakBallDragging");
+            Debug.Log("that");
+
         }
         else
         {
+            Debug.Log("this");
             SceneManager.LoadScene("Burak");
         }
     }
     public void NextLevel()
     {
-        ShowAd();
-
-           
-        
+        ShowAd(); 
     }
     public void Restart()
     {

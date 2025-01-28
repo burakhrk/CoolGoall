@@ -20,7 +20,7 @@ public class DribbleController : MonoBehaviour
 
     private Vector3 movementInput;
     private float dribbleTimer;
-    private bool hasBall = false;
+    public bool hasBall = false;
     private Vector3 ballVelocity = Vector3.zero;
    [SerializeField] bool isShooting = false;
     bool allowAimShoot = false;
@@ -34,6 +34,8 @@ public class DribbleController : MonoBehaviour
     bool sprinting = false;
     float sprintSpeed = 5f;
     float moveSpeedReturner;
+    private bool canMove = true; // New variable to control movement
+
     private void Awake()
     {
         doubleSpaceBlocker = 0.1f;
@@ -49,7 +51,9 @@ public class DribbleController : MonoBehaviour
     float moveSpeedWhileShooting;
     void Update()
     {
-        if(!isShooting)
+        if (!canMove) return;
+
+        if (!isShooting)
         {
             HandleMovementInput();
        
@@ -68,6 +72,17 @@ public class DribbleController : MonoBehaviour
         else
         {
             moveSpeed = moveSpeedWhileShooting;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && !isShooting && hasBall)
+        {
+
+            HandleShoot();
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && isShooting && hasBall && allowAimShoot)
+        {
+            HandleAim();
+            return;
         }
 
     }
@@ -101,17 +116,7 @@ public class DribbleController : MonoBehaviour
             HandleMovement();
             HandleDribble();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !isShooting && hasBall)
-        {
-            
-            HandleShoot();
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && isShooting && hasBall&&allowAimShoot)
-        {
-            HandleAim();
-            return;
-        }
+    
         if(isShooting)
             return;
 
@@ -150,6 +155,11 @@ public class DribbleController : MonoBehaviour
          shotController.GetReadyForShoot(ball.transform);
          EndShoot();
     }
+    public void FallAnimEnd()
+    {
+        Debug.Log("Fall Anim End");
+        canMove = true; // Re-enable movement after animation ends
+    }
     void LoseBall()
     {
         aiming = false;
@@ -184,21 +194,22 @@ public class DribbleController : MonoBehaviour
     }
     void EndShoot()
     {
+
         animator.SetBool("Shoot", false);
         isShooting = false;
         hasBall = false;
-        allowAimShoot= false;
+        allowAimShoot = false;
         doubleSpaceBlocker = 0.3f;
     }
    
     
     void HandleShoot()
     {
-         animator.SetBool("Running", false);
+        animator.SetBool("Running", false);
         sliderController.StartSlider();
         isShooting = true;
         aiming = true;
-      //  Time.timeScale = Time.timeScale / 2;   
+        canMove = false; // Disable movement when starting shoot
     }
     
     void HandleMovementInput()
@@ -211,10 +222,13 @@ public class DribbleController : MonoBehaviour
 
     void HandleMovement()
     {
+
+        if (!canMove) return;
+        // Prevent movement if disabled
+
         if (movementInput.magnitude >= 0.1f)
         {
-            // Calculate target rotation
-            float targetAngle = Mathf.Atan2(movementInput.x, movementInput.z) * Mathf.Rad2Deg;
+             float targetAngle = Mathf.Atan2(movementInput.x, movementInput.z) * Mathf.Rad2Deg;
             float angle = Mathf.LerpAngle(transform.eulerAngles.y, targetAngle, Time.deltaTime * rotationSpeed);
             transform.rotation = Quaternion.Euler(0, angle, 0);
 
@@ -226,7 +240,7 @@ public class DribbleController : MonoBehaviour
 
             // Clamp the position within the x and z borders
             float clampedX = Mathf.Clamp(transform.position.x, -17f, 18f);
-            float clampedZ = Mathf.Clamp(transform.position.z, -17,6);
+            float clampedZ = Mathf.Clamp(transform.position.z, -17, 6);
 
             // Apply the clamped position if out of bounds
             transform.position = new Vector3(clampedX, transform.position.y, clampedZ);

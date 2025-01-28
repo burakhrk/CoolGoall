@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
- public class DribbleGameController : MonoBehaviour
+     using Unity;
+using UnityEngine.Events;
+public class DribbleGameController : MonoBehaviour
 {
     public SoundController soundController;
     public TextMeshProUGUI goalText;
@@ -13,6 +15,7 @@ using TMPro;
     DribbleBoardingController DribbleBoarding;
     public bool GameEnd = false;
     public GameObject winPanel,LosePanel;
+    public UnityAction OnGameStart;
 
     private void Start()
     {
@@ -21,6 +24,7 @@ using TMPro;
     void StartGame()
     {
         soundController.PlayWhistle();
+        OnGameStart?.Invoke();
     }
     private void Awake()
     {
@@ -39,6 +43,10 @@ using TMPro;
          if (Input.GetKeyDown(KeyCode.R))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("BurakBallDragging");
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+           levelController.IntersitialClosed();
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
