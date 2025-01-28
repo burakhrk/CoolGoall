@@ -11,11 +11,11 @@ public class StatsController : MonoBehaviour
     [SerializeField] TrailTest trail;
     // [SerializeField] float speedUp, curveUp, powerUp;
 
-    [SerializeField] Ball ball;
-    private void Awake()
+    [SerializeField] Ball ball; 
+    private void Start()
     {
-      //  GetPrefs();
-        ApplyStats();
+        GetPrefs();
+        ApplyStats(); 
     }
     public void SetPrefs()
     {
@@ -35,6 +35,10 @@ public class StatsController : MonoBehaviour
         powerB = PlayerPrefs.GetInt("PowerBall",(int) powerB);
         speedB = PlayerPrefs.GetInt("SpeedBall", (int) speedB);
         curveB = PlayerPrefs.GetInt("CurveBall", (int) curveB);
+    }
+    private void OnDisable()
+    {
+        SetPrefs();
     }
     public void ApplyStats()
     {
@@ -56,6 +60,11 @@ public class StatsController : MonoBehaviour
             ball.SetSpeed(355);
             trail.SetParticleLevel3(); 
         }
+        else
+        {
+            ball.SetSpeed(400);
+            trail.SetParticleLevel4();
+        }
 
         if (curveLast <= 89)
         {
@@ -69,29 +78,36 @@ public class StatsController : MonoBehaviour
         {
             bezier.SetCurveStrength(1.1f);
         }
+        else
+        {
+            bezier.SetCurveStrength(1.15f); 
+        }
         SetPrefs();
+        UpdateTexts();
     }
     public void UpdateStats(float power, float speed , float curve)
     {
-        
-        powerText.text = power.ToString();
-        speedText.text = speed.ToString();  
-        curveText.text = curve.ToString();
-
+         
         powerX = (int)power;
         speedX= (int)speed;
         curveX= (int)curve;
-
+        UpdateTexts();
      }
     public void UpdateStatsBall(float power, float speed, float curve)
+    { 
+        powerB = power;
+        speedB = speed;
+        curveB = curve; 
+        UpdateTexts();
+     }
+   public void UpdateTexts()
     {
+        powerText.text = powerX.ToString();
+        speedText.text = speedX.ToString();
+        curveText.text = curveX.ToString();
         powerTextBall.text = "+ " + powerB.ToString();
         speedTextBall.text = "+ " + speedB.ToString();
         curveTextBall.text = "+ " + curveB.ToString();
 
-        powerB = power;
-        speedB = speed;
-        curveB = curve;
-
-     }
+    }
 }

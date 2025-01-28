@@ -98,7 +98,7 @@ public class LevelController : MonoBehaviour
                 CrazyAdType.Midgame,
                 () =>
                 {
-                    Debug.Log("Rewarded ad started");
+                    Debug.Log("Midgame   ad started");
                 },
                 (error) =>
                 {

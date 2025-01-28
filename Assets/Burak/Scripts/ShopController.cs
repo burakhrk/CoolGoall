@@ -55,6 +55,7 @@ public class ShopController : MonoBehaviour
     {
         coinController.onCoinChanged += CheckButtonAvailabity;
         gameController.OnShopClosed += ShopClosed;
+        statsController.UpdateTexts();
     }
     private void OnDisable()
     {
@@ -107,6 +108,7 @@ public class ShopController : MonoBehaviour
         formaButton.color = Color.gray;
         topPanel.SetActive(false);
         formaPanel.SetActive(true);
+
     }
     public void OpenTopPanel()
     {

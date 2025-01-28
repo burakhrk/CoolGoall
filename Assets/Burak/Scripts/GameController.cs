@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.Events;
 using System.Threading;
 using UnityEditor;
+using CrazyGames;
 public class GameController : MonoBehaviour
 {
 
@@ -72,6 +73,7 @@ CoinController coinController;
         
         topPos.transform.position = top.transform.position;
         kalePos.transform.position = kale.transform.position;
+        CrazySDK.Game.GameplayStart();
     } 
     public void Goal()
     {
@@ -109,6 +111,8 @@ CoinController coinController;
         shopPanel.SetActive(true);
         closeShopButton.SetActive(false);
         openShopButton.SetActive(false);
+        CrazySDK.Game.GameplayStop();
+
     }
     void ActivateLosePanel()
     {
@@ -124,6 +128,7 @@ CoinController coinController;
         CanShoot = false;
         closeShopButton.SetActive(true);
         shopPanel.SetActive(true);
+        CrazySDK.Game.GameplayStop(); 
     }
     public void CloseShop()
     {
@@ -131,6 +136,8 @@ CoinController coinController;
         closeShopButton.SetActive(false);
          Invoke("Asd", 0.5f);
        OnShopClosed?.Invoke();
+        CrazySDK.Game.GameplayStart();
+
     }
     void Asd()
     {

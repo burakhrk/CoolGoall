@@ -106,6 +106,7 @@ public class BallSkin : MonoBehaviour
         SelectButton(true);
 
         shopController.NewBallSkinUnlocked(this);
+        SelectSkin();
     } 
     void SelectButton(bool enable)
     {
