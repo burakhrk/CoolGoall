@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CrazyGames;
 using UnityEngine.UI;
 using TMPro;
 public class BallSkin : MonoBehaviour
@@ -58,6 +57,7 @@ public class BallSkin : MonoBehaviour
 
     void RewardedShow()
     {
+        /*
         CrazySDK.Ad.RequestAd(
                  CrazyAdType.Rewarded,
                  () =>
@@ -73,6 +73,7 @@ public class BallSkin : MonoBehaviour
                      RewardedClosed();
                  }
              );
+        */
     }
     void RewardedClosed()
     { 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using CrazyGames;
 public class LevelController : MonoBehaviour
 {
    [SerializeField] GameController gameController;
@@ -94,6 +93,7 @@ public class LevelController : MonoBehaviour
     }
     void ShowAd()
     {
+        /*
         CrazySDK.Ad.RequestAd(
                 CrazyAdType.Midgame,
                 () =>
@@ -109,6 +109,7 @@ public class LevelController : MonoBehaviour
                     IntersitialClosed();
                 }
             );
+        */
     }
   public void IntersitialClosed()
     {

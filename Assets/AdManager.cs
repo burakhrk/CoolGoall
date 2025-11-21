@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using CrazyGames;
 using UnityEngine.SceneManagement;
 public class AdManager : MonoBehaviour
 {
     private void Awake()
     {
+        /*
          if (CrazySDK.IsAvailable)
         {
             CrazySDK.Init(() =>
@@ -12,5 +12,6 @@ public class AdManager : MonoBehaviour
                 Debug.Log("CrazySDK initialized");
              });
         }
+        */
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using CrazyGames;
 using System.Net;
 using NUnit.Framework.Constraints;
 public class PlayerSkin : MonoBehaviour
@@ -104,6 +103,7 @@ public class PlayerSkin : MonoBehaviour
 
     void RewardedShow()
     {
+        /*
         CrazySDK.Ad.RequestAd(
                  CrazyAdType.Rewarded,
                  () =>
@@ -119,6 +119,7 @@ public class PlayerSkin : MonoBehaviour
                      RewardedClosed();
                  }
              );
+        */
     }
     private void RewardedClosed()
     {
