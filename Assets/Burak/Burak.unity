@@ -3452,6 +3452,7 @@ MonoBehaviour:
   hand: {fileID: 62331290}
   AimText: {fileID: 2039802423}
   airShotText: {fileID: 1078830858}
+  playerController: {fileID: 0}
 --- !u!4 &971327471
 Transform:
   m_ObjectHideFlags: 0
