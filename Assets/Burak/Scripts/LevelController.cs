@@ -11,9 +11,9 @@ public class LevelController : MonoBehaviour
     public int Level;
     GameObject activeLevel;
     public TextMeshProUGUI Leveltext;
-    [SerializeField] DribbleGameController dribbleGameController;
+   // [SerializeField] DribbleGameController dribbleGameController;
   [SerializeField]  OnBoardingController boardingController;
-    [SerializeField] DribbleBoardingController dribbleBoardingController;
+ //   [SerializeField] DribbleBoardingController dribbleBoardingController;
     private void Awake()
     {
         
@@ -76,14 +76,7 @@ public class LevelController : MonoBehaviour
         {
             boardingController.StartOnBoarding();
             gameController.OnBoarding();
-        }
-        else if (level.isDribblingTutorial)
-        {
-            if(dribbleBoardingController)
-                dribbleBoardingController=FindFirstObjectByType<DribbleBoardingController>();
-
-            dribbleBoardingController.StartDribbleBoarding();
-         }
+        } 
          
     }
 
@@ -91,29 +84,11 @@ public class LevelController : MonoBehaviour
     {
         return activeLevel;
     }
-    void ShowAd()
+    
+  
+    public void NextLevel()
     {
-        /*
-        CrazySDK.Ad.RequestAd(
-                CrazyAdType.Midgame,
-                () =>
-                {
-                    Debug.Log("Midgame   ad started");
-                },
-                (error) =>
-                {
-                    IntersitialClosed();
-                },
-                () =>
-                {
-                    IntersitialClosed();
-                }
-            );
-        */
-    }
-  public void IntersitialClosed()
-    {
-        // `Level` değerini al veya varsayılan olarak 1 ata
+       // `Level` değerini al veya varsayılan olarak 1 ata
         Level = PlayerPrefs.GetInt("Level", 1);
 
         // Seviye, dizi sınırlarını aşarsa modu al
@@ -124,32 +99,14 @@ public class LevelController : MonoBehaviour
 
         // İlgili sahneyi yükle
         int levelIndex = Level - 1; // Diziler sıfır tabanlı
-        if (levels[levelIndex].GetComponent<Level>().isDribbleLevel)
-        {
-            SceneManager.LoadScene("BurakBallDragging");
-            Debug.Log("that");
-
-        }
-        else
-        {
-            Debug.Log("this");
+  
             SceneManager.LoadScene("Burak");
-        }
-    }
-    public void NextLevel()
-    {
-        ShowAd(); 
     }
     public void Restart()
     {
-        if (levels[Level].GetComponent<Level>().isDribbleLevel)
-        {
-            SceneManager.LoadScene("BurakBallDragging");
-        }
-        else
-        {
+        
             SceneManager.LoadScene("Burak");
-        }
+         
     }
  
 

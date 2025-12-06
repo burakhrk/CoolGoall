@@ -38,21 +38,7 @@ public class DribbleGameController : MonoBehaviour
             PlayerPrefs.SetInt("Coin", coin);
         }
     }
-    private void Update()
-    {
-         if (Input.GetKeyDown(KeyCode.R))
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("BurakBallDragging");
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-           levelController.IntersitialClosed();
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-           SpawnBall();
-        }
-    }
+
     public void Goal()
     {
         if (workOnce)
