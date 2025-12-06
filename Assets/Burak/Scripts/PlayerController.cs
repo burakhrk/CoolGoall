@@ -18,20 +18,25 @@ using UnityEngine.InputSystem;
     [SerializeField] GameObject bezierGoal;
     [SerializeField] float sensivity=1f;
     [SerializeField] float boundx=4f;
-
-
     GameController gameController;
     bool shoot= false;
-
+    bool isOnBoarding = false;
+  [SerializeField]  OnBoardingController onBoardingController;
     private void Awake()
     {
         bezierStartPos = bezierMove.transform.position;
         goalStartPos = bezierGoal.transform.position;
         gameController = FindFirstObjectByType<GameController>(); 
     }
+    public void OnBoarding()
+    {
+        isOnBoarding=true;
+    }
+    public void OnBoardingDOne()
+    {
+        isOnBoarding = false;
 
-    public bool IsAiming => Input.GetMouseButton(0);
-
+    }
     private void Shoot()
     {
         Debug.Log("Shoot");
@@ -42,19 +47,52 @@ using UnityEngine.InputSystem;
        ball.Shoot(bezier.GetPath());
         playersc.Shoot();
     }
-
-    private void Update()
+    float onboardingTimer = 2.5f;
+    bool waitForSeconds=false;
+    int counterBoarding=0;
+    void OnBoardingNext()
+    { 
+        onBoardingController.NextStep();
+    }
+        private void Update()
     {
+        if (isOnBoarding)
+        {
+            onboardingTimer -= Time.deltaTime;
+            if (onboardingTimer <= 0)
+                waitForSeconds = true;
+        }
 
         if (shoot)
             return;
 
-        if (Input.GetMouseButtonUp(0) && gameController.CanShoot)
+        if (Input.GetMouseButtonUp(0) && gameController.CanShoot&&!isOnBoarding)
         {
             Shoot();
             return;
         }
-
+        if (Input.GetMouseButton(0)&&isOnBoarding)
+        {
+            if (waitForSeconds)
+            {
+                waitForSeconds = false;
+                onboardingTimer = 3f;
+                OnBoardingNext();
+            }
+            else
+            {
+                /*
+               counterBoarding++;
+                if(counterBoarding>=2)
+                {
+                    waitForSeconds = false;
+                    onboardingTimer = 3f;
+                    OnBoardingNext();
+                    counterBoarding = 0;
+                }
+                */
+            }
+        }
         
         Vector2 startPos;
         startPos= player.actions["Move"].ReadValue<Vector2>();

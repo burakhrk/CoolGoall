@@ -40,10 +40,12 @@ CoinController coinController;
   public  bool onboarding;
     public void OnBoarding()
     {
+       playerController.OnBoarding();
         onboarding = true;
     }
     public void OnBoardingDone()
     {
+        playerController.OnBoardingDOne();
         CanShoot = true;
     }
     private void Awake()
