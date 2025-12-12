@@ -44,7 +44,7 @@ public class Ball : MonoBehaviour
         ShootSound.Play();
 
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if(isKick&&!hit)
         FollowToRoute();
