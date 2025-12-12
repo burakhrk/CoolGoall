@@ -20,6 +20,7 @@ public class ShopController : MonoBehaviour
    [SerializeField] UIPlayer iPlayer;
     GameController gameController;
     [SerializeField] StatsController statsController;
+    [SerializeField] GameObject speedText,curveText,powerText;
     private void Awake()
     {
         gameController = GetComponent<GameController>();    
@@ -109,6 +110,10 @@ public class ShopController : MonoBehaviour
         topPanel.SetActive(false);
         formaPanel.SetActive(true);
 
+        speedText.SetActive(false);
+        curveText.SetActive(false);
+        powerText.SetActive(false);
+
     }
     public void OpenTopPanel()
     {
@@ -116,6 +121,10 @@ public class ShopController : MonoBehaviour
         formaButton.color = Color.white;
         topPanel.SetActive(true);
         formaPanel.SetActive(false);
+        
+        speedText.SetActive(true);
+        curveText.SetActive(true);
+        powerText.SetActive(true);
     }
   public  void SkinPreview(PlayerSkin a)
     {

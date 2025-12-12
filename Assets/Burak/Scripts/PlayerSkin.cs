@@ -31,10 +31,15 @@ public class PlayerSkin : MonoBehaviour
         if (rewarded)
         {
             priceText.text = Price.ToString();
-            adIcon.SetActive(true);
+                        adIcon.SetActive(true );
+
         }
         else
+        {
             priceText.text = Price.ToString();
+            adIcon.SetActive(false );
+
+        }
 
 
 

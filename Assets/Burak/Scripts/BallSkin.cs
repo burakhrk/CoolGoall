@@ -30,7 +30,11 @@ public class BallSkin : MonoBehaviour
         }
 
         else
+        {
+                        adIcon.SetActive(false );
             priceText.text = Price.ToString();
+
+        }
     }
     public void Init(ShopController shopController1, CoinController coinController1, bool unlocked)
     {
