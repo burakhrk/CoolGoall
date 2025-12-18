@@ -127,6 +127,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1280199680}
     m_Modifications:
+    - target: {fileID: 1628499264, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628499264, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -31.800049
+      objectReference: {fileID: 0}
     - target: {fileID: 1628499265, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -861,7 +869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8694428928417849154, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694428928417849155, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -977,7 +985,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8694428929558338421, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694428929681232399, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 63.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694428929681232399, guid: cd368969a445a4577804a8586b223883, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62.80005
       objectReference: {fileID: 0}
     - target: {fileID: 8694428929684166450, guid: cd368969a445a4577804a8586b223883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2632,7 +2648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +5
+  m_text: +1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2817,7 +2833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +5
+  m_text: +1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -3368,7 +3384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 55
+  m_text: 79
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -3654,12 +3670,12 @@ MonoBehaviour:
   powerTextBall: {fileID: 436740696}
   speedTextBall: {fileID: 668332417}
   curveTextBall: {fileID: 1450387342}
-  speedX: 0
-  curveX: 0
-  powerX: 0
-  speedB: 0
-  curveB: 0
-  powerB: 0
+  speedX: 79
+  curveX: 79
+  powerX: 79
+  speedB: 1
+  curveB: 1
+  powerB: 1
   bezier: {fileID: 426759920}
   trail: {fileID: 1238870610}
   ball: {fileID: 1962299162}
@@ -4424,7 +4440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 55
+  m_text: 79
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -4790,7 +4806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 55
+  m_text: 79
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -5034,7 +5050,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +5
+  m_text: +1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -7590,7 +7606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4658042350088074846, guid: 0e3156c42a54edb4383b0741c357f89c, type: 3}
       propertyPath: playSpecificLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4658042350088074846, guid: 0e3156c42a54edb4383b0741c357f89c, type: 3}
       propertyPath: boardingController

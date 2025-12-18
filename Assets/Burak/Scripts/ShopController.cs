@@ -21,6 +21,7 @@ public class ShopController : MonoBehaviour
     GameController gameController;
     [SerializeField] StatsController statsController;
     [SerializeField] GameObject speedText,curveText,powerText;
+    
     private void Awake()
     {
         gameController = GetComponent<GameController>();    
@@ -125,6 +126,9 @@ public class ShopController : MonoBehaviour
         speedText.SetActive(true);
         curveText.SetActive(true);
         powerText.SetActive(true);
+
+
+
     }
   public  void SkinPreview(PlayerSkin a)
     {
@@ -159,6 +163,7 @@ public class ShopController : MonoBehaviour
         a.SelectedColor();
         statsController.UpdateStats(a.power,a.speed,a.curve);
     }
+  
 
     public void SkinSelectedBall(BallSkin a)
     {
@@ -171,5 +176,6 @@ public class ShopController : MonoBehaviour
         }
         a.SelectedColor();
         statsController.UpdateStatsBall(a.power, a.speed, a.curve);
+
     }
 }
